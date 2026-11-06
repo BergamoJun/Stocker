@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1.0",
+  "report_id": "EXAMPLE-NOT-LIVE",
+  "generated_at": "2026-11-06T00:00:00Z",
+  "as_of": "2026-11-06T00:00:00Z",
+  "language": "ko",
+  "subject": {
+    "name": "ILLUSTRATIVE — NOT LIVE MARKET DATA",
+    "symbol": null,
+    "market": "US",
+    "instrument_type": "unknown",
+    "horizon": "medium"
+  },
+  "data_status": {
+    "is_illustrative": true,
+    "quote_as_of": null,
+    "fundamentals_as_of": null,
+    "stale": true,
+    "missing": ["종목 식별", "현재 시세", "최근 공시", "검증 가능한 수치"]
+  },
+  "summary": {
+    "stance": "undetermined",
+    "text": "ILLUSTRATIVE — NOT LIVE MARKET DATA. 분석 대상과 검증된 자료가 없으므로 투자 판단을 보류한다.",
+    "evidence_confidence": "low",
+    "confidence_rationale": "실제 데이터가 없는 예시 출력 계약이다."
+  },
+  "theses": [],
+  "metrics": [],
+  "scenarios": [
+    {
+      "name": "bull",
+      "assumptions": ["검증 가능한 호재 자료가 확보됨"],
+      "mechanism": "구체적 자료 확보 전 인과관계를 평가할 수 없다.",
+      "signals": ["원문 자료와 시점 확인"],
+      "invalidated_if": "가정의 근거가 확인되지 않을 때",
+      "outcome": "판단 보류"
+    },
+    {
+      "name": "base",
+      "assumptions": ["데이터 공백 지속"],
+      "mechanism": "확인할 수 있는 분석 대상이 없다.",
+      "signals": ["유효한 종목 식별"],
+      "invalidated_if": "검증 가능한 데이터가 새로 확보될 때",
+      "outcome": "판단 보류"
+    },
+    {
+      "name": "bear",
+      "assumptions": ["잘못된 종목이나 상품으로 분석됨"],
+      "mechanism": "잘못된 식별은 완전히 다른 위험을 보여줄 수 있다.",
+      "signals": ["거래소·발행사·상품설명서 대조"],
+      "invalidated_if": "정확한 종목 식별이 완료될 때",
+      "outcome": "분석 중단 및 재식별"
+    }
+  ],
+  "monitoring": [],
+  "risk_flags": [
+    {
+      "severity": "high",
+      "type": "no_data",
+      "description": "실제 시장 데이터를 포함하지 않은 스키마 예시다.",
+      "evidence_ids": []
+    }
+  ],
+  "limitations": ["ILLUSTRATIVE — NOT LIVE MARKET DATA.", "이 파일은 계약 테스트용이며 투자 참고 자료로 사용하지 않는다."],
+  "sources": []
+}

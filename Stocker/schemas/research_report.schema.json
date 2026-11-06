@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/research_report.schema.json",
+  "title": "Equity Research Report Contract v0.1",
+  "description": "A report structure, not a claim that its inputs are independently verified. Additional business-rule validators are required.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "report_id", "generated_at", "as_of", "language",
+    "subject", "data_status", "summary", "theses", "metrics", "scenarios",
+    "monitoring", "risk_flags", "limitations", "sources"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1.0" },
+    "report_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "as_of": { "type": "string" },
+    "language": { "type": "string", "enum": ["ko", "en"] },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "symbol", "market", "instrument_type", "horizon"],
+      "properties": {
+        "name": { "type": "string" },
+        "symbol": { "type": ["string", "null"] },
+        "market": { "type": "string" },
+        "instrument_type": { "type": "string", "enum": ["equity", "sector", "fund", "unknown"] },
+        "horizon": { "type": "string", "enum": ["short", "medium", "long"] }
+      }
+    },
+    "data_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["is_illustrative", "quote_as_of", "fundamentals_as_of", "stale", "missing"],
+      "properties": {
+        "is_illustrative": { "type": "boolean" },
+        "quote_as_of": { "type": ["string", "null"] },
+        "fundamentals_as_of": { "type": ["string", "null"] },
+        "stale": { "type": "boolean" },
+        "missing": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stance", "text", "evidence_confidence", "confidence_rationale"],
+      "properties": {
+        "stance": { "type": "string", "enum": ["bullish", "neutral", "bearish", "undetermined"] },
+        "text": { "type": "string" },
+        "evidence_confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "confidence_rationale": { "type": "string" }
+      }
+    },
+    "theses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["side", "claim", "evidence_ids", "invalidation"],
+        "properties": {
+          "side": { "type": "string", "enum": ["bull", "neutral", "bear"] },
+          "claim": { "type": "string" },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } },
+          "invalidation": { "type": "string" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "value", "unit", "period", "formula", "evidence_ids"],
+        "properties": {
+          "name": { "type": "string" },
+          "value": { "type": ["number", "null"] },
+          "unit": { "type": "string" },
+          "period": { "type": "string" },
+          "formula": { "type": ["string", "null"] },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "assumptions", "mechanism", "signals", "invalidated_if", "outcome"],
+        "properties": {
+          "name": { "type": "string", "enum": ["bull", "base", "bear"] },
+          "assumptions": { "type": "array", "items": { "type": "string" } },
+          "mechanism": { "type": "string" },
+          "signals": { "type": "array", "items": { "type": "string" } },
+          "invalidated_if": { "type": "string" },
+          "outcome": { "type": "string" }
+        }
+      }
+    },
+    "monitoring": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "why", "source_ids"],
+        "properties": {
+          "metric": { "type": "string" },
+          "why": { "type": "string" },
+          "source_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "type", "description", "evidence_ids"],
+        "properties": {
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "type": { "type": "string" },
+          "description": { "type": "string" },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "publisher", "source_type", "url", "published_at", "retrieved_at"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "publisher": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": ["regulator", "issuer", "market_vendor", "macro", "news", "research"]
+          },
+          "url": { "type": "string" },
+          "published_at": { "type": ["string", "null"] },
+          "retrieved_at": { "type": "string" }
+        }
+      }
+    }
+  }
+}

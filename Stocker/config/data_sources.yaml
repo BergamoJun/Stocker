@@ -1,0 +1,58 @@
+schema_version: '0.2.0'
+note: 'Candidates only. None is configured or licensed yet.'
+providers:
+  - id: sec_edgar
+    kind: filing
+    region: US
+    source_url: https://www.sec.gov/search-filings/edgar-application-programming-interfaces
+    enabled: false
+    license_review: review_required_before_public_launch
+    notes: 'Structured filing/XBRL; identify User-Agent and observe Fair Access rules.'
+  - id: fred
+    kind: macro
+    region: US
+    source_url: https://fred.stlouisfed.org/docs/api/fred/
+    enabled: false
+    license_review: blocked_ai_use
+    notes: 'FRED legal terms include restrictions on AI system use and caching; do not integrate.'
+  - id: bls
+    kind: macro
+    region: US
+    source_url: https://www.bls.gov/developers/termsOfService.htm
+    enabled: false
+    license_review: source_specific_review_needed
+    notes: 'Candidate for CPI and employment; required attribution and non-endorsement notices.'
+  - id: bea
+    kind: macro
+    region: US
+    source_url: https://apps.bea.gov/API/docs/index.htm
+    enabled: false
+    license_review: source_specific_review_needed
+    notes: 'Candidate for GDP/PCE; requires API registration and unit/period review.'
+  - id: opendart
+    kind: filing
+    region: KR
+    source_url: https://opendart.fss.or.kr/intro/main.do
+    enabled: false
+    license_review: pending
+  - id: krx
+    kind: market_data
+    region: KR
+    source_url: https://openapi.krx.co.kr/contents/OPP/DATA/OPPDATA003.jsp
+    enabled: false
+    license_review: required_before_display
+    notes: 'Commercial redistribution may require a data agreement.'
+  - id: market_data_vendor_tbd
+    kind: market_data
+    region: US
+    source_url: null
+    enabled: false
+    license_review: required_before_display
+    notes: 'Public display and use in an LLM report must both be licensed; do not use personal/free-tier data by assumption.'
+  - id: etf_issuer_tbd
+    kind: product_document
+    region: US
+    source_url: null
+    enabled: false
+    license_review: pending
+    notes: 'Issuer fund fact sheets/prospectus/holdings by instrument.'
