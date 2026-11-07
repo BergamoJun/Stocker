@@ -1,0 +1,37 @@
+{
+  "checked_on": "2026-11-07",
+  "monthly_data_budget_usd": 0,
+  "llm_calls_enabled": false,
+  "llm_free_credit_usd_verified": "0",
+  "llm_credit_note": "No billing entitlement was inspected. Zero is the planning default, not a statement about the user's subscription.",
+  "gdelt": {"minimum_request_spacing_seconds": 15, "default_429_cooldown_seconds": 900, "published_guaranteed_daily_quota": null, "paid_upgrade_verified": false, "evidence_url": "https://www.gdeltproject.org/about.html#termsofuse"},
+  "massive_basic": {"monthly_cost_usd": "0", "requests_per_minute": 5, "history_years": 2, "delay": "end_of_day", "evidence_url": "https://massive.com/stocks"},
+  "gnews_free": {"requests_per_day": 100, "delay_hours": 12, "monthly_cost_eur": "0", "evidence_url": "https://gnews.io/pricing"},
+  "gnews_essential": {"requests_per_day": 1000, "delay_hours": 0, "monthly_cost_eur": "49.99", "evidence_url": "https://gnews.io/pricing"},
+  "newsapi_developer": {"requests_per_day": 100, "delay_hours": 24, "usage": "development_and_testing_only", "evidence_url": "https://newsapi.org/pricing"},
+  "openai": {
+    "evidence_url": "https://developers.openai.com/api/docs/pricing",
+    "credit_evidence_url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
+    "prices_usd_per_million_standard": {
+      "gpt-6-luna": {"input": "0.10", "output": "0.50"},
+      "gpt-6.1-terra": {"input": "1.00", "output": "5.00"},
+      "gpt-6.1-sol": {"input": "2.00", "output": "10.00"}
+    },
+    "conditional_credit_examples_usd": ["0", "20", "100", "200"],
+    "credit_conditions": "Eligible Pro/Business benefit must be activated and remaining credits verified; cycle expiry and account model/rate limits apply. A usage-tier spending ceiling is not a grant."
+  },
+  "report_token_assumptions": {
+    "steps": [{"name": "evidence_review", "input": 12000, "output": 3000}, {"name": "counterargument", "input": 6000, "output": 1200}, {"name": "writing", "input": 8000, "output": 1800}],
+    "overhead_multiplier": "1.25",
+    "note": "Scenario estimate, not measured usage. Output includes assumed reasoning/output allowance. No price or publisher text may be sent until its LLM rights are cleared. Cached tokens, batch discounts, tools/storage, VAT and FX are excluded."
+  },
+  "workloads": [
+    {"id": "one_stock_daily", "tickers": 1, "sectors": 1, "reports_per_trading_day": 1, "news_polls_per_calendar_day": 3},
+    {"id": "ten_stocks_daily", "tickers": 10, "sectors": 3, "reports_per_trading_day": 10, "news_polls_per_calendar_day": 3},
+    {"id": "one_stock_hourly_news", "tickers": 1, "sectors": 1, "reports_per_trading_day": 1, "news_polls_per_calendar_day": 24},
+    {"id": "one_stock_15min_reports", "tickers": 1, "sectors": 1, "reports_per_trading_day": 96, "news_polls_per_calendar_day": 96}
+  ],
+  "trading_days_per_month_assumed": 22,
+  "calendar_days_per_month_assumed": 30,
+  "scaling_note": "One company query per ticker, one sector query per sector, shared macro and commodity queries; share caches across viewers. EOD price calls cover tickers, sector proxies and one market proxy. These are capacity assumptions, not a supported instrument allowlist."
+}

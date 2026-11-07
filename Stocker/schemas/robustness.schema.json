@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "is_illustrative", "data_label", "protocol", "registration", "real_market_performance_validated", "released_price_plan", "released_score", "released_expected_target_sessions", "validation_id", "external_llm_calls", "llm_tokens", "runs", "aggregate"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "status": {"const": "research_only_unvalidated"},
+    "as_of": {"type": "string", "format": "date-time"},
+    "is_illustrative": {"const": true}, "data_label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"},
+    "real_market_performance_validated": {"const": false},
+    "released_price_plan": {"type": "null"}, "released_score": {"type": "null"},
+    "released_expected_target_sessions": {"type": "null"}, "validation_id": {"type": "null"},
+    "external_llm_calls": {"const": 0}, "llm_tokens": {"const": 0},
+    "protocol": {"type": "object", "required": ["id", "seeds", "scenarios", "release_enabled", "real_price_input_enabled"], "properties": {"release_enabled": {"const": false}, "real_price_input_enabled": {"const": false}}},
+    "registration": {"type": "object", "required": ["registered_at", "protocol_sha256", "learned_policy_sha256", "base_policy_sha256", "code_sha256"]},
+    "runs": {"type": "array", "items": {"type": "object", "required": ["scenario", "seed", "status", "reason", "paired_summary", "artifacts"],
+      "properties": {"status": {"enum": ["completed", "unavailable"]}},
+      "allOf": [{"if": {"properties": {"status": {"const": "completed"}}}, "then": {"properties": {"paired_summary": {"type": "object"}, "reason": {"type": "null"}}}},
+                {"if": {"properties": {"status": {"const": "unavailable"}}}, "then": {"properties": {"paired_summary": {"type": "null"}, "reason": {"type": "string", "minLength": 1}}}}]}},
+    "aggregate": {"type": "array"}
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "be-evidence-context-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T12:07:46Z",
+  "release_enabled": false,
+  "monthly_data_budget_usd": 0,
+  "news_max_age_seconds": 1800,
+  "news_topics": ["company", "sector", "macro_politics", "commodities"],
+  "maximum_links_per_topic": 5,
+  "price_context_rule": "close_vs_twenty_session_mean; supporting_context_not_return_forecast",
+  "proxies": [
+    {
+      "symbol": "SPY",
+      "role": "market",
+      "name": "State Street SPDR S&P 500 ETF Trust",
+      "instrument_type": "etf",
+      "listing_exchange": "ARCX",
+      "calendar": "XNYS",
+      "currency": "USD",
+      "leveraged_or_inverse": false,
+      "explanation_ko": "미국 대형주 시장의 가격 흐름을 참고하는 ETF",
+      "limitation_ko": "미국 전체 종목이나 BE의 미래 수익을 그대로 대변하지 않습니다.",
+      "evidence_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy"
+    },
+    {
+      "symbol": "PBW",
+      "role": "sector",
+      "name": "Invesco WilderHill Clean Energy ETF",
+      "instrument_type": "etf",
+      "listing_exchange": "ARCX",
+      "calendar": "XNYS",
+      "currency": "USD",
+      "leveraged_or_inverse": false,
+      "explanation_ko": "연료전지를 포함한 폭넓은 청정에너지 관련 기업의 가격 흐름을 참고하는 ETF",
+      "limitation_ko": "연료전지 전용 지표가 아니며 BE와 사업 구성·위험이 다릅니다. 현재 BE 보유 여부를 가정하지 않습니다.",
+      "evidence_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-wilderhill-clean-energy-etf.html"
+    }
+  ],
+  "proxy_reviewed_at": "2026-11-07T12:07:46Z",
+  "prospective_scope": "price_cost_screen_only; freeze_context_before_next_open; never_rewrite_with_later_news",
+  "external_price_llm_input": false,
+  "publisher_article_text_fetch": false,
+  "automatic_news_impact_assessment": false,
+  "numeric_recommendation_score_enabled": false
+}

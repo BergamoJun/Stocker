@@ -1,0 +1,55 @@
+{
+  "is_illustrative": true,
+  "data_label": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+  "as_of": "2026-11-07T13:00:00Z",
+  "news": {
+    "status": "links_awaiting_review",
+    "all_topics_discovered": true,
+    "providers": [
+      {
+        "provider": "illustrative",
+        "status": "available",
+        "fresh": true,
+        "checked_at": "2026-11-07T13:00:00Z"
+      }
+    ],
+    "topics": [
+      {
+        "id": "company",
+        "discovery_status": "query_completed_links_unreviewed"
+      },
+      {
+        "id": "sector",
+        "discovery_status": "query_completed_links_unreviewed"
+      },
+      {
+        "id": "macro_politics",
+        "discovery_status": "query_completed_links_unreviewed"
+      },
+      {
+        "id": "commodities",
+        "discovery_status": "query_completed_links_unreviewed"
+      }
+    ],
+    "articles": [
+      {
+        "id": "fixture_article",
+        "title": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+        "url": "https://publisher.example/story",
+        "publisher": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+        "categories": [
+          "company"
+        ],
+        "retrieved_at": "2026-11-07T12:55:00Z",
+        "first_seen_at": null,
+        "provider_published_at": "2026-11-07T11:00:00Z",
+        "published_at": null,
+        "impact_reviewed": false,
+        "score_eligible": false,
+        "fresh_metadata": true
+      }
+    ],
+    "score_component": null,
+    "publisher_full_text_fetched": false
+  }
+}

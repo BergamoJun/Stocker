@@ -1,0 +1,104 @@
+{
+  "id": "five-session-peak-joint-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T07:17:30Z",
+  "status": "research_only_unvalidated",
+  "release_enabled": false,
+  "default_engine": "fixed_ewma_simulation",
+  "analog_engine_requires_use": "model_training",
+  "simulation": {
+    "paths": 512,
+    "intraday_steps": 8,
+    "maximum_return_observations": 252,
+    "ewma_half_life_sessions": 20,
+    "drift_shrinkage": 0.25,
+    "maximum_log_drift_in_sigma_units": 0.25,
+    "maximum_gap_intraday_correlation": 0.95,
+    "seed": 1729,
+    "target_fraction_inside_modal_bin": "0.25",
+    "method": "fixed Gaussian overnight plus conditional intraday bridge; no trained AI/ML parameters"
+  },
+  "horizon_sessions": 5,
+  "minimum_history_sessions": 60,
+  "reference_stride_sessions": 5,
+  "minimum_training_paths": 30,
+  "neighbors": 24,
+  "minimum_effective_neighbors": 12,
+  "maximum_nearest_standardized_distance": 6,
+  "robust_scale_floor": 0.25,
+  "features": [
+    "return_1_atr",
+    "return_5_atr",
+    "return_20_atr",
+    "distance_sma20_atr",
+    "distance_sma60_atr",
+    "range_position20",
+    "atr_relative_to_20_sessions_ago",
+    "log_relative_volume20"
+  ],
+  "feature_weights": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "peak_bin_width_atr": 0.5,
+  "peak_bin_min_index": -8,
+  "peak_bin_max_index": 24,
+  "global_prior_effective_paths": 5,
+  "stop_adverse_path_quantile": 0.2,
+  "minimum_stop_distance_atr": 0.5,
+  "target_rule": "lower_quarter_point_inside_marginal_modal_peak_bin; withhold_if_not_above_reference",
+  "peak_definition": "highest_daily_high_in_next_five_sessions; earliest_day_for_ties; not_first_minor_local_maximum",
+  "timing_quantiles": [
+    0.2,
+    0.8
+  ],
+  "minimum_simulated_target_hits_for_timing": 5,
+  "training_label_end": "strictly_before_query_reference_session",
+  "cost_bps_per_side": [
+    "10",
+    "25"
+  ],
+  "score_weights": {
+    "profit_opportunity": 25,
+    "price_setup": 15,
+    "fundamentals": 10,
+    "market_sector": 10,
+    "latest_events": 40
+  },
+  "opportunity_subweights": {
+    "net_target_upside": 10,
+    "worst_case_expected_net": 7,
+    "reward_risk": 5,
+    "peak_concentration": 3
+  },
+  "score_anchors": {
+    "full_upside_points_at_net_pct": "5",
+    "full_expected_net_points_at_pct": "2",
+    "full_sample_reliability_at_effective_paths": "30"
+  },
+  "evaluation": {
+    "training_fraction": "0.8",
+    "minimum_held_out_resolved_for_review": 30,
+    "no_parameter_tuning_on_held_out": true,
+    "probability_brier_target": "joint_peak_bin_and_day",
+    "compare_to": [
+      "zero_drift_simulation_or_unconditional_analog_distribution",
+      "ATR14_reference_baseline",
+      "five_session_hold_same_costs"
+    ],
+    "current_vintage_is_not_point_in_time": true
+  },
+  "limitations": [
+    "Experimental kernel analog frequencies are not calibrated probabilities",
+    "Daily highs do not reveal intraday execution order",
+    "Price target does not mathematically determine its arrival date; timing uses the same full analog paths",
+    "Missing score components withhold total; do not renormalize",
+    "No production report target score timing or win probability before validation"
+  ]
+}

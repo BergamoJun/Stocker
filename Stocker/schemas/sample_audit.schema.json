@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "is_illustrative", "data_label", "protocol", "base_protocol", "registration", "records", "assessment", "real_market_performance_validated", "released_score", "released_price_plan", "released_expected_target_sessions", "validation_id", "external_llm_calls", "llm_tokens"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "status": {"const": "research_only_unvalidated"},
+    "as_of": {"type": "string", "format": "date-time"},
+    "is_illustrative": {"const": true}, "data_label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"},
+    "real_market_performance_validated": {"const": false},
+    "released_score": {"type": "null"}, "released_price_plan": {"type": "null"}, "released_expected_target_sessions": {"type": "null"},
+    "validation_id": {"type": "null"}, "external_llm_calls": {"const": 0}, "llm_tokens": {"const": 0},
+    "registration": {"type": "object", "required": ["registered_at", "audit_policy_sha256", "base_protocol_sha256", "code_sha256"]},
+    "records": {"type": "array", "items": {"type": "object", "required": ["scenario", "seed", "status", "reason", "short_endpoints", "long_endpoints", "short_summary", "long_summary"], "properties": {"status": {"enum": ["completed", "unavailable"]}}}},
+    "assessment": {"type": "object", "required": ["status", "advance_next_research_process", "all_clusters_complete", "coverage_gate_passed", "stability_intervals", "equivalent_intervals", "scenarios", "decisions", "real_market_validation"], "properties": {"status": {"enum": ["stable_within_research_margins", "sample_stability_not_established"]}, "advance_next_research_process": {"type": "boolean"}, "real_market_validation": {"const": false}}}
+  }
+}

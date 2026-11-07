@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "checked_on": "2026-11-07",
+  "scope": "own_personal_local_us_equity_five_session_supervised_research",
+  "monthly_budget_usd": 0,
+  "cleared_real_training_sources": [],
+  "candidates": [
+    {
+      "provider": "massive",
+      "status": "express_permission_required",
+      "model_training": "not_cleared",
+      "evidence_urls": ["https://massive.com/legal/market-data-terms-of-service"],
+      "reason": "Section 5(g) requires express permission for training, fine-tuning or distillation plus applicable third-party compliance. Existing personal Basic account does not itself establish that permission."
+    },
+    {
+      "provider": "simfin",
+      "status": "free_personal_research_and_official_ml_tutorial_verified_source_conditions_unresolved",
+      "model_training": "not_cleared",
+      "evidence_urls": ["https://www.simfin.com/en/legal-advice/", "https://www.simfin.com/en/commercial-license/", "https://www.simfin.com/en/prices/", "https://github.com/SimFin/simfin-tutorials", "https://github.com/SimFin/simfin"],
+      "reason": "Free/BASIC license section 1 expressly grants personal research; section 4 permits reprocessing. Official tutorials include ML and neural networks. Price-source IEX conditions linked by the general terms redirect to an inaccessible endpoint. Exact free BE OHLC coverage, source-specific terms, split-adjustment and account license remain unverified; do not equate this narrower uncertainty with a blanket ML prohibition. Own free API key required; no signup, download or vendor message performed."
+    },
+    {
+      "provider": "twelve_data",
+      "status": "tier_specific_non_display_scope_unresolved",
+      "model_training": "not_cleared",
+      "evidence_urls": ["https://twelvedata.com/terms"],
+      "reason": "Sections 2.2(d) and 3 require tier-specific non-display and source permissions. General internal processing/storage rights do not establish free-tier supervised-training scope."
+    },
+    {
+      "provider": "financial_modeling_prep",
+      "status": "not_selected_no_explicit_free_training_clearance",
+      "model_training": "not_cleared",
+      "evidence_urls": ["https://site.financialmodelingprep.com/faqs"],
+      "reason": "Free request allowance and AI integration marketing are separate from the permitted training use of the actual price dataset; no free training clearance established."
+    },
+    {
+      "provider": "eodhd",
+      "status": "free_history_insufficient_for_current_single_stock_protocol",
+      "model_training": "not_cleared",
+      "monthly_cost_usd": 0,
+      "free_requests_per_day": 20,
+      "free_history_years": 1,
+      "evidence_urls": ["https://eodhd.com/pricing", "https://eodhd.com/financial-apis/terms-conditions", "https://eodhd.com/"],
+      "reason": "Official free pricing limits EOD history to one year; insufficient for the existing single-stock training/calibration/held-out gates. Terms permit personal storage/manipulation/analysis and homepage discusses ML, but exact feed training scope is not confirmed. Provider states prices may be indicative non-exchange aggregates; adjustment and execution-price suitability also need review. No account activated."
+    }
+  ],
+  "activation": "This is a review log, not an entitlement. Do not change source_entitlements model_training to allowed without applicable evidence and review. No vendor contact or account purchase authorized by this file."
+}

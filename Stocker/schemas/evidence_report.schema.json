@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "symbol", "is_illustrative", "context", "price_readiness", "journal", "outcomes", "registration", "released_score", "released_price_plan", "released_expected_target_sessions", "validation_id", "external_llm_calls", "llm_tokens", "full_recommendation_ready", "real_ml_fit_performed"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "status": {"const": "research_only_unvalidated"}, "as_of": {"type": "string", "format": "date-time"},
+    "symbol": {"const": "BE"}, "is_illustrative": {"const": false},
+    "released_score": {"type": "null"}, "released_price_plan": {"type": "null"}, "released_expected_target_sessions": {"type": "null"}, "validation_id": {"type": "null"},
+    "external_llm_calls": {"const": 0}, "llm_tokens": {"const": 0}, "full_recommendation_ready": {"const": false}, "real_ml_fit_performed": {"const": false},
+    "context": {"type": "object", "required": ["as_of", "policy_id", "financial", "price_context", "news"], "properties": {
+      "as_of": {"type": "string", "format": "date-time"}, "policy_id": {"const": "be-evidence-context-v1"},
+      "news_review": {"type": "object", "required": ["status", "experimental_component", "public_component", "released_score", "pending_article_ids", "reason_codes", "external_llm_calls"], "properties": {
+        "status": {"enum": ["unavailable", "research_only_unvalidated"]}, "experimental_component": {"type": ["string", "null"]}, "public_component": {"type": "null"}, "released_score": {"type": "null"}, "external_llm_calls": {"const": 0}}},
+      "financial": {"type": "object", "required": ["status"], "properties": {
+        "status": {"enum": ["reviewed_saved_facts", "unavailable"]},
+        "latest_filing_search_performed": {"const": false}, "cards": {"type": "array", "minItems": 3, "maxItems": 3}, "sources": {"type": "array", "minItems": 1}}},
+      "price_context": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "object", "required": ["status", "role", "symbol"], "properties": {
+        "status": {"enum": ["current_price_context", "unavailable"]}, "role": {"enum": ["market", "sector"]}, "symbol": {"enum": ["SPY", "PBW"]}, "return_forecast": {"type": "null"}, "total_return_including_dividends": {"const": false}}}},
+      "news": {"type": "object", "required": ["status", "topics", "articles", "score_component", "all_impacts_reviewed", "publisher_full_text_fetched"],
+        "properties": {"status": {"enum": ["links_awaiting_review", "unavailable_or_stale"]},
+          "topics": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "object", "required": ["id", "discovery_status", "highlight_ids", "impact_assessment"], "properties": {
+            "id": {"enum": ["company", "sector", "macro_politics", "commodities"]}, "discovery_status": {"enum": ["query_completed_links_unreviewed", "not_verified"]}, "impact_assessment": {"const": "not_reviewed"}, "highlight_ids": {"type": "array", "maxItems": 5, "uniqueItems": true, "items": {"type": "string"}}}}},
+          "articles": {"type": "array", "items": {"type": "object", "required": ["id", "url", "retrieved_at", "published_at", "impact_reviewed", "score_eligible", "source_ids", "fresh_metadata"], "properties": {
+            "id": {"type": "string"}, "url": {"type": "string", "format": "uri"}, "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+            "retrieved_at": {"type": "string", "format": "date-time"}, "published_at": {"type": "null"}, "impact_reviewed": {"const": false}, "score_eligible": {"const": false}, "fresh_metadata": {"type": "boolean"}}}},
+          "score_component": {"type": "null"}, "all_impacts_reviewed": {"const": false}, "publisher_full_text_fetched": {"const": false}}}}},
+    "journal": {"type": "object", "required": ["status"]}, "outcomes": {"type": "object", "required": ["base_forecasts", "context_records"]}
+  }
+}

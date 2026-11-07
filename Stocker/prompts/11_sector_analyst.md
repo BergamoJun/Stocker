@@ -2,7 +2,7 @@
 
 ## 입력
 
-`REQUEST`, `SECTOR_DEFINITION`, `CONSTITUENTS`, `EVIDENCE`, `METRICS`, `AS_OF`, `DATA_STATUS`.
+`REQUEST`, `SECTOR_DEFINITION`, `CONSTITUENTS`, `EVIDENCE`, `METRICS`, `AS_OF`, `DATA_STATUS`, `SWING_INPUT`(해당 시).
 
 ## 수행
 
@@ -19,3 +19,7 @@
 - 섹터 이름만으로 구성 기업이나 시장 점유율을 지어내지 않는다.
 - 특정 기업의 고평가/저평가를 섹터 전체로 일반화하지 않는다.
 - 출처 없는 글로벌 시장 규모, 성장률, 매출 전망을 만들지 않는다.
+
+## 스윙 관점
+
+다음 약 5거래일의 확인된 촉매와 시장·업종 방향을 정리한다. 가격 계획은 검증된 SWING_INPUT의 ETF proxy가 명시된 경우 그 상품의 계획으로만 설명한다. proxy 선택 근거와 섹터 노출의 차이를 표시하고 섹터 자체 가격·목표·점수를 만들지 않는다. proxy가 없으면 가격 계획/가격 기반 점수는 보류하며 기존 섹터 리서치는 유지한다.

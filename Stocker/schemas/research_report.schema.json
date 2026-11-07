@@ -1,17 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/schemas/research_report.schema.json",
-  "title": "Equity Research Report Contract v0.1",
-  "description": "A report structure, not a claim that its inputs are independently verified. Additional business-rule validators are required.",
+  "title": "Equity Research and Swing Report Contract v0.2",
+  "description": "Report structure only. Runtime rights, arithmetic, calendars, provenance and model-validation checks remain required; schema metadata does not prove them.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version", "report_id", "generated_at", "as_of", "language",
-    "subject", "data_status", "summary", "theses", "metrics", "scenarios",
+    "subject", "data_status", "summary", "swing", "theses", "metrics", "scenarios",
     "monitoring", "risk_flags", "limitations", "sources"
   ],
   "properties": {
-    "schema_version": { "type": "string", "const": "0.1.0" },
+    "schema_version": { "type": "string", "const": "0.2.0" },
     "report_id": { "type": "string" },
     "generated_at": { "type": "string" },
     "as_of": { "type": "string" },
@@ -25,7 +25,7 @@
         "symbol": { "type": ["string", "null"] },
         "market": { "type": "string" },
         "instrument_type": { "type": "string", "enum": ["equity", "sector", "fund", "unknown"] },
-        "horizon": { "type": "string", "enum": ["short", "medium", "long"] }
+        "horizon": { "type": "string", "enum": ["swing", "short", "medium", "long"] }
       }
     },
     "data_status": {
@@ -51,6 +51,7 @@
         "confidence_rationale": { "type": "string" }
       }
     },
+    "swing": { "$ref": "#/$defs/swing" },
     "theses": {
       "type": "array",
       "items": {
@@ -147,5 +148,409 @@
         }
       }
     }
-  }
+  },
+  "$defs": {
+    "swing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "headline", "reasons", "price_plan", "attractiveness"],
+      "properties": {
+        "status": {"enum": ["not_requested", "unavailable", "available"]},
+        "headline": {"type": ["string", "null"], "minLength": 1, "maxLength": 240, "pattern": "^[^\\r\\n]*$"},
+        "reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "price_plan": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/swing_price_plan"}]},
+        "attractiveness": {"$ref": "#/$defs/swing_attractiveness"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "not_requested"}}},
+          "then": {
+            "properties": {
+              "headline": {"type": "null"},
+              "reasons": {"maxItems": 0},
+              "price_plan": {"type": "null"},
+              "attractiveness": {"properties": {"status": {"const": "not_requested"}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "unavailable"}}},
+          "then": {
+            "properties": {
+              "headline": {"type": "string", "minLength": 1},
+              "reasons": {"minItems": 1},
+              "price_plan": {"type": "null"},
+              "attractiveness": {"properties": {"status": {"const": "unavailable"}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "available"}}},
+          "then": {
+            "properties": {
+              "headline": {"type": "string", "minLength": 1},
+              "reasons": {"maxItems": 0},
+              "price_plan": {"$ref": "#/$defs/swing_price_plan"},
+              "attractiveness": {"properties": {"status": {"enum": ["unavailable", "available"]}}}
+            }
+          }
+        }
+      ]
+    },
+    "swing_attractiveness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "score",
+        "validation_status",
+        "methodology_id",
+        "methodology_version",
+        "validation_id",
+        "input_snapshot_id",
+        "components",
+        "reasons"
+      ],
+      "properties": {
+        "status": {"enum": ["not_requested", "unavailable", "available"]},
+        "score": {"type": ["integer", "null"], "minimum": 1, "maximum": 100},
+        "validation_status": {"enum": ["not_applicable", "not_validated", "validated"]},
+        "methodology_id": {"type": ["string", "null"], "minLength": 1},
+        "methodology_version": {"type": ["string", "null"], "minLength": 1},
+        "validation_id": {"type": ["string", "null"], "minLength": 1},
+        "input_snapshot_id": {"type": ["string", "null"], "minLength": 1},
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["factor", "impact", "rationale", "source_ids"],
+            "properties": {
+              "factor": {"type": "string", "minLength": 1},
+              "impact": {"enum": ["positive", "negative", "mixed"]},
+              "rationale": {"type": "string", "minLength": 1},
+              "source_ids": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1},
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        "reasons": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "description": "Attractiveness is not a win probability or evidence-confidence measure. Metadata is not proof of validation.",
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "available"}}},
+          "then": {
+            "properties": {
+              "score": {"type": "integer"},
+              "validation_status": {"const": "validated"},
+              "methodology_id": {"type": "string", "minLength": 1},
+              "methodology_version": {"type": "string", "minLength": 1},
+              "validation_id": {"type": "string", "minLength": 1},
+              "input_snapshot_id": {"type": "string", "minLength": 1},
+              "components": {"minItems": 1},
+              "reasons": {"maxItems": 0}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "unavailable"}}},
+          "then": {
+            "properties": {
+              "score": {"type": "null"},
+              "validation_status": {"enum": ["not_validated", "validated"]},
+              "components": {"maxItems": 0},
+              "reasons": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "not_requested"}}},
+          "then": {
+            "properties": {
+              "score": {"type": "null"},
+              "validation_status": {"const": "not_applicable"},
+              "methodology_id": {"type": "null"},
+              "methodology_version": {"type": "null"},
+              "validation_id": {"type": "null"},
+              "input_snapshot_id": {"type": "null"},
+              "components": {"maxItems": 0},
+              "reasons": {"maxItems": 0}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"validation_status": {"const": "validated"}}},
+          "then": {
+            "properties": {
+              "methodology_id": {"type": "string", "minLength": 1},
+              "methodology_version": {"type": "string", "minLength": 1},
+              "validation_id": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"validation_status": {"const": "not_validated"}}},
+          "then": {"properties": {"validation_id": {"type": "null"}}}
+        }
+      ]
+    },
+    "swing_quote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instrument_id",
+        "name",
+        "symbol",
+        "instrument_type",
+        "exchange",
+        "exchange_timezone",
+        "session_date",
+        "observed_at",
+        "quote_type",
+        "delay_minutes",
+        "price",
+        "currency",
+        "price_basis",
+        "history_adjustment",
+        "source_ids"
+      ],
+      "properties": {
+        "instrument_id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "symbol": {"type": "string", "minLength": 1},
+        "instrument_type": {"enum": ["equity", "fund"]},
+        "exchange": {"type": "string", "minLength": 1},
+        "exchange_timezone": {"type": "string", "minLength": 1},
+        "session_date": {"type": "string", "format": "date"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "quote_type": {"enum": ["eod", "delayed"]},
+        "delay_minutes": {"type": ["integer", "null"], "minimum": 1},
+        "price": {"type": "number", "exclusiveMinimum": 0},
+        "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+        "price_basis": {"const": "current_share_basis"},
+        "history_adjustment": {"enum": ["unadjusted", "split_adjusted", "total_return_adjusted"]},
+        "source_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"quote_type": {"const": "eod"}}},
+          "then": {"properties": {"delay_minutes": {"type": "null"}}},
+          "else": {"properties": {"delay_minutes": {"type": "integer"}}}
+        }
+      ]
+    },
+    "swing_timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "holding_sessions",
+        "calendar_id",
+        "calendar_version",
+        "review_at",
+        "expires_at",
+        "take_profit_condition",
+        "time_review_condition",
+        "expected_target_sessions",
+        "methodology_id",
+        "methodology_version",
+        "validation_id"
+      ],
+      "properties": {
+        "holding_sessions": {"const": 5},
+        "calendar_id": {"type": "string", "minLength": 1},
+        "calendar_version": {"type": "string", "minLength": 1},
+        "review_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": "string", "format": "date-time"},
+        "take_profit_condition": {"type": "string", "minLength": 1},
+        "time_review_condition": {"type": "string", "minLength": 1},
+        "expected_target_sessions": {
+          "anyOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["min", "max"],
+              "properties": {
+                "min": {"type": "integer", "minimum": 1, "maximum": 5},
+                "max": {"type": "integer", "minimum": 1, "maximum": 5}
+              }
+            }
+          ]
+        },
+        "methodology_id": {"type": ["string", "null"], "minLength": 1},
+        "methodology_version": {"type": ["string", "null"], "minLength": 1},
+        "validation_id": {"type": ["string", "null"], "minLength": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"expected_target_sessions": {"type": "object"}}},
+          "then": {
+            "properties": {
+              "methodology_id": {"type": "string", "minLength": 1},
+              "methodology_version": {"type": "string", "minLength": 1},
+              "validation_id": {"type": "string", "minLength": 1}
+            }
+          },
+          "else": {
+            "properties": {
+              "methodology_id": {"type": "null"},
+              "methodology_version": {"type": "null"},
+              "validation_id": {"type": "null"}
+            }
+          }
+        }
+      ]
+    },
+    "sector_proxy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["instrument_id", "name", "symbol", "instrument_type", "selection_rationale", "source_ids"],
+      "properties": {
+        "instrument_id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "symbol": {"type": "string", "minLength": 1},
+        "instrument_type": {"const": "fund"},
+        "selection_rationale": {"type": "string", "minLength": 1},
+        "source_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true}
+      }
+    },
+    "swing_price_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direction",
+        "reference_quote",
+        "proxy",
+        "first_target_price",
+        "invalidation_price",
+        "invalidation_condition",
+        "upside_pct",
+        "downside_pct",
+        "reward_risk_ratio",
+        "return_basis",
+        "assumptions",
+        "methodology_id",
+        "methodology_version",
+        "validation_id",
+        "input_snapshot_id",
+        "calculation_ids",
+        "source_ids",
+        "eligibility",
+        "timing"
+      ],
+      "properties": {
+        "direction": {"const": "long"},
+        "reference_quote": {"$ref": "#/$defs/swing_quote"},
+        "proxy": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/sector_proxy"}]},
+        "first_target_price": {"type": "number", "exclusiveMinimum": 0},
+        "invalidation_price": {"type": "number", "exclusiveMinimum": 0},
+        "invalidation_condition": {"type": "string", "minLength": 1},
+        "upside_pct": {"type": "number", "exclusiveMinimum": 0},
+        "downside_pct": {"type": "number", "exclusiveMinimum": 0},
+        "reward_risk_ratio": {"type": "number", "exclusiveMinimum": 0},
+        "return_basis": {"const": "gross_price_change"},
+        "assumptions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+        "methodology_id": {"type": "string", "minLength": 1},
+        "methodology_version": {"type": "string", "minLength": 1},
+        "validation_id": {"type": "string", "minLength": 1},
+        "input_snapshot_id": {"type": "string", "minLength": 1},
+        "calculation_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "source_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "eligibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["public_display", "derived_analytics", "llm_input", "rights_review_id", "price_freshness"],
+          "properties": {
+            "public_display": {"const": "verified"},
+            "derived_analytics": {"const": "verified"},
+            "llm_input": {"const": "verified"},
+            "rights_review_id": {"type": "string", "minLength": 1},
+            "price_freshness": {"const": "fresh"}
+          }
+        },
+        "timing": {"$ref": "#/$defs/swing_timing"}
+      },
+      "description": "Conditional gross price changes from the reference quote, not realized/expected returns or executable orders. Arithmetic and provenance need runtime validation."
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"subject": {"properties": {"horizon": {"const": "swing"}}}}},
+      "then": {"properties": {"swing": {"properties": {"status": {"enum": ["unavailable", "available"]}}}}},
+      "else": {"properties": {"swing": {"properties": {"status": {"const": "not_requested"}}}}}
+    },
+    {
+      "if": {"properties": {"swing": {"properties": {"status": {"const": "available"}}}}},
+      "then": {
+        "properties": {
+          "subject": {"properties": {"instrument_type": {"enum": ["equity", "fund", "sector"]}}},
+          "data_status": {
+            "properties": {"stale": {"const": false}, "quote_as_of": {"type": "string", "format": "date-time"}}
+          },
+          "sources": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {
+        "allOf": [
+          {"properties": {"subject": {"properties": {"instrument_type": {"const": "sector"}}}}},
+          {"properties": {"swing": {"properties": {"status": {"const": "available"}}}}}
+        ]
+      },
+      "then": {
+        "properties": {
+          "swing": {
+            "properties": {
+              "price_plan": {
+                "properties": {
+                  "proxy": {"$ref": "#/$defs/sector_proxy"},
+                  "reference_quote": {"properties": {"instrument_type": {"const": "fund"}}}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"subject": {"properties": {"instrument_type": {"const": "equity"}}}}},
+      "then": {
+        "properties": {
+          "swing": {
+            "properties": {
+              "price_plan": {
+                "properties": {
+                  "proxy": {"type": "null"},
+                  "reference_quote": {"properties": {"instrument_type": {"const": "equity"}}}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"subject": {"properties": {"instrument_type": {"const": "fund"}}}}},
+      "then": {
+        "properties": {
+          "swing": {
+            "properties": {
+              "price_plan": {
+                "properties": {
+                  "proxy": {"type": "null"},
+                  "reference_quote": {"properties": {"instrument_type": {"const": "fund"}}}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

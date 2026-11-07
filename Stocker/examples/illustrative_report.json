@@ -1,22 +1,30 @@
 {
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "report_id": "EXAMPLE-NOT-LIVE",
-  "generated_at": "2026-11-06T00:00:00Z",
-  "as_of": "2026-11-06T00:00:00Z",
+  "generated_at": "2026-11-07T00:00:00Z",
+  "as_of": "2026-11-07T00:00:00Z",
   "language": "ko",
   "subject": {
     "name": "ILLUSTRATIVE — NOT LIVE MARKET DATA",
     "symbol": null,
     "market": "US",
     "instrument_type": "unknown",
-    "horizon": "medium"
+    "horizon": "swing"
   },
   "data_status": {
     "is_illustrative": true,
     "quote_as_of": null,
     "fundamentals_as_of": null,
     "stale": true,
-    "missing": ["종목 식별", "현재 시세", "최근 공시", "검증 가능한 수치"]
+    "missing": [
+      "종목 식별",
+      "현재 시세",
+      "최근 공시",
+      "검증 가능한 수치",
+      "확인된 가격 사용권",
+      "목표가 계산 방법론",
+      "검증된 매력도/도달기간 모델"
+    ]
   },
   "summary": {
     "stance": "undetermined",
@@ -29,25 +37,37 @@
   "scenarios": [
     {
       "name": "bull",
-      "assumptions": ["검증 가능한 호재 자료가 확보됨"],
+      "assumptions": [
+        "검증 가능한 호재 자료가 확보됨"
+      ],
       "mechanism": "구체적 자료 확보 전 인과관계를 평가할 수 없다.",
-      "signals": ["원문 자료와 시점 확인"],
+      "signals": [
+        "원문 자료와 시점 확인"
+      ],
       "invalidated_if": "가정의 근거가 확인되지 않을 때",
       "outcome": "판단 보류"
     },
     {
       "name": "base",
-      "assumptions": ["데이터 공백 지속"],
+      "assumptions": [
+        "데이터 공백 지속"
+      ],
       "mechanism": "확인할 수 있는 분석 대상이 없다.",
-      "signals": ["유효한 종목 식별"],
+      "signals": [
+        "유효한 종목 식별"
+      ],
       "invalidated_if": "검증 가능한 데이터가 새로 확보될 때",
       "outcome": "판단 보류"
     },
     {
       "name": "bear",
-      "assumptions": ["잘못된 종목이나 상품으로 분석됨"],
+      "assumptions": [
+        "잘못된 종목이나 상품으로 분석됨"
+      ],
       "mechanism": "잘못된 식별은 완전히 다른 위험을 보여줄 수 있다.",
-      "signals": ["거래소·발행사·상품설명서 대조"],
+      "signals": [
+        "거래소·발행사·상품설명서 대조"
+      ],
       "invalidated_if": "정확한 종목 식별이 완료될 때",
       "outcome": "분석 중단 및 재식별"
     }
@@ -61,6 +81,32 @@
       "evidence_ids": []
     }
   ],
-  "limitations": ["ILLUSTRATIVE — NOT LIVE MARKET DATA.", "이 파일은 계약 테스트용이며 투자 참고 자료로 사용하지 않는다."],
-  "sources": []
+  "limitations": [
+    "ILLUSTRATIVE — NOT LIVE MARKET DATA.",
+    "이 파일은 계약 테스트용이며 투자 참고 자료로 사용하지 않는다.",
+    "스윙 가격 계획·매력도·도달기간은 실제 데이터와 검증된 산출 방법이 없어 제공하지 않는다."
+  ],
+  "sources": [],
+  "swing": {
+    "status": "unavailable",
+    "headline": "검증된 가격·목표 산출 방법과 점수 모델이 없어 스윙 판단을 보류한다.",
+    "reasons": [
+      "ILLUSTRATIVE — NOT LIVE MARKET DATA",
+      "종목·가격·사용권·계산 방법론이 준비되지 않음"
+    ],
+    "price_plan": null,
+    "attractiveness": {
+      "status": "unavailable",
+      "score": null,
+      "validation_status": "not_validated",
+      "methodology_id": null,
+      "methodology_version": null,
+      "validation_id": null,
+      "input_snapshot_id": null,
+      "components": [],
+      "reasons": [
+        "매력도 산식·가중치 미선정, 모델 미구현·미검증"
+      ]
+    }
+  }
 }

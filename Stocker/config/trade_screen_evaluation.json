@@ -1,0 +1,23 @@
+{
+  "id": "cost-risk-screen-fresh-synthetic-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T11:19:01Z",
+  "screen_policy_sha256": "1624ee61cd638f8a86b017c7b1add6229a7f974ef4259f46f935c79790b7618e",
+  "sample_audit_policy_sha256": "2ec499f77e12276c8d78bb862ee61d5f2a81b1e8b75767e324a37573e2f562ba",
+  "fresh_seeds": [99001, 99007, 99013, 99019, 99025, 99031, 99037, 99043, 99049, 99055, 99061, 99067, 99073, 99079, 99085, 99091, 99097, 99103, 99109, 99115, 99121, 99127, 99133, 99139],
+  "workers": 6,
+  "variant": "with_volume",
+  "compare_to": ["same_forecaster_without_screen", "cash"],
+  "include_all_forecastable_references": true,
+  "rejected_forecasts": "cash_zero; retain_denominator",
+  "unsupported_forecasts": "missing_not_cash; retain_coverage_counts",
+  "untradeable_open_gap": "no_entry_cash_zero",
+  "daily_bar_ambiguity": "stop_to_target_return_bounds",
+  "primary_cost_bps_per_side": "25",
+  "uncertainty": "independent_seed_mean_paired_difference; nominal_99.8_percent_t_with_df23_upper_critical_3.486; exploratory_not_market_validation",
+  "replay_prior_sample_audit": "development_diagnostic_only; already_seen_outcomes_not_confirmatory",
+  "parameter_tuning_on_fresh_outcomes": false,
+  "real_market_release_allowed": false,
+  "external_llm_calls": 0,
+  "monthly_data_budget_usd": 0
+}

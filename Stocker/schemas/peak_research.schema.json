@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private peak distribution research 1.0.0",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "methodology_id", "engine", "registration", "current_candidate", "diagnostic", "released_price_plan", "released_score", "released_expected_target_sessions", "validation_id"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "status": {"const": "research_only_unvalidated"},
+    "as_of": {"type": "string", "format": "date-time"},
+    "engine": {"enum": ["fixed_ewma_simulation", "historical_analogs"]},
+    "released_price_plan": {"type": "null"}, "released_score": {"type": "null"},
+    "released_expected_target_sessions": {"type": "null"}, "validation_id": {"type": "null"},
+    "attractiveness": {"type": "object", "required": ["status", "score", "experimental_score", "validation_id"], "properties": {"score": {"type": "null"}, "validation_id": {"type": "null"}, "experimental_score": {"type": ["integer", "null"], "minimum": 1, "maximum": 100}}},
+    "registration": {"type": "object", "required": ["registered_at", "policy_sha256", "price_snapshot_sha256", "code_sha256"]},
+    "current_candidate": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/candidate"}]},
+    "diagnostic": {"type": "object", "required": ["status", "point_in_time_verified", "partitions", "validation_id"],
+      "properties": {"status": {"const": "retrospective_diagnostic_not_validation"}, "point_in_time_verified": {"const": false}, "validation_id": {"type": "null"}}}
+  },
+  "$defs": {
+    "candidate": {"type": "object", "required": ["status", "peak", "plan", "execution", "released_price_plan", "released_score", "released_expected_target_sessions", "validation_id"],
+      "properties": {
+        "status": {"const": "research_only_unvalidated"}, "released_price_plan": {"type": "null"},
+        "released_score": {"type": "null"}, "released_expected_target_sessions": {"type": "null"}, "validation_id": {"type": "null"},
+        "peak": {"type": "object", "required": ["modal_price_interval", "estimated_modal_bin_mass", "calibrated_probability", "conditional_day_range", "joint_cells"],
+          "properties": {"calibrated_probability": {"type": "null"}, "modal_price_interval": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}}, "estimated_modal_bin_mass": {"type": "number", "minimum": 0, "maximum": 1.000000000001}}},
+        "plan": {"oneOf": [{"type": "null"}, {"type": "object", "required": ["released_price_plan", "timing"], "properties": {"released_price_plan": {"type": "null"}, "timing": {"type": "object", "properties": {"expected_target_sessions": {"type": "null"}}}}}]}
+      }}
+  }
+}

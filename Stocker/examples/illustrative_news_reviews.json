@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "policy_id": "news-original-evidence-review-v1",
+  "news_context_sha256": "827bc714e6edea4eac67a4b81629cd30cee64721525791806814f9c02ac9828a",
+  "template_only": false,
+  "reviewer_id": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+  "submitted_at": "2026-11-07T13:00:00Z",
+  "events": [
+    {
+      "event_id": "fixture_event",
+      "review_status": "reviewed",
+      "review_id": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+      "source_ids": [
+        "fixture_article"
+      ],
+      "original_urls": [
+        "https://publisher.example/story"
+      ],
+      "rationale": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+      "five_session_relevance_explanation": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+      "counterargument": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+      "monitoring_event": "ILLUSTRATIVE \u2014 NOT LIVE MARKET DATA",
+      "reviewed_at": "2026-11-07T12:59:00Z",
+      "published_at": "2026-11-07T11:00:00Z",
+      "first_public_at": "2026-11-07T11:00:00Z",
+      "direction": 1,
+      "impact": "high",
+      "relevance": "direct_company",
+      "reliability": "primary",
+      "novelty": "new",
+      "original_checks": [
+        {
+          "source_id": "fixture_article",
+          "url": "https://publisher.example/story",
+          "checked_at": "2026-11-07T12:58:00Z",
+          "publication_verified": true,
+          "published_at": "2026-11-07T11:00:00Z"
+        }
+      ]
+    }
+  ]
+}

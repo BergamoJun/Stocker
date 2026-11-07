@@ -1,4 +1,4 @@
-"""Pre-development contract tests. No network access or real-market claims."""
+"""ILLUSTRATIVE — NOT LIVE MARKET DATA. Offline pre-development contract tests."""
 
 import json
 from datetime import datetime
@@ -21,7 +21,9 @@ def test_report_schema_is_valid():
 def test_illustrative_report_matches_schema():
     schema = read_json("schemas/research_report.schema.json")
     report = read_json("examples/illustrative_report.json")
-    jsonschema.validate(instance=report, schema=schema)
+    jsonschema.Draft202012Validator(
+        schema, format_checker=jsonschema.FormatChecker()
+    ).validate(report)
     assert report["data_status"]["is_illustrative"] is True
     assert report["summary"]["stance"] == "undetermined"
     assert {s["name"] for s in report["scenarios"]} == {"bull", "base", "bear"}
@@ -31,14 +33,18 @@ def test_illustrative_report_has_no_dangling_citations():
     report = read_json("examples/illustrative_report.json")
     known = {source["id"] for source in report["sources"]}
     referenced = set()
-    for thesis in report["theses"]:
-        referenced.update(thesis["evidence_ids"])
-    for metric in report["metrics"]:
-        referenced.update(metric["evidence_ids"])
-    for item in report["risk_flags"]:
-        referenced.update(item["evidence_ids"])
-    for item in report["monitoring"]:
-        referenced.update(item["source_ids"])
+    def collect(value):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key in {"source_ids", "evidence_ids"}:
+                    referenced.update(child)
+                else:
+                    collect(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect(child)
+
+    collect(report)
     assert referenced <= known
 
 
@@ -58,3 +64,4 @@ def test_golden_cases_are_well_formed():
     assert len({case["id"] for case in cases}) == len(cases)
     for case in cases:
         assert case["input"] and case["must"] and case["must_not"]
+        assert case["data_label"] == "ILLUSTRATIVE — NOT LIVE MARKET DATA"

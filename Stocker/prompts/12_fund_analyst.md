@@ -20,3 +20,7 @@
 - 상품 설명서/운용사 자료 미확인 시 레버리지 배수를 단정하지 않는다.
 
 공식 위험 자료: https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec
+
+## 스윙 관점
+
+약 5거래일에도 ETF 자체의 가격·유동성·리셋 구조를 사용한다. SWING_INPUT의 조건부 목표·무효화·손익비·점수·기간만 인용하고 기초자산의 다일 수익률을 레버리지 배수로 바꾸어 목표를 생성하지 않는다. 점수/기간 모델이 해당 상품 유형에 검증되지 않았으면 해당 값은 보류한다.

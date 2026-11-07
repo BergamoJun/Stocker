@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "active_scope": "personal_local_metadata_only",
+  "records": [
+    {
+      "id": "fed-board-rss-metadata-20261107", "provider": "federal_reserve_board", "plan": "official_public_rss_metadata",
+      "monthly_cost_usd": 0, "is_illustrative": false, "reviewer": "assistant_official_source_policy_review",
+      "reviewed_at": "2026-11-07T12:50:00Z", "review_due_at": "2026-12-07T00:00:00Z",
+      "evidence_url": "https://www.federalreserve.gov/disclaimer.htm",
+      "attribution": "Source: Board of Governors of the Federal Reserve System; preserve release date and original link.",
+      "uses": {"ingest_metadata": "allowed", "store_metadata": "allowed", "display_metadata_links": "allowed", "derived_metadata_analysis": "allowed", "publisher_full_text": "not_enabled", "publisher_text_llm_input": "not_enabled", "publisher_images": "not_enabled"},
+      "limitations": ["Board information is public domain unless otherwise indicated; excluded third-party material and official seals/logos are not licensed by this record", "No FRED endpoint or FRED license is used"]
+    },
+    {
+      "id": "eia-rss-metadata-20261107", "provider": "us_eia", "plan": "official_public_rss_metadata",
+      "monthly_cost_usd": 0, "is_illustrative": false, "reviewer": "assistant_official_source_policy_review",
+      "reviewed_at": "2026-11-07T12:50:00Z", "review_due_at": "2026-12-07T00:00:00Z",
+      "evidence_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "attribution": "Source: U.S. Energy Information Administration; preserve release date and original link.",
+      "uses": {"ingest_metadata": "allowed", "store_metadata": "allowed", "display_metadata_links": "allowed", "derived_metadata_analysis": "allowed", "publisher_full_text": "not_enabled", "publisher_text_llm_input": "not_enabled", "publisher_images": "not_enabled"},
+      "limitations": ["EIA content is reusable with source and publication-date acknowledgment; third-party copyrighted content is excluded", "Only original EIA title/date/link metadata is retained; no charts, body, summaries or third-party numerical datasets"]
+    }
+  ]
+}

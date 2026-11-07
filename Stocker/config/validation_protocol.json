@@ -1,0 +1,49 @@
+{
+  "id": "BE-atr14-research-protocol-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T01:53:18Z",
+  "scope": "personal_local_research_only",
+  "symbol": "BE",
+  "candidate_policy_sha256": "0901245fb354946ac15b5567c4845837176de29fb9d0947aea40262e8c4a3482",
+  "release_allowed": false,
+  "diagnostic": {
+    "input_regime": "retrospective_current_vintage_not_point_in_time",
+    "minimum_history_sessions": 60,
+    "label_sessions": 5,
+    "reference_stride_sessions": 5,
+    "training_fraction": "0.8",
+    "cost_bps_per_side": ["10", "25"],
+    "comparator": "next_regular_open_to_fifth_regular_close_same_costs_same_resolved_cohort",
+    "entry_gap_outside_target_stop": "untradeable_no_filled_trade",
+    "same_bar_both_levels": "ambiguous_no_invented_order",
+    "invalid_target_configuration": "record_unavailable_do_not_drop_case",
+    "statistics": ["case_counts", "outcome_counts", "mean_net_return_pct", "mean_excess_to_comparator_pct", "conditional_hit_sessions"],
+    "screening_only": {
+      "minimum_resolved_cases": 30,
+      "maximum_ambiguous_or_untradeable_fraction": "0.1",
+      "minimum_mean_net_return_pct_exclusive": "0",
+      "minimum_mean_excess_to_comparator_pct_exclusive": "0",
+      "must_hold_at_all_cost_scenarios": true,
+      "does_not_authorize_release": true
+    }
+  },
+  "prospective": {
+    "entry": "next_regular_open_only_if_forecast_recorded_before_that_open",
+    "one_forecast_per_symbol_reference_session_protocol": true,
+    "append_only": true,
+    "revision_policy": "withhold_outcome_if_original_history_values_change",
+    "label_known_at": "actual_outcome_snapshot_retrieval_not_session_close",
+    "minimum_resolved_cases_before_review": 30,
+    "minimum_target_hits_for_timing_review": 10,
+    "report_score": null,
+    "validation_id": null
+  },
+  "release_requirements": [
+    "No release is permitted by this research protocol",
+    "Separate prospective point-in-time evaluation and methodology review",
+    "Reviewed source entitlements, corporate actions, costs and failure rates",
+    "Reviewed news evidence with original publication/event times and no retroactive label creation",
+    "News-model comparison to the version without news on the same held-out population",
+    "Independent score/timing validation record before a numeric report output"
+  ]
+}

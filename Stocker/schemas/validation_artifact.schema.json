@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private research validation artifacts 1.0.0",
+  "type": "object",
+  "required": ["schema_version", "status", "release_validation_id"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "release_validation_id": {"type": "null"},
+    "released_score": {"type": "null"},
+    "score": {"type": "null"},
+    "released_price_plan": {"type": "null"},
+    "released_expected_target_sessions": {"type": "null"}
+  },
+  "oneOf": [
+    {
+      "required": ["as_of", "registration", "scenarios", "released_score", "released_price_plan", "released_expected_target_sessions"],
+      "properties": {
+        "status": {"const": "retrospective_diagnostic_not_validation"},
+        "as_of": {"type": "string", "format": "date-time"},
+        "registration": {
+          "type": "object",
+          "required": ["registered_at", "protocol_sha256", "price_snapshot_sha256", "data_regime", "no_current_plan"],
+          "properties": {
+            "registered_at": {"type": "string", "format": "date-time"},
+            "protocol_sha256": {"$ref": "#/$defs/hash"},
+            "price_snapshot_sha256": {"$ref": "#/$defs/hash"},
+            "data_regime": {"const": "retrospective_current_vintage_not_point_in_time"},
+            "no_current_plan": {"const": true}
+          }
+        },
+        "scenarios": {
+          "type": "array", "minItems": 2, "maxItems": 2,
+          "items": {
+            "type": "object", "required": ["cost_bps_per_side", "training_cases", "held_out_cases", "summary"],
+            "properties": {
+              "cost_bps_per_side": {"enum": ["10", "25"]},
+              "training_cases": {"type": "array", "items": {"$ref": "#/$defs/diagnostic_case"}},
+              "held_out_cases": {"type": "array", "items": {"$ref": "#/$defs/diagnostic_case"}}
+            }
+          }
+        }
+      }
+    },
+    {
+      "required": ["record_id", "symbol", "recorded_at", "as_of", "entry_at", "candidate", "history_fingerprints", "prediction_recorded_before_entry", "released_score", "released_price_plan"],
+      "properties": {
+        "status": {"const": "prospective_research_forecast"},
+        "symbol": {"const": "BE"},
+        "recorded_at": {"type": "string", "format": "date-time"},
+        "as_of": {"type": "string", "format": "date-time"},
+        "entry_at": {"type": "string", "format": "date-time"},
+        "prediction_recorded_before_entry": {"const": true},
+        "history_fingerprints": {"type": "object", "minProperties": 60, "additionalProperties": {"$ref": "#/$defs/hash"}},
+        "candidate": {
+          "type": "object", "required": ["status", "released_price_plan", "timing"],
+          "properties": {
+            "status": {"const": "research_only_unvalidated"},
+            "released_price_plan": {"type": "null"},
+            "timing": {"type": "object", "required": ["sessions", "expected_target_sessions"],
+                       "properties": {"sessions": {"type": "array", "minItems": 5, "maxItems": 5}, "expected_target_sessions": {"type": "null"}}}
+          }
+        }
+      }
+    },
+    {
+      "required": ["record_id", "evaluated_at", "as_of", "outcome_snapshot_id", "source_ids", "scenarios"],
+      "properties": {
+        "status": {"const": "prospective_research_outcome"},
+        "evaluated_at": {"type": "string", "format": "date-time"},
+        "as_of": {"type": "string", "format": "date-time"},
+        "scenarios": {"type": "array", "minItems": 2, "maxItems": 2,
+          "items": {"type": "object", "required": ["cost_bps_per_side", "result"],
+                    "properties": {"cost_bps_per_side": {"enum": ["10", "25"]}, "result": {"$ref": "#/$defs/replay"}}}}
+      }
+    }
+  ],
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "replay": {
+      "type": "object", "required": ["reference_session", "outcome", "net_return_pct", "label_available_at", "label_period_ended_at"],
+      "properties": {
+        "reference_session": {"type": "string", "format": "date"},
+        "outcome": {"enum": ["target", "stop", "timeout", "untradeable_open_gap", "ambiguous_same_bar", "invalid_target_configuration"]},
+        "net_return_pct": {"type": ["string", "null"]},
+        "label_available_at": {"type": "string", "format": "date-time"},
+        "label_period_ended_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "diagnostic_case": {
+      "allOf": [{"$ref": "#/$defs/replay"}],
+      "required": ["point_in_time_verified", "hypothetical_decision_at", "comparator_net_return_pct"],
+      "properties": {"point_in_time_verified": {"const": false}, "hypothetical_decision_at": {"type": "string", "format": "date-time"}, "comparator_net_return_pct": {"type": "string"}}
+    }
+  }
+}

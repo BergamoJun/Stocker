@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private supervised numeric research 1.0.0",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "methodology_id", "registration", "is_illustrative", "data_label", "point_in_time_validated", "real_market_performance_validated", "released_price_plan", "released_score", "released_expected_target_sessions", "validation_id", "external_llm_calls", "llm_tokens", "monthly_data_budget_usd", "experiments"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "status": {"enum": ["research_only_unvalidated", "data_use_not_cleared", "input_or_fit_unavailable"]},
+    "as_of": {"type": "string", "format": "date-time"},
+    "methodology_id": {"const": "five-session-ridge-residual-v1"},
+    "registration": {"type": "object", "required": ["registered_at", "policy_sha256", "base_policy_sha256", "code_sha256"]},
+    "is_illustrative": {"type": "boolean"},
+    "data_label": {"type": "string"},
+    "point_in_time_validated": {"const": false},
+    "real_market_performance_validated": {"const": false},
+    "released_price_plan": {"type": "null"},
+    "released_score": {"type": "null"},
+    "released_expected_target_sessions": {"type": "null"},
+    "validation_id": {"type": "null"},
+    "external_llm_calls": {"const": 0},
+    "llm_tokens": {"const": 0},
+    "monthly_data_budget_usd": {"const": 0},
+    "experiments": {"type": "array", "items": {"type": "object", "required": ["name", "data_label", "source_ids", "is_illustrative", "counts", "split", "summary", "cases", "model"],
+      "properties": {"source_ids": {"type": "array", "minItems": 1}, "is_illustrative": {"type": "boolean"},
+        "cases": {"type": "array"}, "summary": {"type": "object"}, "model": {"type": "object"}}}
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"is_illustrative": {"const": true}}}, "then": {"properties": {"data_label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"}, "experiments": {"items": {"properties": {"is_illustrative": {"const": true}, "data_label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"}}}}}}},
+    {"if": {"properties": {"status": {"enum": ["data_use_not_cleared", "input_or_fit_unavailable"]}}}, "then": {"required": ["reason"]}}
+  ]
+}

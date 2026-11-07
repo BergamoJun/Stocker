@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GDELT metadata collection contract 1.0.0",
+  "description": "Discovery metadata only. No article text, price data or released investment score.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "provider", "attribution", "entitlement_id", "checked_at", "status", "completed_topics", "failed_topics", "coverage", "poll_interval_seconds", "provider_delay_seconds", "realtime_guaranteed", "articles", "warnings", "score_component", "model_status"],
+  "properties": {
+    "version": {"const": "1.0.0"},
+    "provider": {"const": "gdelt_project"},
+    "attribution": {"type": "string", "minLength": 1},
+    "entitlement_id": {"type": "string", "minLength": 1},
+    "checked_at": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["available", "partial", "unavailable"]},
+    "completed_topics": {"type": "array", "uniqueItems": true, "items": {"enum": ["company", "sector", "macro_politics", "commodities"]}},
+    "failed_topics": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["category", "reason"],
+      "properties": {"category": {"type": "string"}, "reason": {"type": "string"}}
+    }},
+    "coverage": {"type": "string"},
+    "poll_interval_seconds": {"const": 900},
+    "provider_delay_seconds": {"type": ["integer", "null"], "minimum": 0},
+    "realtime_guaranteed": {"const": false},
+    "score_component": {"type": "null"},
+    "model_status": {"const": "unvalidated"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "articles": {"type": "array", "maxItems": 100, "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "url", "title", "publisher", "category", "categories", "first_seen_at", "retrieved_at", "published_at", "event_at", "impact_direction", "assessment_status", "score_eligible", "limitation"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "title": {"type": "string", "minLength": 1, "maxLength": 300},
+        "publisher": {"type": "string", "minLength": 1},
+        "category": {"type": "string"},
+        "categories": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "first_seen_at": {"type": "string", "format": "date-time"},
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "published_at": {"type": "null"},
+        "event_at": {"type": "null"},
+        "impact_direction": {"const": "unassessed"},
+        "assessment_status": {"const": "needs_review"},
+        "score_eligible": {"const": false},
+        "limitation": {"type": "string"}
+      }
+    }}
+  }
+}

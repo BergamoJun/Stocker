@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stocker.local/schemas/historical_panel.schema.json",
+  "$defs": {
+    "research_gates": {
+      "type": "object",
+      "required": ["final_evaluation_locked", "final_cases_executed", "model_training_performed", "released_score"],
+      "properties": {
+        "final_evaluation_locked": {"const": true}, "final_cases_executed": {"const": 0},
+        "model_training_performed": {"const": false}, "released_score": {"type": "null"}
+      }
+    },
+    "progress": {
+      "allOf": [{"$ref": "#/$defs/research_gates"}],
+      "type": "object",
+      "required": ["schema_version", "status", "stage", "updated_at", "network_requests", "catalog_pages", "catalog_eligible_symbols", "profiles_processed", "profiles_verified", "profiles_unresolved", "cohort_frozen", "selected_unique_issuers", "symbols_evaluated", "completed_cases", "unseen_symbols_evaluated", "external_llm_calls", "monthly_data_budget_usd", "performance_validated", "sectors", "limitations"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "status": {"enum": ["running", "waiting", "complete", "complete_with_gaps", "withheld", "exhausted"]},
+        "stage": {"enum": ["catalog", "profiles", "cohort", "prices", "evaluation", "summary", "done"]},
+        "network_requests": {"type": "integer", "minimum": 0, "maximum": 16000},
+        "catalog_pages": {"type": "integer", "minimum": 0, "maximum": 20},
+        "catalog_eligible_symbols": {"type": "integer", "minimum": 0, "maximum": 10000},
+        "profiles_processed": {"type": "integer", "minimum": 0},
+        "profiles_verified": {"type": "integer", "minimum": 0},
+        "profiles_unresolved": {"type": "integer", "minimum": 0},
+        "cohort_frozen": {"type": "boolean"}, "selected_unique_issuers": {"type": "integer", "minimum": 0, "maximum": 1200},
+        "symbols_evaluated": {"type": "integer", "minimum": 0}, "completed_cases": {"type": "integer", "minimum": 0},
+        "unseen_symbols_evaluated": {"const": 0}, "external_llm_calls": {"const": 0}, "monthly_data_budget_usd": {"const": 0},
+        "performance_validated": {"const": false}, "sectors": {"type": "array"}, "limitations": {"type": "array", "minItems": 1}
+      }
+    },
+    "panel_result": {
+      "allOf": [{"$ref": "#/$defs/research_gates"}], "type": "object",
+      "required": ["schema_version", "status", "as_of", "cohort_sha256", "selected_unique_issuers", "symbols_evaluated", "completed_cases", "sectors", "collection_failures", "performance_validated", "uncertainty", "historical_original_vintage_verified"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"}, "status": {"const": "retrospective_panel_not_validation"},
+        "selected_unique_issuers": {"type": "integer", "minimum": 0, "maximum": 1200},
+        "symbols_evaluated": {"type": "integer", "minimum": 0}, "completed_cases": {"type": "integer", "minimum": 0},
+        "sectors": {"type": "array"}, "collection_failures": {"type": "object"},
+        "performance_validated": {"const": false}, "historical_original_vintage_verified": {"const": false}
+      }
+    },
+    "symbol_result": {
+      "allOf": [{"$ref": "#/$defs/research_gates"}], "type": "object",
+      "required": ["schema_version", "status", "symbol", "sector_id", "source_ids", "manifest_sha256", "is_illustrative", "expected_cases", "completed_cases", "complete", "partitions", "point_in_time_verified", "limitations"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "status": {"enum": ["engineering_pilot_not_sector_evidence", "research_panel_price_only"]},
+        "is_illustrative": {"type": "boolean"}, "point_in_time_verified": {"const": false},
+        "expected_cases": {"type": "integer", "minimum": 1}, "completed_cases": {"type": "integer", "minimum": 0},
+        "complete": {"type": "boolean"}, "source_ids": {"type": "array", "minItems": 1},
+        "partitions": {"type": "object", "additionalProperties": false, "properties": {
+          "development": {"type": "object", "required": ["performance_validated"], "properties": {"performance_validated": {"const": false}}},
+          "validation": {"type": "object", "required": ["performance_validated"], "properties": {"performance_validated": {"const": false}}}
+        }}
+      }
+    }
+  }
+}

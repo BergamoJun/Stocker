@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "capture": {
+      "type": "object", "required": ["version", "policy_id", "is_illustrative", "available_at", "capture_order", "context_as_of", "input_sha256", "news_packet_sha256", "news_packet", "articles", "released_score", "model_training_permission_granted"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "policy_id": {"const": "news-metadata-asof-archive-v1"}, "is_illustrative": {"type": "boolean"},
+        "available_at": {"type": "string", "format": "date-time"}, "capture_order": {"type": "integer", "minimum": 1}, "context_as_of": {"type": "string", "format": "date-time"},
+        "input_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "news_packet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "news_packet": {"type": "object", "properties": {"score_component": {"type": "null"}, "publisher_full_text_fetched": {"const": false}}}, "articles": {"type": "array"},
+        "released_score": {"type": "null"}, "model_training_permission_granted": {"const": false}
+      }
+    },
+    "view": {
+      "type": "object", "required": ["status", "as_of", "is_illustrative", "committed_captures", "articles", "coverage", "released_score", "model_training_permission_granted"],
+      "properties": {"status": {"const": "point_in_time_metadata_view"}, "as_of": {"type": "string", "format": "date-time"}, "is_illustrative": {"type": "boolean"},
+        "committed_captures": {"type": "integer", "minimum": 0}, "articles": {"type": "array"}, "coverage": {"type": ["array", "null"]}, "released_score": {"type": "null"}, "model_training_permission_granted": {"const": false}}
+    }
+  }
+}

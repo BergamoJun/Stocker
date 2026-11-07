@@ -1,12 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "equity-research-lab"
-version = "0.1.0"
-description = "Pre-development specification and output contract for an evidence-driven financial research service"
+version = "0.3.0"
+description = "Evidence-driven research specifications and a local reviewed-SEC-snapshot report CLI"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["jsonschema[format-nongpl]>=4,<5", "exchange_calendars>=4.5,<5", "numpy>=1.26,<3"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "jsonschema>=4,<5"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+equity-research = "research.__main__:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.setuptools]
+packages = ["research"]

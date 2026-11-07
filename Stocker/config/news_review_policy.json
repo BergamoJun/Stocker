@@ -1,0 +1,41 @@
+{
+  "id": "news-original-evidence-review-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T12:50:00Z",
+  "release_enabled": false,
+  "monthly_data_budget_usd": 0,
+  "publisher_article_fetch_enabled": false,
+  "external_llm_calls": 0,
+  "legacy_signal_policy": "swing-news-candidate-v1",
+  "all_four_discovery_topics_required_for_total": true,
+  "official_feeds_clear_broad_topic_coverage": false,
+  "maximum_feed_bytes": 1000000,
+  "maximum_items_per_feed": 25,
+  "lookback_hours": 168,
+  "poll_interval_seconds": 900,
+  "minimum_request_spacing_seconds": 15,
+  "feeds": [
+    {
+      "id": "fed_monetary",
+      "provider": "federal_reserve_board",
+      "name_ko": "미국 연방준비제도 통화정책 발표",
+      "url": "https://www.federalreserve.gov/feeds/press_monetary.xml",
+      "article_host": "www.federalreserve.gov",
+      "categories": ["macro_politics"],
+      "scope_ko": "미국 통화정책 발표만 확인합니다. 세계 정치·경제 뉴스 전체를 다루지 않습니다.",
+      "terms_url": "https://www.federalreserve.gov/disclaimer.htm",
+      "feed_directory_url": "https://www.federalreserve.gov/feeds/feeds.htm"
+    },
+    {
+      "id": "eia_today_energy",
+      "provider": "us_eia",
+      "name_ko": "미국 에너지정보청 Today in Energy",
+      "url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "article_host": "www.eia.gov",
+      "categories": ["sector", "commodities"],
+      "scope_ko": "에너지 관련 공식 발표입니다. 연료전지 전용 뉴스나 모든 원자재·지정학 위험을 다루지 않습니다.",
+      "terms_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "feed_directory_url": "https://www.eia.gov/tools/rssfeeds/"
+    }
+  ]
+}

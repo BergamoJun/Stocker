@@ -1,0 +1,16 @@
+{
+  "id": "news-metadata-asof-archive-v1",
+  "version": "1.0.0",
+  "scope": "personal_local_metadata_only",
+  "monthly_data_budget_usd": 0,
+  "release_enabled": false,
+  "external_llm_calls": 0,
+  "model_training_permission_granted": false,
+  "availability_rule": "first_atomic_archive_capture_time; never_backdate_to_provider_publication_or_retrieval",
+  "content_version_fields": ["title", "url", "publisher", "provider_published_at"],
+  "metadata_change_is_verified_new_event": false,
+  "asof_selection": "latest_committed_capture_per_canonical_article_url_at_or_before_cutoff",
+  "source_coverage_unknown_is_neutral": false,
+  "real_and_illustrative_namespaces_separate": true,
+  "publisher_body_images_summaries_retained": false
+}

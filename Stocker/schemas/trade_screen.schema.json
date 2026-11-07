@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "is_illustrative", "symbol", "screen", "forecast", "registration", "released_score", "released_price_plan", "released_expected_target_sessions", "validation_id", "external_llm_calls", "llm_tokens", "real_ml_fit_performed", "readiness"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "status": {"enum": ["research_only_unvalidated", "input_unavailable"]},
+    "as_of": {"type": "string", "format": "date-time"}, "is_illustrative": {"const": false}, "symbol": {"const": "BE"},
+    "released_score": {"type": "null"}, "released_price_plan": {"type": "null"}, "released_expected_target_sessions": {"type": "null"},
+    "validation_id": {"type": "null"}, "external_llm_calls": {"const": 0}, "llm_tokens": {"const": 0}, "real_ml_fit_performed": {"const": false},
+    "registration": {"type": "object", "required": ["registered_at", "screen_policy_sha256", "code_sha256"]},
+    "screen": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/screen"}]},
+    "readiness": {"type": "object", "required": ["full_recommendation", "missing_features"], "properties": {"full_recommendation": {"const": "not_ready"}}}
+  },
+  "$defs": {
+    "screen": {
+      "type": "object", "required": ["schema_version", "status", "methodology_id", "as_of", "is_illustrative", "source_ids", "mode", "screen_decision", "reason_codes", "metrics", "effective_observed_paths", "released_price_plan", "released_score", "released_expected_target_sessions", "calibrated_probability", "validation_id"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"}, "status": {"const": "research_only_unvalidated"},
+        "methodology_id": {"const": "five-session-cost-risk-screen-v1"}, "as_of": {"type": "string", "format": "date-time"},
+        "is_illustrative": {"type": "boolean"}, "source_ids": {"type": "array", "minItems": 1},
+        "mode": {"enum": ["current_research", "historical_diagnostic"]},
+        "screen_decision": {"enum": ["numerical_candidate", "stand_aside", "unavailable"]},
+        "reason_codes": {"type": "array", "items": {"type": "string"}}, "metrics": {"type": "array"},
+        "released_score": {"type": "null"}, "released_price_plan": {"type": "null"}, "released_expected_target_sessions": {"type": "null"},
+        "calibrated_probability": {"type": "null"}, "validation_id": {"type": "null"}
+      }
+    }
+  }
+}

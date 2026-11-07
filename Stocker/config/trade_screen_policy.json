@@ -1,0 +1,29 @@
+{
+  "id": "five-session-cost-risk-screen-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T11:19:01Z",
+  "status": "research_only_unvalidated",
+  "release_enabled": false,
+  "primary_cost_bps_per_side": "25",
+  "cost_bps_per_side": ["10", "25"],
+  "minimum_net_reference_target_pct_exclusive": "0",
+  "minimum_net_reward_risk_inclusive": "1",
+  "minimum_estimated_path_ev_lower_pct_exclusive": "0",
+  "minimum_effective_observed_paths": "30",
+  "require_target_hit_timing_estimate": true,
+  "entry_assumption": "reference_close_screen_only; next_open_unknown_and_requires_recheck",
+  "ambiguity": "use_stop_first_to_target_first_net_return_bounds_without_inventing_order",
+  "estimated_ev_note": "Lower endpoint only resolves daily-bar ordering conservatively; not a statistical confidence bound",
+  "uncertainty_note": "All path frequencies and expected returns remain uncalibrated research estimates",
+  "threshold_selection": "fixed_structural_zero_profit_and_unit_net_payoff_balance; not_optimized_on_realized_outcomes",
+  "progress_authorization": {
+    "kind": "explicit_user_instruction",
+    "date": "2026-11-07",
+    "instruction": "그 다음 프로세스 진행하라.",
+    "sample_stability_assessment_overridden": false,
+    "research_progress_authorized_despite_inconclusive_sample_audit": true
+  },
+  "source_scope": "own_personal_local; real_supervised_training_requires_separate_clearance",
+  "external_llm_calls": 0,
+  "monthly_data_budget_usd": 0
+}

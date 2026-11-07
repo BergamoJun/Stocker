@@ -2,7 +2,7 @@
 
 ## 입력
 
-`SUBJECT`, `AS_OF`, `DATA_STATUS`, 타입별 분석 초안, 검증 완료된 `METRICS`, `RED_TEAM_FINDINGS`, `SOURCES`.
+`SUBJECT`, `AS_OF`, `DATA_STATUS`, 타입별 분석 초안, 검증 완료된 `METRICS`, `RED_TEAM_FINDINGS`, `SOURCES`, 서버 계산/제공 상태를 담은 `SWING_INPUT`.
 
 ## 과제
 
@@ -13,6 +13,16 @@
 - 투자대상/상품 구조, 실제 데이터 기준일, 주요 투자 논리와 최대 3개 핵심 리스크를 우선 보여준다.
 - `stance`는 시나리오를 설명하는 **연구상 방향성**이며 맞춤 매매 명령이 아니다. 증거 부족 시 `undetermined`.
 - `evidence_confidence`는 근거 품질로 정의하고, 주가 예측 신뢰 확률과 혼동하지 않는다.
+
+### 스윙 상단 요약
+
+- 계약 0.2.0의 `swing`는 항상 포함한다. horizon이 swing이 아니면 status not_requested, headline/price_plan/score null.
+- swing이면 한줄평 → 기준가격·조건부 1차 목표·상승여력 → 수익실현 검토 조건/시기 → 무효화·하락폭·손익비 → 매력도·가감점 근거 순으로 UI가 표시하도록 구조화한다.
+- SWING_INPUT의 status, 가격 계획, 모델 메타데이터, 점수, 기간, source IDs를 그대로 전사한다. 없는 숫자나 검증 ID를 생성하지 않는다.
+- 가격 계획 unavailable이면 price_plan null과 구체적인 reasons를 제공하고 data_status.missing/limitations에도 반영한다. 가격 계획이 available이어도 점수는 별도로 unavailable일 수 있다.
+- 매력도는 1~100 정수 또는 null이다. evidence_confidence와 분리하고 상승 확률로 설명하지 않는다.
+- 도달기간 모델이 없으면 expected_target_sessions와 관련 방법론/검증 ID는 null이다. holding_sessions/review_at/expires_at를 도달 예상일로 바꾸지 않는다.
+- 한줄평은 기회·유지 조건·위험을 한 줄로 정리하며, 데이터가 없으면 보류 이유를 설명한다. 비활성 숫자를 문장으로 우회 제공하지 않는다.
 
 ### 근거·수치
 

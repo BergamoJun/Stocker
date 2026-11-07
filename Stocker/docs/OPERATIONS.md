@@ -1,5 +1,7 @@
 # Free Public Service — Operations and Delivery Gates
 
+> Deferred public-service gates. Active scope changed on 2026-11-07 to personal-local research, USD 0 data budget. Public infrastructure/legal launch gates below are not prerequisites for the authorized personal CLI; use MARKET_PREPARATION.md for current setup and retention duties.
+
 ## Cost model
 
     monthly_cost =
@@ -59,11 +61,23 @@ Critical dashboard signals: wrong-symbol incidents, source-citation mismatch, st
 
 ## Implementation order (estimated 3–5 weeks for a solo part-time MVP)
 
-1. Foundation: schemas, DB, resolver and SEC adapter with fixture tests.
+1. Foundation: schemas, DB, resolver and SEC adapter with fixture tests; begin price-source rights and swing-methodology review in parallel.
 2. Finance kernel: normalized facts, point-in-time cutoff and deterministic metrics.
-3. AI report pipeline: typed input, structured output, adversarial review and validators.
+3. AI report pipeline: typed input, structured output, adversarial review and validators. In a separately gated swing slice add licensed EOD inputs, session calendar, conditional target/invalidation/ratios, expiry and independently validated scoring/timing.
 4. Public API: job queue, dedupe, quotas, caching, errors and observability.
-5. React UI: search, status, executive summary, scenarios, source drilldown and warning states.
-6. Coverage expansion: curated ETF/sector beta and licensed price source after explicit rights review.
+5. React UI: search, status, swing summary first, underlying research/scenarios, source drilldown, unavailable/expired/historical states.
+6. Coverage expansion: curated ETF/sector beta, additional valuation/chart features after the licensed swing-price path has passed its independent gates.
 
 An estimate is not a committed date. Ship vertical slices only after tests and rights review.
+
+## Swing activation gates
+
+- [ ] Licensed OHLCV/corporate-action inputs and point-in-time market calendar verified
+- [ ] Target/invalidation methodology, arithmetic, quote basis and provenance tests implemented
+- [ ] Unavailable price plan and score paths tested without blocking SEC-only research
+- [ ] Five-session observation window, next-session-close EOD expiry and historical rendering verified
+- [ ] Attractiveness methodology/weights fixed before evaluation; held-out validation recorded before numeric activation
+- [ ] Target-time model separately validated before estimated target sessions are shown
+- [ ] Same-bar target/invalidation ambiguity, fees/slippage and out-of-sample evaluation documented
+
+These are uncompleted runtime/model gates. Contract tests alone do not satisfy them. The earlier time estimate excludes uncertain vendor contracting and model validation lead times.

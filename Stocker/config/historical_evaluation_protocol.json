@@ -1,0 +1,53 @@
+{
+  "id": "sector-historical-price-evaluation-v1",
+  "version": "1.0.0",
+  "status": "design_registered_real_panel_not_run",
+  "scope": "personal_local_research_only",
+  "monthly_data_budget_usd": 0,
+  "release_enabled": false,
+  "llm_calls_enabled": false,
+  "minimum_symbols_per_sector": 100,
+  "sector_count_for_capacity_example": 11,
+  "sector_taxonomy_status": "requires_source_verified_sector_membership; no_assumed_GICS_license",
+  "universe": {
+    "instrument_type": "US_unleveraged_common_stocks",
+    "selection": "freeze_historical_membership_before_performance; include_later_delistings",
+    "minimum_sector_size_failure": "report_insufficient_universe; never_claim_100_symbols_were_tested",
+    "exclude_from_untouched_symbol_test": ["BE"],
+    "symbol_holdout_fraction": "0.20",
+    "current_winners_only_selection_allowed": false
+  },
+  "initial_window": {"start": "2024-12-09", "end": "2026-11-06", "calendar": "XNYS", "minimum_history_sessions": 60, "label_sessions": 5, "reference_stride_sessions": 5},
+  "partitions": {
+    "unit": "shared_exchange_calendar_dates_across_all_symbols",
+    "development_fraction": "0.60",
+    "validation_fraction": "0.20",
+    "final_fraction": "0.20",
+    "purge": "discard_reference_if_any_of_its_five_future_sessions_crosses_partition_end",
+    "random_row_split_allowed": false,
+    "final_results_locked_during_tuning": true
+  },
+  "first_pass": {
+    "engine": "existing_fixed_ewma_simulation_unchanged",
+    "fit_or_optimize_parameters": false,
+    "price_only_first": true,
+    "current_news_or_fundamentals_backfilled_into_past": false,
+    "data_regime": "retrospective_current_vintage_unless_historical_vintages_are_verified"
+  },
+  "evaluation": {
+    "cost_bps_per_side": ["10", "25"],
+    "primary": ["peak_error_in_ATR_units", "peak_interval_coverage", "peak_day_error", "target_before_stop", "net_return_bounds_after_costs", "paired_excess_to_same_period_buy_and_hold"],
+    "report_by": ["sector", "calendar_period", "instrument", "volatility_regime", "liquidity_group"],
+    "same_bar_target_and_stop": "retain_both_execution_bounds",
+    "missing_or_terminal_action_data": "unresolved_not_cash_zero; retain_failure_denominator",
+    "cross_symbol_and_overlapping_labels_independent": false,
+    "uncertainty_units": "time_blocks_with_cross_symbol_dependence_retained",
+    "number_of_simulated_paths_is_sample_size": false
+  },
+  "tuning_after_first_pass": {
+    "register_new_candidate_before_final_test": true,
+    "record_every_configuration_tried": true,
+    "source_model_training_clearance_required_for_learned_models": true,
+    "old_policies_and_BE_background_job_changed": false
+  }
+}

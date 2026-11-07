@@ -1,6 +1,17 @@
-schema_version: '0.2.0'
-note: 'Candidates only. None is configured or licensed yet.'
+schema_version: '0.3.0'
+note: 'Active scope: personal-local USD 0. Massive Basic personal adapter and GDELT metadata implemented; account/key gates apply. Public redistribution stays off.'
 providers:
+  - id: massive
+    kind: price
+    region: US
+    source_url: https://massive.com/legal/market-data-terms-of-service
+    enabled: false
+    adapter_implemented: true
+    selected_scope: local_research
+    plan: stocks_basic
+    monthly_cost_usd: 0
+    license_review: personal_terms_reviewed_account_confirmation_pending
+    notes: 'Own free key, non-professional eligibility and required subscriber terms. EOD, 2 years, 5 requests/min; no public distribution or external LLM input. Retention follows plan/license validity.'
   - id: sec_edgar
     kind: filing
     region: US
@@ -56,3 +67,18 @@ providers:
     enabled: false
     license_review: pending
     notes: 'Issuer fund fact sheets/prospectus/holdings by instrument.'
+
+  - id: gdelt_project
+    kind: news_metadata
+    region: GLOBAL
+    source_url: https://api.gdeltproject.org/api/v2/doc/doc
+    enabled: true
+    license_review: metadata_only_reviewed_see_source_entitlements
+    notes: 'Free open datasets with attribution. No publisher body/images/LLM rights inferred. Availability and publisher dates unverified.'
+  - id: eia
+    kind: commodity_macro
+    region: US
+    source_url: https://www.eia.gov/opendata/
+    enabled: false
+    license_review: government_data_candidate_third_party_material_excluded
+    notes: 'Free API key and selected-series provenance/update-cadence review needed. Not universally real-time.'

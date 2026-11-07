@@ -1,4 +1,6 @@
-# Public Service Architecture v0.2
+# Public Service Architecture v0.3
+
+> Deferred design. The user changed the active scope to personal-local research with a USD 0 data budget on 2026-11-07. This document does not require public infrastructure or public price rights before the personal CLI can proceed. See MARKET_PREPARATION.md.
 
 ## Design style
 
@@ -69,7 +71,7 @@ Cloud vendors and live model are deliberately not chosen yet.
                       \-> failed  \-> blocked       \-> failed
 
 - Queue is bounded. Job timeouts and retry budgets are explicit. Do not recursively trigger analysis on failed jobs.
-- Deduplicate using normalized subject + horizon + focus hash + snapshot ID + prompt/model/schema versions.
+- Deduplicate using normalized subject + horizon + focus hash + snapshot ID + prompt/model/schema versions. For swing include price snapshot, selected proxy, target/scoring/timing methodology and validation IDs, calendar version, and entitlement state.
 - A published report is immutable; new version gets a new ID. Latest report pointer may change.
 - Changes in source filings or permission state invalidate the appropriate cached report; expired reports remain historical with original as_of.
 - Model calls are not allowed to request arbitrary URLs; only vetted adapters retrieve external data.
@@ -87,3 +89,13 @@ Cloud vendors and live model are deliberately not chosen yet.
 Browser input is untrusted; normalize symbols and validate lengths. SEC/issuer text is **data**, not instructions. Run separate deterministic validators (source-ID existence, publication cutoff, metric equality, PII/secret scans) after the LLM; JSON Schema alone is not proof of factual validity.
 
 Security baseline: strict CORS allowlist, backend-only secrets, output encoding for source excerpts, SSRF protections in source fetching, request-size caps, access logs with redaction, public endpoint quotas, circuit breaker for API/model failures.
+
+## Swing profile (planned)
+
+MetricEngine produces a trusted `SWING_INPUT` with price-plan eligibility, deterministic price/ratio outputs, snapshot/calculation/methodology references, calendar-aware review/expiry, and separately gated scoring/timing outputs. The LLM may explain the scenario and write a one-line view; it may not invent or overwrite these values.
+
+The existing filing/business report remains available when the swing plan is unavailable. UI renders the swing card first for horizon swing and preserves source-backed research below it. Scoring may remain unavailable even when a price plan is available. A sector plan must identify a verified tradable ETF proxy and retain the distinction from sector-level analysis.
+
+EOD plans expire at the next regular session close by default; a new snapshot or material catalyst change prompts reevaluation sooner. Market/session rules, methodology versions and entitlement changes invalidate current-use cache eligibility. Historical immutable reports remain readable with expiry/out-of-date labels when retention/publication rights allow. Read-time validity must be derived by the server, without mutating the saved report. Expiry, quota limits and outages must not silently reuse an old plan as current.
+
+Research-only candidate price/scoring/timing mathematics, calendar handling, technical entitlement checks and GDELT metadata discovery now exist. They are not empirically validated or connected to a released recommendation service. Normative details: SWING_REPORT_SPEC.md.

@@ -1,5 +1,7 @@
 # Data Source and Rights Gate (2026-11-06 review)
 
+> Active scope changed by the user on 2026-11-07: PERSONAL LOCAL research, USD 0 data budget. The public-service matrix below is retained as a deferred design. Massive Stocks Basic is selected for personal EOD downloads, storage and deterministic local analytics, conditional on the user's own non-professional account and required subscriber terms. Public redistribution and external price-data LLM input remain OFF. Current evidence, retention limits and setup: [MARKET_PREPARATION.md](MARKET_PREPARATION.md). A public-use license is not a prerequisite for the authorized personal-local path.
+
 This memo is a technical risk register, NOT a legal opinion or authorization to use any provider in a public production service.
 
 ## Provider decision matrix
@@ -35,7 +37,10 @@ Individual/free API plans may be strictly personal even when their responses inc
 - SEC_FILINGS_ENABLED: false until connector and provenance tests are ready.
 - ETF_ISSUER_DOCS_ENABLED: false until source/issuer allowlist ready.
 - PUBLIC_PRICE_DISPLAY_ENABLED: **false by default**.
-- PRICE_DERIVED_METRICS_ENABLED: **false by default**.
+- PRICE_DERIVED_METRICS_ENABLED: **false by default**; includes swing targets/invalidation, upside/downside, reward/risk and price-based attractiveness.
+- SWING_PRICE_PLAN_ENABLED: **false** until licensed inputs, calendar and validated deterministic calculations exist.
+- ATTRACTIVENESS_SCORE_ENABLED: **false** until methodology and validation are complete.
+- TARGET_TIMING_ESTIMATE_ENABLED: **false** until a separate timing model is validated.
 - NEWS_SUMMARY_ENABLED: false until copyright/excerpt/LLM rules confirmed.
 - MACRO_FRED_ENABLED: **false**, not merely awaiting credentials.
 
@@ -48,3 +53,15 @@ Record source_id, contract/license URL, exact allowed uses (server ingestion, LL
 ## Policy at launch
 
 Without a documented allowance, rights remain **unknown**, not presumed free. Each public artifact must pass a per-source entitlement gate. If permission is lost, future generation stops and previously published content is reviewed for retention/public availability restrictions.
+
+## Swing feature gate (2026-11-07 design update)
+
+A conditional price target, invalidation level, reward/risk or price-based 1–100 score is a derived use of market data. Missing public-display/derivation/LLM rights cannot be bypassed by hiding the raw quote, requesting an LLM estimate, or describing a number as research. No provider entitlement was newly approved by this specification update. Retain the existing price/news/FRED restrictions and SEC-only fallback.
+
+## Zero-dollar market/news review — 2026-11-07
+
+Monthly data budget is USD 0. No paid signup, contract or entitlement was activated. The surveyed free Twelve Data/Tiingo/Alpha Vantage/Finnhub plans do not clear this public website's price-display/derived-score/LLM uses. Credentials alone cannot change that status. Evidence and technical decisions: MARKET_PREPARATION.md and config/source_entitlements.json.
+
+GDELT Project's open-dataset terms permit reuse with attribution; enable only its metadata/link adapter. Do not confuse GDELT Project with GDELT Cloud. Publisher article bodies/images and their use in an LLM remain OFF. NewsAPI Developer and GNews Free were not selected for public latest-news use due to use restrictions/delay documented in the review. EIA is a government-data candidate pending a free key and series-specific provenance/cadence checks; protected third-party materials are excluded.
+
+NEWS_SUMMARY_ENABLED remains false. Metadata discovery does not constitute a body-summary entitlement. Public price/attractiveness/target-time release flags remain false.

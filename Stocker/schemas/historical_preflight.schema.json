@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["status", "as_of", "protocol_id", "policy_sha256", "calendar_plan", "capacity", "real_symbols_evaluated", "new_models_fitted", "network_requests", "released_score"],
+  "properties": {
+    "status": {"const": "planning_only_no_real_panel_run"}, "as_of": {"type": "string", "format": "date-time"},
+    "protocol_id": {"const": "sector-historical-price-evaluation-v1"}, "policy_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "real_symbols_evaluated": {"const": 0}, "new_models_fitted": {"const": 0}, "network_requests": {"const": 0}, "released_score": {"type": "null"},
+    "capacity": {"type": "object", "required": ["is_capacity_example_not_a_selected_universe", "symbols_assumed", "external_llm_calls", "llm_tokens"], "properties": {
+      "is_capacity_example_not_a_selected_universe": {"const": true}, "symbols_assumed": {"type": "integer", "minimum": 1}, "external_llm_calls": {"const": 0}, "llm_tokens": {"const": 0}}},
+    "calendar_plan": {"type": "object", "required": ["calendar_sessions", "partitions"], "properties": {
+      "calendar_sessions": {"type": "integer", "minimum": 1}, "partitions": {"type": "array", "minItems": 3, "maxItems": 3,
+        "items": {"type": "object", "required": ["phase", "references", "performance_results_permitted_now"], "properties": {
+          "phase": {"enum": ["development", "validation", "final_locked"]}, "references": {"type": "array"}, "performance_results_permitted_now": {"type": "boolean"}},
+          "allOf": [{"if": {"properties": {"phase": {"const": "final_locked"}}}, "then": {"properties": {"performance_results_permitted_now": {"const": false}}}}]}}}}
+  }
+}

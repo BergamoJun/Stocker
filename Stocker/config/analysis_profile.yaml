@@ -1,9 +1,15 @@
-schema_version: '0.2.0'
-access_mode: public_free
+schema_version: '0.4.0'
+report_schema_version: '0.2.0'
+access_mode: personal_local
+public_distribution_enabled: false
+external_price_llm_input_enabled: false
+personal_price_provider: massive
+personal_price_plan: stocks_basic
 default_market: US
 default_language: ko
-default_horizon: medium
+default_horizon: swing
 horizons:
+  swing: 'next 5 exchange sessions after the reference-price session'
   short: '1-3 months'
   medium: '3-12 months'
   long: '1+ years'
@@ -27,3 +33,60 @@ freshness:
   fundamentals: 'display latest filing publication date and covered period'
   etf_holdings: 'display issuer snapshot date'
   news: 'display publication and event dates separately'
+
+# Candidate mathematics implemented; no empirically validated released model.
+swing:
+  observation_sessions: 5
+  direction: long
+  price_plan_enabled: false
+  target_methodology_id: atr14-reference-baseline-v1
+  target_methodology_version: '0.1.0'
+  target_methodology_validation_id: null
+  calendar_id: XNYS
+  calendar_version: record_installed_exchange_calendars_version
+  eod_expiry: next_regular_session_close
+  refresh: each_regular_session_close_or_material_change
+  delayed_quote_ttl: null
+  require_licensed_fresh_prices: true
+  require_sector_etf_proxy: true
+  return_basis: gross_price_change
+  attractiveness:
+    enabled: false
+    status: candidate_implemented_unvalidated
+    methodology_id: swing-news-candidate-v1
+    methodology_version: '0.1.0'
+    validation_id: null
+    weights: {price_volume: 20, fundamentals: 15, market_sector: 15, risk_reward: 10, latest_events: 40}
+    score_range: [1, 100]
+    missing_value: null
+    is_probability: false
+  target_timing:
+    enabled: false
+    methodology_id: empirical-first-target-touch-v1
+    methodology_version: '0.1.0'
+    validation_id: null
+    missing_value: null
+
+monthly_data_budget_usd: 0
+market_preparation:
+  policy_file: config/swing_candidate_policy.json
+  entitlements_file: config/source_entitlements.json
+  validation_protocol_file: config/validation_protocol.json
+  prospective_ledger: reports/private/prospective_ledger
+  peak_model_policy: config/peak_model_policy.json
+  peak_engine: fixed_ewma_simulation
+  service_budget_policy: config/service_budget_policy.json
+  released_score_enabled: false
+  requires_empirical_validation: true
+news_context:
+  provider: gdelt_project
+  metadata_discovery_enabled: true
+  original_article_fetch_enabled: false
+  publisher_text_llm_input_enabled: false
+  poll_interval_seconds: 900
+  request_spacing_seconds: 15
+  original_links_required: true
+  first_seen_is_publication: false
+  unknown_impact_or_publication: withhold_contribution
+  deduplicate_by: reviewed_event_id
+  signed_recency_effect: true

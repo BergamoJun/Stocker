@@ -1,0 +1,20 @@
+{
+  "id": "be-first-outcome-job-v1",
+  "version": "1.0.0",
+  "scope": "personal_local_observation_only",
+  "monthly_data_budget_usd": 0,
+  "release_enabled": false,
+  "external_llm_calls": 0,
+  "symbol": "BE",
+  "retry_interval_minutes": 15,
+  "retry_window_hours_from_first_due_execution": 24,
+  "maximum_network_attempts": 97,
+  "price_request": "one_existing_free_basic_daily_history_request_per_due_attempt",
+  "result_basis": "original_pre_entry_forecasts_and_five_actual_completed_sessions",
+  "first_result_does_not_validate_the_model": true,
+  "scheduler": "Windows_Task_Scheduler_current_user_interactive_limited",
+  "wake_to_run": true,
+  "start_when_available": true,
+  "disable_after_completion_or_terminal_withholding": true,
+  "no_new_forecasts_news_requests_training_or_trades": true
+}

@@ -1,0 +1,108 @@
+{
+  "version": "1.1.0",
+  "active_scope": "local_research",
+  "monthly_budget_usd": 0,
+  "checked_on": "2026-11-07",
+  "note": "Technical source review, not a signed market-data agreement. No paid plan or account activated.",
+  "records": [
+    {
+      "id": "gdelt-project-metadata-20261107",
+      "provider": "gdelt_project",
+      "plan": "free_open_datasets_metadata_only",
+      "monthly_cost_usd": 0,
+      "reviewer": "assistant_official_terms_review",
+      "reviewed_at": "2026-11-06T18:20:33Z",
+      "review_due_at": "2026-12-06T00:00:00Z",
+      "evidence_url": "https://www.gdeltproject.org/about.html#termsofuse",
+      "is_illustrative": false,
+      "attribution": "Data from the GDELT Project (https://www.gdeltproject.org/).",
+      "uses": {
+        "ingest_metadata": "allowed",
+        "store_metadata": "allowed",
+        "display_metadata_links": "allowed",
+        "derived_metadata_analysis": "allowed",
+        "publisher_full_text": "unknown",
+        "publisher_text_llm_input": "unknown",
+        "publisher_images": "unknown"
+      }
+    },
+    {
+      "id": "massive-stocks-basic-personal-20261107",
+      "provider": "massive",
+      "plan": "stocks_basic",
+      "monthly_cost_usd": 0,
+      "reviewer": "assistant_official_terms_review",
+      "reviewed_at": "2026-11-06T19:13:45Z",
+      "review_due_at": "2026-12-06T00:00:00Z",
+      "evidence_url": "https://massive.com/legal/market-data-terms-of-service",
+      "evidence_urls": [
+        "https://massive.com/legal/individuals-terms-of-service",
+        "https://massive.com/legal/market-data-terms-of-service",
+        "https://www.massive.com/stocks",
+        "https://massive.com/docs/rest/stocks/aggregates/custom-bars",
+        "https://massive.com/knowledge-base/article/what-is-the-request-limit-for-massives-restful-apis"
+      ],
+      "is_illustrative": false,
+      "account_eligibility_required": true,
+      "account_eligibility_verified": false,
+      "account_confirmed_at": null,
+      "allowed_scope": "own_personal_non_business_non_commercial_only",
+      "data_kind": "stocks_eod_daily_split_adjusted_not_dividend_adjusted",
+      "maximum_history_years": 2,
+      "maximum_requests_per_minute": 5,
+      "account_state": "not_activated_by_assistant; own_free_key_and_subscriber_terms_required",
+      "retention": "Personal storage while license remains valid; stop use/delete within 30 days after license ends unless stricter source terms apply. Reassess on plan/account/source changes.",
+      "uses": {
+        "ingest": "allowed",
+        "store": "allowed",
+        "derived_analytics": "allowed",
+        "public_display": "denied",
+        "redistribution": "denied",
+        "commercial_use": "denied",
+        "llm_input": "not_enabled_pending_service_and_source_specific_review",
+        "model_training": "not_cleared"
+      }
+    }
+  ],
+  "price_provider_candidates": [
+    {
+      "provider": "massive",
+      "selected": true,
+      "selected_scope": "local_research",
+      "status": "personal_terms_reviewed_account_eligibility_pending",
+      "reason": "Free EOD/two-year history with personal download/storage/analysis permission. User account and non-professional subscriber eligibility still required; no public or external LLM route."
+    },
+    {
+      "provider": "twelve_data",
+      "selected": false,
+      "public_display": "not_cleared",
+      "llm_input": "not_cleared",
+      "evidence_urls": ["https://twelvedata.com/terms", "https://support.twelvedata.com/en/articles/5332349-commercial-and-personal-usage"],
+      "reason": "Personal use candidate; unselected. Free-plan retention and AI scope require plan-specific review; public rights are not needed for the active personal-local phase."
+    },
+    {
+      "provider": "tiingo",
+      "selected": false,
+      "public_display": "not_cleared",
+      "llm_input": "not_cleared",
+      "evidence_urls": ["https://www.tiingo.com/about/pricing", "https://www.tiingo.com/tos/"],
+      "reason": "Starter/trial terms 1.6(a) prohibit persistent storage of data and derived products. Incompatible with reproducible saved personal CLI snapshots/reports; not selected."
+    },
+    {
+      "provider": "alpha_vantage",
+      "selected": false,
+      "public_display": "not_cleared",
+      "llm_input": "not_cleared",
+      "evidence_urls": ["https://www.alphavantage.co/terms_of_service/"],
+      "reason": "Personal non-commercial research is a viable alternative. Free compact daily history/25 requests per day is less suitable for the initial longer-history evaluation; not selected."
+    },
+    {
+      "provider": "finnhub",
+      "selected": false,
+      "public_display": "not_cleared",
+      "llm_input": "not_cleared",
+      "evidence_urls": ["https://finnhub.io/terms-of-service"],
+      "reason": "Redistribution of data or derived results needs written approval."
+    }
+  ]
+}

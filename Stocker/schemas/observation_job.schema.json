@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "job": {
+      "type": "object", "required": ["version", "job_id", "task_name", "symbol", "is_illustrative", "due_at", "sessions", "targets", "settings", "released_score", "validation_id", "external_llm_calls", "policy_sha256", "code_sha256", "schema_sha256"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "job_id": {"type": "string", "pattern": "^[a-f0-9]{16}$"}, "task_name": {"type": "string", "pattern": "^Stocker-BE-Outcome-[a-f0-9]{16}$"},
+        "symbol": {"const": "BE"}, "is_illustrative": {"const": false}, "due_at": {"type": "string", "format": "date-time"}, "sessions": {"type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true, "items": {"type": "string", "format": "date"}},
+        "targets": {"type": "array", "minItems": 2, "maxItems": 3, "items": {"type": "object", "required": ["kind", "record_id", "path", "sha256"], "properties": {
+          "kind": {"enum": ["context", "peak", "legacy"]}, "record_id": {"type": "string", "pattern": "^[a-f0-9]{24}$"}, "path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}},
+        "settings": {"type": "object", "properties": {"monthly_data_budget_usd": {"const": 0}, "release_enabled": {"const": false}, "retry_interval_minutes": {"const": 15}, "maximum_network_attempts": {"const": 97}}},
+        "released_score": {"type": "null"}, "validation_id": {"type": "null"}, "external_llm_calls": {"const": 0}
+      }
+    },
+    "observation": {
+      "type": "object", "required": ["status", "job_id", "as_of", "is_illustrative", "symbol", "observed_records", "source_ids", "cost_scenarios", "released_score", "validation_id", "actual_broker_execution"],
+      "properties": {
+        "status": {"const": "one_prospective_observation_not_model_validation"}, "symbol": {"const": "BE"}, "observed_records": {"const": 1}, "as_of": {"type": "string", "format": "date-time"}, "is_illustrative": {"type": "boolean"},
+        "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "cost_scenarios": {"type": "array", "minItems": 2, "maxItems": 2}, "released_score": {"type": "null"}, "validation_id": {"type": "null"}, "actual_broker_execution": {"const": false}
+      }
+    }
+  }
+}

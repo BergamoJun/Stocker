@@ -1,0 +1,49 @@
+{
+  "id": "learned-peak-matched-robustness-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-07T09:54:00Z",
+  "status": "research_only_unvalidated",
+  "release_enabled": false,
+  "is_illustrative": true,
+  "base_learned_policy_sha256": "0bb8832dd397f3a5bd88940f716f3e5145b208028583a2df89f49be3536cc3a6",
+  "seeds": [77011, 77023, 77041],
+  "bars_per_dataset": 1100,
+  "matched_daily_noise_sigma": 0.006,
+  "latent_signal": "0.006*sin(t/18)+0.003*sin(t/43)",
+  "scenarios": [
+    {"id": "null", "signal_strength": 0.0, "stress": "none"},
+    {"id": "weak", "signal_strength": 0.5, "stress": "none"},
+    {"id": "strong", "signal_strength": 1.0, "stress": "none"},
+    {"id": "reversal", "signal_strength": 1.0, "stress": "reverse_signal_at_first_held_out_reference_plus_one"},
+    {"id": "volatility_shift", "signal_strength": 1.0, "stress": "triple_noise_at_first_held_out_reference_plus_one"}
+  ],
+  "variants": [
+    {"id": "with_volume", "active_feature_indices": [0, 1, 2, 3, 4, 5, 6, 7]},
+    {"id": "without_volume", "active_feature_indices": [0, 1, 2, 3, 4, 5, 6]}
+  ],
+  "volume": "100000*exp(30*signal+independent_normal_noise_sigma_0.05)",
+  "random_draws": "same_five_standard_normal_innovations_per_day_and_seed_across_scenarios; no_rng_draws_for_signal",
+  "comparison": "all_four_distribution_models_use_same_intersection_of_forecastable_cases; failures_and_support_withholding_counted",
+  "comparators": ["with_volume", "without_volume", "fixed_ewma", "unconditional_training", "atr_baseline", "five_session_hold"],
+  "fit_schedule": "fixed_training_fit_and_calibration; EWMA_updates_using_observations_through_each_reference",
+  "execution": {
+    "cost_bps_per_side": ["10", "25"],
+    "no_long_plan": "cash_return_zero",
+    "open_gap_outside_plan": "no_entry_cash_return_zero",
+    "same_bar_target_and_stop": "retain_stop_to_target_net_return_bounds; never_invent_order",
+    "bounds_cohort": "same_common_forecastable_cases_including_cash_and_ambiguous_paths"
+  },
+  "aggregation": "equal_weight_per_seed_means; paired_MAE_delta=learned_minus_fixed; report_seed_range_and_coverage; no_significance_claim",
+  "tuning_on_results": false,
+  "real_price_input_enabled": false,
+  "external_llm_calls": 0,
+  "monthly_data_budget_usd": 0,
+  "limitations": [
+    "Three seeds and one generator family do not establish generalization",
+    "Known smooth signal and linked volume are deliberately artificial",
+    "Stress scenarios intentionally change one condition after the first held-out reference",
+    "Matched-noise scenarios can still differ in endogenous volatility/ATR",
+    "No BE forecasting or real-market validation",
+    "No model promotion or report score activation from synthetic results"
+  ]
+}

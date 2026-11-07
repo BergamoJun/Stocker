@@ -1,0 +1,62 @@
+{
+  "id": "swing-news-candidate-v1",
+  "version": "0.1.0",
+  "status": "experimental_unvalidated",
+  "public_score_enabled": false,
+  "monthly_data_budget_usd": 0,
+  "target": {
+    "id": "atr14-reference-baseline-v1",
+    "minimum_completed_sessions": 60,
+    "atr_period": 14,
+    "target_atr_multiple": "2",
+    "invalidation_atr_multiple": "1",
+    "observation_sessions": 5,
+    "direction": "long",
+    "rounding": "USD 0.01; target up, invalidation down",
+    "status": "candidate_not_empirically_validated"
+  },
+  "attractiveness": {
+    "weights": {"price_volume": 20, "fundamentals": 15, "market_sector": 15, "risk_reward": 10, "latest_events": 40},
+    "feature_range": [0, 1],
+    "normalization_registry": "binary-feature-rubric-v1-experimental",
+    "normalization_rules": {
+      "price_volume": "mean of close>SMA20>SMA60, positive five-session return, and up-close with volume>=prior20mean",
+      "fundamentals": "mean of positive YoY revenue growth, positive GAAP operating margin, positive analyst-defined FCF",
+      "market_sector": "mean of explicit broad-market and sector benchmark closes above their SMA20",
+      "risk_reward": "clip((reference_reward_risk-1)/2,0,1); constant for the fixed-ATR baseline and not independent alpha",
+      "maximum_filing_age_days_proposed": 120
+    },
+    "missing_feature_policy": "withhold_total; never rescale remaining weights",
+    "status": "candidate_weights_and_feature_rubric; empirical calibration not approved"
+  },
+  "news": {
+    "provider": "gdelt_project",
+    "metadata_only": true,
+    "poll_interval_seconds": 900,
+    "minimum_request_spacing_seconds": 5,
+    "lookback_hours": 72,
+    "half_life_hours": 24,
+    "maximum_event_age_hours": 168,
+    "maximum_scoring_events": 5,
+    "collection_max_age_minutes": 30,
+    "positive_and_negative_effects": true,
+    "original_article_fetch_enabled": false,
+    "publisher_text_llm_input_enabled": false,
+    "unknown_publication_or_unreviewed_impact": "links_only_no_score"
+  },
+  "timing": {
+    "id": "empirical-first-target-touch-v1",
+    "minimum_prior_resolved_cases": 30,
+    "minimum_prior_target_hits": 10,
+    "quantiles": [0.2, 0.8],
+    "conditioning": "target-hit cases only; publish counts/censoring separately",
+    "status": "candidate_not_empirically_validated"
+  },
+  "validation": {
+    "status": "not_started_no_licensed_price_history",
+    "method": "chronological walk-forward; purge overlapping five-session labels",
+    "cost_bps_per_side_proposed": "10",
+    "same_daily_bar_both_levels": "ambiguous; no invented order",
+    "release_requires": ["licensed history", "point-in-time feature snapshots", "pre-registered acceptance criteria", "held-out results", "operator-reviewed validation record"]
+  }
+}
