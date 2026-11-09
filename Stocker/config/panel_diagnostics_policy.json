@@ -1,0 +1,51 @@
+{
+  "id": "calendar-block-panel-diagnostics-v1",
+  "version": "1.0.0",
+  "frozen_at": "2026-11-08T09:55:35Z",
+  "scope": "personal_local_research_only",
+  "release_enabled": false,
+  "model_training_enabled": false,
+  "monthly_data_budget_usd": 0,
+  "network_requests": 0,
+  "external_llm_calls": 0,
+  "permitted_phases": ["development", "validation"],
+  "final_evaluation_locked": true,
+  "cost_bps_per_side": ["10", "25"],
+  "primary_cost_bps_per_side": "25",
+  "estimand": "matched_case_weighted_mean_conditional_on_the_frozen_issuer_cohort",
+  "bootstrap": {
+    "method": "non_circular_moving_calendar_blocks",
+    "primary_block_references": 4,
+    "sensitivity_block_references": [2, 8],
+    "reference_stride_exchange_sessions": 5,
+    "replications": 2000,
+    "seed": 20261108,
+    "percentiles": [0.025, 0.975],
+    "same_date_issuers_resampled_together": true,
+    "same_draws_for_strategy_and_comparator": true,
+    "same_calendar_draws_across_sectors": true,
+    "phase_boundaries_crossed": false,
+    "new_independent_market_samples_created": false
+  },
+  "support": {
+    "minimum_selected_issuers_per_sector": 100,
+    "minimum_matched_issuers_per_phase": 60,
+    "minimum_reference_dates": 16,
+    "minimum_nominal_nonoverlapping_blocks": 8,
+    "minimum_matched_slot_fraction": "0.90",
+    "require_every_reference_date_has_comparisons": true,
+    "minimum_conditional_target_hits_for_timing_note": 20,
+    "thresholds_are_research_checks_not_a_calibration_guarantee": true
+  },
+  "missing_results": "retain_in_expected_denominator_never_impute_cash_zero",
+  "execution_ambiguity": "preserve_lower_and_upper_endpoints_and_both_sampling_intervals",
+  "inference": "exploratory_pointwise_intervals_no_multiplicity_adjustment_no_release_approval",
+  "assumptions": [
+    "Calendar-block length adequately captures relevant short-run dependence",
+    "Within-phase behavior is stable enough for approximate resampling inference",
+    "Inference is conditional on the fixed cohort, observed period and available matched cases",
+    "Current-vintage prices and SIC metadata are not certified historical originals"
+  ],
+  "source_url": "https://doi.org/10.1214/aos/1176347265",
+  "related_stationary_bootstrap_source_url": "https://doi.org/10.1080/01621459.1994.10476870"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "contract",
+    "run_id",
+    "cases",
+    "evaluation",
+    "gold_status",
+    "model_predictions",
+    "method_hashes"
+  ],
+  "properties": {
+    "contract": {
+      "const": "event-evaluation-report-v1"
+    },
+    "gold_status": {
+      "const": "not_independently_adjudicated"
+    },
+    "model_predictions": {
+      "const": []
+    },
+    "evaluation": {
+      "type": "object",
+      "required": [
+        "interpretation",
+        "price_evaluation",
+        "released_score",
+        "released_price_plan",
+        "locked_final_read"
+      ],
+      "properties": {
+        "released_score": {
+          "type": "null"
+        },
+        "released_price_plan": {
+          "type": "null"
+        },
+        "locked_final_read": {
+          "const": false
+        }
+      }
+    }
+  }
+}

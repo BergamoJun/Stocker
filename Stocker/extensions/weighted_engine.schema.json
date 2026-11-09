@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["contract", "run_id", "status", "identity", "generated_at", "evidence_as_of", "is_illustrative", "origin", "method_hashes", "analysis", "factors", "assessment", "numeric_research", "critic", "one_line_ko", "released_score", "released_price_plan", "external_model_calls", "model_training_performed", "record_sha256"],
+  "properties": {
+    "contract": {"const": "weighted-swing-research-v1"},
+    "run_id": {"type": "string", "pattern": "^[a-f0-9]{32}$"},
+    "status": {"const": "research_only_unvalidated"},
+    "identity": {"type": "object", "required": ["cik", "symbol", "name"]},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "evidence_as_of": {"type": "string", "format": "date-time"},
+    "is_illustrative": {"type": "boolean"},
+    "origin": {"type": "object", "required": ["input_folder", "input_bundle_sha256", "baseline_path", "baseline_sha256"]},
+    "method_hashes": {"type": "object"},
+    "analysis": {"type": "object"},
+    "factors": {"type": "array", "minItems": 23, "maxItems": 23, "items": {"type": "object", "required": ["id", "group", "label", "weight", "formula", "status", "value", "raw", "source_ids", "reason_code", "signed_points"], "properties": {"id": {"type": "string"}, "group": {"type": "string"}, "label": {"type": "string"}, "weight": {"type": "string", "pattern": "^[0-9]+(?:\\.[0-9]+)?$"}, "formula": {"type": "string"}, "status": {"enum": ["available", "unavailable"]}, "value": {"type": ["string", "null"]}, "raw": {"type": "object"}, "source_ids": {"type": "array", "items": {"type": "string"}}, "reason_code": {"type": ["string", "null"]}, "signed_points": {"type": ["string", "null"]}}, "additionalProperties": false}},
+    "assessment": {"type": "object", "required": ["status", "experimental_score", "released_score", "completion_score_bounds", "missing_factors"], "properties": {"experimental_score": {"type": ["integer", "null"], "minimum": 1, "maximum": 100}, "released_score": {"type": "null"}, "calibrated_probability": {"type": "null"}}},
+    "numeric_research": {"type": "object"}, "critic": {"type": "object"}, "one_line_ko": {"type": "string"},
+    "released_score": {"type": "null"}, "released_price_plan": {"type": "null"}, "released_expected_target_sessions": {"type": "null"},
+    "external_model_calls": {"const": 0}, "model_training_performed": {"const": false},
+    "record_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false
+}

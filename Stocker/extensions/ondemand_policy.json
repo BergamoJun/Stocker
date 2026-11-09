@@ -1,0 +1,13 @@
+{
+  "id":"request-scoped-news-metadata-v1",
+  "monthly_cost_usd":0,"publisher_body_fetch_enabled":false,"external_inference_enabled":false,"model_training_enabled":false,"numeric_news_impact_enabled":false,"released_scores_enabled":false,
+  "default_lookback_days":7,"minimum_lookback_days":1,"maximum_lookback_days":30,
+  "cache_ttl_seconds":900,"cache_retention_seconds":172800,"maximum_cache_entries":128,"maximum_cache_bytes":16777216,"maximum_entry_bytes":262144,
+  "maximum_report_bytes":2097152,"maximum_persistent_bytes":268435456,"maximum_reports":1000,
+  "maximum_articles_per_query":25,"maximum_http_requests_per_run":5,"stop_gdelt_after_first_failure":true,
+  "queries":{"macro":"(\"Federal Reserve\" OR inflation OR \"interest rates\")","commodities":"(\"natural gas\" OR \"oil price\" OR \"copper price\")","politics":"(sanctions OR tariffs OR \"energy policy\")"},
+  "time_semantics":"provider publication assertion or GDELT index observation; neither is verified original event time",
+  "storage_scope":"new owned on_demand_news cache only; immutable report copies have a separate cap; no legacy deletion",
+  "candidate_relevance":"ticker match for company; reviewed sector query; general macro/commodity/political context is not verified issuer impact",
+  "sources":["https://massive.com/docs/rest/stocks/news","https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/"]
+}

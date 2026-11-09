@@ -1,0 +1,46 @@
+{
+  "id": "issuer-financial-gap-fill-v1",
+  "reviewed_at": "2026-11-09T07:00:00Z",
+  "review_due_at": "2026-12-09T00:00:00Z",
+  "monthly_data_budget_usd": 0,
+  "network_requests": 0,
+  "external_model_calls": 0,
+  "model_training_enabled": false,
+  "score_enabled": false,
+  "issuer_profiles": {
+    "0001664703": {"symbol": "BE", "profile": "standard_statement_rows"},
+    "0000789019": {"symbol": "MSFT", "profile": "standard_statement_rows"},
+    "0002115436": {"symbol": "XOM", "profile": "xom_sales_member"}
+  },
+  "unresolved_review_exceptions": {"0002115436": ["revenue"]},
+  "row_patterns": {
+    "revenue": "^(?:Total )?(?:Revenues?|Net sales|Sales)(?!.*other income)\\b",
+    "operating_income": "^(?:Total )?(?:Operating income|Operating loss|Income from operations|Loss from operations)\\b",
+    "net_income": "^(?:Net income|Net loss|Net earnings)\\b",
+    "cash": "^Cash and cash equivalents\\b",
+    "assets": "^Total assets\\b",
+    "liabilities": "^Total liabilities(?! and)\\b",
+    "operating_cash_flow": "^Net cash (?:provided by|used in|from) operating activities\\b",
+    "capital_expenditure": "^(?:Purchases of|Payments for|Payments to acquire|Additions to) property.*equipment\\b",
+    "diluted_eps": "^(?:Diluted|Earnings per share.*diluted|Loss per share.*diluted)\\b"
+  },
+  "xom_sales": {
+    "tag": "us-gaap:Revenues",
+    "axis": "srt:ProductOrServiceAxis",
+    "sales_member": "xom:SalesAndOtherOperatingRevenueMember",
+    "affiliates_member": "xom:IncomeFromEquityAffiliatesMember",
+    "other_member": "xom:OtherRevenueMember",
+    "sales_label": "Sales and other operating revenue",
+    "affiliates_label": "Income from equity affiliates",
+    "other_label": "Other income",
+    "total_label": "Total revenues and other income",
+    "scope": "consolidated_sales_excluding_equity_affiliate_and_other_income",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000020/xom-20260930.htm",
+    "definition_ko": "제품·서비스 분류의 영업매출만 사용한다. 지분법 관계회사 이익 및 기타이익을 제외하고 세 항목의 합계가 원문의 총수익과 정확히 일치해야 한다."
+  },
+  "missing_policy": "withhold_missing_or_conflicting_source; never zero fill or merge predecessor CIKs",
+  "review_label": "deterministic_source_match_not_human_approval",
+  "availability": "first_local_overlay_commit_strictly_before_cutoff_second",
+  "price_plan": null,
+  "released_score": null
+}

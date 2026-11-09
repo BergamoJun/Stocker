@@ -1,0 +1,80 @@
+{
+  "id": "critic-single-decision-v2",
+  "registered_at": "2026-11-09T16:42:27.731304Z",
+  "external_calls": 0,
+  "training": false,
+  "score_release": false,
+  "monthly_cost_usd": 0,
+  "quality": {
+    "minimum_research_accuracy": "0.85",
+    "minimum_raw_critic_accuracy": "0.85",
+    "minimum_contract_acceptance": "0.90",
+    "maximum_false_approvals": 0,
+    "maximum_safety_errors": 0
+  },
+  "decision_relations": {
+    "FACT_VERIFIED": {
+      "verdict": "verified_fact_only",
+      "reason": "exact_numeric_fact"
+    },
+    "CONDITIONAL": {
+      "verdict": "conditional_only",
+      "reason": "exposure_unverified"
+    },
+    "UNKNOWN": {
+      "verdict": "unknown",
+      "reason": "insufficient_evidence"
+    },
+    "BAD_FACT_ID": {
+      "verdict": "unsupported",
+      "reason": "invalid_fact_id"
+    },
+    "BAD_SOURCE_TYPE": {
+      "verdict": "unsupported",
+      "reason": "incompatible_source_type"
+    },
+    "ISSUER_MISMATCH": {
+      "verdict": "unsupported",
+      "reason": "issuer_mismatch"
+    },
+    "TIME_VIOLATION": {
+      "verdict": "unsupported",
+      "reason": "evidence_time_violation"
+    },
+    "DIRECTION_CONTRADICTION": {
+      "verdict": "contradicted",
+      "reason": "opposite_effect"
+    },
+    "BASIS_OR_SCOPE_MISMATCH": {
+      "verdict": "unsupported",
+      "reason": "incompatible_period_unit_scope"
+    },
+    "MISSING_PROVENANCE": {
+      "verdict": "unsupported",
+      "reason": "missing_evidence"
+    },
+    "DUPLICATE_EVIDENCE": {
+      "verdict": "unsupported",
+      "reason": "duplicate_evidence"
+    },
+    "CONFLICTING_EVIDENCE": {
+      "verdict": "contradicted",
+      "reason": "claim_evidence_conflict"
+    },
+    "UNSUPPORTED_EXPOSURE": {
+      "verdict": "unsupported",
+      "reason": "unverified_exposure_asserted"
+    },
+    "UNSUPPORTED_HORIZON": {
+      "verdict": "unsupported",
+      "reason": "unsupported_horizon"
+    },
+    "QUOTE_MISMATCH": {
+      "verdict": "unsupported",
+      "reason": "unbound_quote"
+    }
+  },
+  "model_independence": false,
+  "raw_contract": "one categorical decision; verdict/reason display is deterministic projection, not two raw outputs",
+  "legacy_methods_unchanged": true
+}

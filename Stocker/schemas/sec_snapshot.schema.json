@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Unreviewed SEC multi-issuer source snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "is_illustrative", "label", "cik", "identity", "name", "entity_type", "sic", "sic_description", "filings", "financials", "sources", "coverage", "policy_hashes", "code_hashes", "snapshot_id", "content_hash"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "is_illustrative": {"type": "boolean"},
+    "label": {"enum": ["ILLUSTRATIVE — NOT LIVE MARKET DATA", "SEC_PUBLIC_SOURCE_UNREVIEWED_LOCAL_RESEARCH"]},
+    "cik": {"type": "string", "pattern": "^[0-9]{10}$"},
+    "identity": {"type": "object", "required": ["cik", "symbols", "identity_basis"]},
+    "name": {"type": ["string", "null"]},
+    "entity_type": {"type": ["string", "null"]},
+    "sic": {"type": ["string", "null"]},
+    "sic_description": {"type": ["string", "null"]},
+    "filings": {"type": "array", "items": {"type": "object", "required": ["accession", "form", "filed_date", "report_date", "accepted_at", "source_url", "document_source_ids"]}},
+    "financials": {"type": "object", "required": ["sections", "semantic_review", "source_vintage", "source_ids", "unsupported", "score", "investment_recommendation"], "properties": {"sections": {"type": "array"}, "semantic_review": {"const": "not_reviewed"}, "source_vintage": {"const": "current_api_snapshot_not_original_historical_vintage"}, "score": {"type": "null"}, "investment_recommendation": {"type": "null"}, "source_ids": {"type": "array", "items": {"type": "string"}}, "unsupported": {"type": "array"}}},
+    "sources": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "object", "required": ["source_url", "raw_sha256", "raw_path", "available_at", "checked_at", "is_illustrative", "kind"], "properties": {"source_url": {"type": "string", "pattern": "^https://(www|data)\\.sec\\.gov/"}, "raw_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "is_illustrative": {"type": "boolean"}}}},
+    "coverage": {"type": "object", "required": ["recent_submissions_only", "automatic_semantic_review", "original_historical_vintage_verified"], "properties": {"automatic_semantic_review": {"const": false}, "original_historical_vintage_verified": {"const": false}}},
+    "policy_hashes": {"type": "object", "required": ["sec_refresh_policy.json", "sec_fact_policy.json"]},
+    "code_hashes": {"type": "object", "required": ["research/sec_refresh.py", "research/sec_facts.py", "research/sec_transport.py", "schemas/sec_snapshot.schema.json"]},
+    "snapshot_id": {"type": "string", "pattern": "^[0-9]{8}-[a-f0-9]{24}$"},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

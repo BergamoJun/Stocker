@@ -1,0 +1,21 @@
+{
+  "id": "same-filing-reviewed-yoy-v1",
+  "version": "1.0.0",
+  "monthly_data_budget_usd": 0,
+  "network_requests": 0,
+  "external_llm_calls": 0,
+  "model_training_enabled": false,
+  "release_enabled": false,
+  "score_enabled": false,
+  "comparison": "year_over_year_same_filing_same_tag_same_scope",
+  "year_gap_days": [358, 373],
+  "maximum_duration_difference_days": 7,
+  "percent_change_requires_positive_prior": true,
+  "percent_formula": "(current-prior)/prior*100",
+  "negative_or_zero_base": "absolute_change_and_sign_transition_only",
+  "margin_change_unit": "percentage_points",
+  "historical_original_vintage_verified": false,
+  "qoq_enabled": false,
+  "ttm_enabled": false,
+  "availability": "current_and_comparative_review_first_commits_strictly_before_cutoff_second"
+}

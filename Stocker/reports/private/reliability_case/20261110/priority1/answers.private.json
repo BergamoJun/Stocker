@@ -1,0 +1,242 @@
+[
+  {
+    "id": "reg_dual_01",
+    "split": "legacy_regression",
+    "should_allow": true,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_02",
+    "split": "legacy_regression",
+    "should_allow": true,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_03",
+    "split": "legacy_regression",
+    "should_allow": true,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_04",
+    "split": "legacy_regression",
+    "should_allow": true,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_05",
+    "split": "legacy_regression",
+    "should_allow": true,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_06",
+    "split": "legacy_regression",
+    "should_allow": true,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_07",
+    "split": "legacy_regression",
+    "should_allow": false,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_08",
+    "split": "legacy_regression",
+    "should_allow": false,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_09",
+    "split": "legacy_regression",
+    "should_allow": false,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_10",
+    "split": "legacy_regression",
+    "should_allow": false,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_11",
+    "split": "legacy_regression",
+    "should_allow": false,
+    "decision": null
+  },
+  {
+    "id": "reg_dual_12",
+    "split": "legacy_regression",
+    "should_allow": false,
+    "decision": null
+  },
+  {
+    "id": "blind_01",
+    "split": "model_blind",
+    "should_allow": true,
+    "decision": "CONDITIONAL",
+    "category": "cash_valid"
+  },
+  {
+    "id": "blind_02",
+    "split": "model_blind",
+    "should_allow": true,
+    "decision": "CONDITIONAL",
+    "category": "energy_valid"
+  },
+  {
+    "id": "blind_03",
+    "split": "model_blind",
+    "should_allow": true,
+    "decision": "FACT_VERIFIED",
+    "category": "numeric_valid"
+  },
+  {
+    "id": "blind_04",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "UNKNOWN",
+    "category": "unknown1"
+  },
+  {
+    "id": "blind_05",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "BAD_FACT_ID",
+    "category": "bad_fact"
+  },
+  {
+    "id": "blind_06",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "BAD_SOURCE_TYPE",
+    "category": "source_type"
+  },
+  {
+    "id": "blind_07",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "ISSUER_MISMATCH",
+    "category": "issuer"
+  },
+  {
+    "id": "blind_08",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "TIME_VIOLATION",
+    "category": "future"
+  },
+  {
+    "id": "blind_09",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "TIME_VIOLATION",
+    "category": "backdate"
+  },
+  {
+    "id": "blind_10",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "BASIS_OR_SCOPE_MISMATCH",
+    "category": "unit"
+  },
+  {
+    "id": "blind_11",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "BASIS_OR_SCOPE_MISMATCH",
+    "category": "period"
+  },
+  {
+    "id": "blind_12",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "BASIS_OR_SCOPE_MISMATCH",
+    "category": "scope"
+  },
+  {
+    "id": "blind_13",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "DUPLICATE_EVIDENCE",
+    "category": "duplicate"
+  },
+  {
+    "id": "blind_14",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "MISSING_PROVENANCE",
+    "category": "missing"
+  },
+  {
+    "id": "blind_15",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "CONFLICTING_EVIDENCE",
+    "category": "extra"
+  },
+  {
+    "id": "blind_16",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "CONFLICTING_EVIDENCE",
+    "category": "numeric_conflict"
+  },
+  {
+    "id": "blind_17",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "QUOTE_MISMATCH",
+    "category": "quote"
+  },
+  {
+    "id": "blind_18",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "UNSUPPORTED_EXPOSURE",
+    "category": "exposure"
+  },
+  {
+    "id": "blind_19",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "UNSUPPORTED_HORIZON",
+    "category": "horizon"
+  },
+  {
+    "id": "blind_20",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "DIRECTION_CONTRADICTION",
+    "category": "direction"
+  },
+  {
+    "id": "blind_21",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "DIRECTION_CONTRADICTION",
+    "category": "energy_direction"
+  },
+  {
+    "id": "blind_22",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "MISSING_PROVENANCE",
+    "category": "source_missing"
+  },
+  {
+    "id": "blind_23",
+    "split": "model_blind",
+    "should_allow": true,
+    "decision": "CONDITIONAL",
+    "category": "capex_valid"
+  },
+  {
+    "id": "blind_24",
+    "split": "model_blind",
+    "should_allow": false,
+    "decision": "UNKNOWN",
+    "category": "unknown2"
+  }
+]

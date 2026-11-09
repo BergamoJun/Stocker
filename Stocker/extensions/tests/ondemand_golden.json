@@ -1,0 +1,9 @@
+{
+ "label":"ILLUSTRATIVE - NOT LIVE MARKET DATA",
+ "topics":["company","sector","macro","commodities","politics"],
+ "company_time_kind":"provider_publication_assertion","gdelt_time_kind":"index_observation",
+ "successful_fixture":{"status":"bounded_links","article_count":1,"requests":{"massive":1,"gdelt":4},"cache_hits":0},
+ "reused_fixture":{"requests":{"massive":0,"gdelt":0},"cache_hits":5},
+ "failed_fixture":{"status":"partial","company_status":"links_available","sector_status":"deferred","later_status":"skipped_after_failure"},
+ "forbidden_promotions":{"publisher_body_fetched":false,"external_inference_calls":0,"model_training_performed":false,"numeric_news_impact":null,"released_score":null,"realtime_guaranteed":false}
+}

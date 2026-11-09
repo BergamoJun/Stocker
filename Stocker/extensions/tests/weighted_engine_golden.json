@@ -1,0 +1,11 @@
+{
+  "label": "ILLUSTRATIVE — NOT LIVE MARKET DATA",
+  "cases": [
+    {"id": "all_observed_neutral", "default": "0", "changes": {}, "missing": [], "experimental_score": 50, "bounds": [50, 50]},
+    {"id": "best_permitted_features", "default": "1", "changes": {"overextension": "0"}, "missing": [], "experimental_score": 99, "bounds": [99, 99]},
+    {"id": "all_negative", "default": "-1", "changes": {}, "missing": [], "experimental_score": 1, "bounds": [1, 1]},
+    {"id": "upside_weight_ten", "default": "0", "changes": {"net_target_upside": "1"}, "missing": [], "experimental_score": 55, "bounds": [55, 55]},
+    {"id": "news_missing_is_not_neutral", "default": "0", "changes": {}, "missing": ["event_company", "event_sector", "event_macro", "event_commodity", "event_political"], "experimental_score": null, "bounds": [30, 70]},
+    {"id": "one_sided_missing_penalty", "default": "0", "changes": {}, "missing": ["overextension"], "experimental_score": null, "bounds": [49, 50]}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "sec-original-fact-review-v1",
+  "version": "1.0.0",
+  "monthly_data_budget_usd": 0,
+  "network_requests": 0,
+  "external_llm_calls": 0,
+  "model_training_enabled": false,
+  "release_enabled": false,
+  "score_enabled": false,
+  "availability": "first_local_receipt_commit_strictly_before_cutoff_second",
+  "binding": "cik_accession_metadata_document_hash_contiguous_incarnation_amendment_set",
+  "allow_hidden_facts": false,
+  "amendment_merge": false,
+  "metrics": {
+    "revenue": {"tags": ["us-gaap:Revenues", "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax", "us-gaap:SalesRevenueNet"], "unit": "USD", "basis": "income", "scopes": ["consolidated"]},
+    "operating_income": {"tags": ["us-gaap:OperatingIncomeLoss"], "unit": "USD", "basis": "income", "scopes": ["consolidated"]},
+    "net_income": {"tags": ["us-gaap:ProfitLoss", "us-gaap:NetIncomeLoss"], "unit": "USD", "basis": "income", "scopes": ["consolidated", "parent_attributable"], "tag_scopes": {"us-gaap:ProfitLoss": ["consolidated"], "us-gaap:NetIncomeLoss": ["parent_attributable"]}},
+    "cash": {"tags": ["us-gaap:CashAndCashEquivalentsAtCarryingValue"], "unit": "USD", "basis": "instant", "scopes": ["consolidated"]},
+    "assets": {"tags": ["us-gaap:Assets"], "unit": "USD", "basis": "instant", "scopes": ["consolidated"]},
+    "liabilities": {"tags": ["us-gaap:Liabilities"], "unit": "USD", "basis": "instant", "scopes": ["consolidated"]},
+    "operating_cash_flow": {"tags": ["us-gaap:NetCashProvidedByUsedInOperatingActivities"], "unit": "USD", "basis": "cashflow", "scopes": ["consolidated"]},
+    "capital_expenditure": {"tags": ["us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"], "unit": "USD", "basis": "cashflow", "scopes": ["consolidated"]},
+    "diluted_eps": {"tags": ["us-gaap:EarningsPerShareDiluted"], "unit": "USD/shares", "basis": "income", "scopes": ["common_diluted"]}
+  },
+  "maximum_document_bytes": 30000000,
+  "maximum_facts_per_document": 100000,
+  "source_freshness_claim": "saved_filings_only_not_complete_market_coverage",
+  "historical_original_vintage_verified": false
+}

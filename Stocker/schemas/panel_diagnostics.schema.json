@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "status", "as_of", "methodology_id", "source_kind", "is_illustrative", "label", "source_ids", "source_progress", "groups", "case_slots", "final_evaluation_locked", "final_cases_read", "heldout_symbols_read", "model_training_performed", "network_requests", "external_llm_calls", "released_score", "performance_validated", "calibrated_win_probability", "estimand", "assumptions", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "status": {"enum": ["waiting_for_panel_results", "source_incomplete", "illustrative_diagnostics", "pilot_descriptive_only", "retrospective_diagnostics_not_validation"]},
+    "as_of": {"type": "string", "format": "date-time"},
+    "methodology_id": {"const": "calendar-block-panel-diagnostics-v1"},
+    "source_kind": {"enum": ["panel", "pilot", "synthetic"]}, "is_illustrative": {"type": "boolean"},
+    "label": {"type": "string", "minLength": 1}, "source_ids": {"type": "array", "minItems": 1},
+    "case_slots": {"type": "integer", "minimum": 0},
+    "final_evaluation_locked": {"const": true}, "final_cases_read": {"const": 0}, "heldout_symbols_read": {"const": 0},
+    "model_training_performed": {"const": false}, "network_requests": {"const": 0}, "external_llm_calls": {"const": 0},
+    "released_score": {"type": "null"}, "performance_validated": {"const": false}, "calibrated_win_probability": {"type": "null"},
+    "groups": {"type": "array", "items": {"$ref": "#/$defs/group"}}
+  },
+  "allOf": [
+    {"if": {"properties": {"source_kind": {"const": "synthetic"}}}, "then": {"properties": {"is_illustrative": {"const": true}, "label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"}, "status": {"const": "illustrative_diagnostics"}}}, "else": {"properties": {"is_illustrative": {"const": false}}}},
+    {"if": {"properties": {"status": {"enum": ["waiting_for_panel_results", "source_incomplete"]}}}, "then": {"properties": {"groups": {"maxItems": 0}, "case_slots": {"const": 0}}}},
+    {"if": {"properties": {"source_kind": {"const": "pilot"}}}, "then": {"properties": {"status": {"const": "pilot_descriptive_only"}}}},
+    {"if": {"properties": {"source_kind": {"const": "panel"}}}, "then": {"properties": {"status": {"enum": ["waiting_for_panel_results", "source_incomplete", "retrospective_diagnostics_not_validation"]}}}}
+  ],
+  "$defs": {
+    "interval": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+    "block": {
+      "type": "object", "required": ["block_references", "reference_dates", "nominal_nonoverlapping_blocks", "independent_sample_count", "status", "reason_codes", "replications", "seed", "intervals", "direction", "performance_validated"],
+      "properties": {
+        "block_references": {"enum": [2, 4, 8]}, "reference_dates": {"type": "integer", "minimum": 0},
+        "independent_sample_count": {"type": "null"}, "status": {"enum": ["withheld", "computed_exploratory"]},
+        "performance_validated": {"const": false},
+        "direction": {"enum": ["insufficient_support", "positive_sample_excess", "negative_sample_excess", "inconclusive"]}
+      },
+      "allOf": [{"if": {"properties": {"status": {"const": "withheld"}}},
+        "then": {"properties": {"replications": {"const": 0}, "seed": {"type": "null"}, "intervals": {"type": "null"}, "reason_codes": {"minItems": 1}, "direction": {"const": "insufficient_support"}}},
+        "else": {"properties": {"replications": {"const": 2000}, "seed": {"type": "integer"}, "reason_codes": {"maxItems": 0}, "intervals": {"type": "object", "required": ["conservative_excess_envelope_pct_points", "conservative_net_envelope_pct"], "additionalProperties": {"$ref": "#/$defs/interval"}}}}}]
+    },
+    "group": {
+      "type": "object", "required": ["sector_id", "name_ko", "phase", "selected_unique_issuers", "point", "uncertainty", "breakdowns", "monthly_sensitivity", "review_priorities"],
+      "properties": {
+        "phase": {"enum": ["development", "validation"]}, "point": {"type": "object"}, "breakdowns": {"type": "object"},
+        "uncertainty": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "object", "required": ["cost_bps_per_side", "primary_direction", "sensitivity_status", "blocks"], "properties": {
+          "cost_bps_per_side": {"enum": ["10", "25"]}, "blocks": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/block"}},
+          "sensitivity_status": {"enum": ["consistent_positive", "consistent_negative", "mixed_or_inconclusive", "not_all_lengths_supported"]}
+        }}}
+      }
+    }
+  }
+}

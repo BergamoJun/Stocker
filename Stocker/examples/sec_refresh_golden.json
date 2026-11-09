@@ -1,0 +1,12 @@
+{
+  "label": "ILLUSTRATIVE — NOT LIVE MARKET DATA",
+  "initial_issuers": 3,
+  "initial_status": "completed_batch",
+  "cached_repeat_requests": 0,
+  "amendment_status": "completed_batch",
+  "old_asof_has_amendment": false,
+  "current_has_amendment": true,
+  "asof_before_capture": true,
+  "semantic_review": "not_reviewed",
+  "released_score": null
+}

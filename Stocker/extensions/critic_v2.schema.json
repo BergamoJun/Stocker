@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "numeric_fact",
+            "conditional_route"
+          ]
+        },
+        "issuer_cik": {
+          "type": "string",
+          "pattern": "^\\d{10}$"
+        },
+        "fact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "route_id": {
+          "enum": [
+            "financing_cost",
+            "cash_yield",
+            "investment_budget",
+            "energy_input_cost",
+            "energy_sales_price",
+            "supply_availability",
+            "energy_sales_demand",
+            "none"
+          ]
+        },
+        "effect": {
+          "enum": [
+            "favourable",
+            "adverse",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 600
+        },
+        "assumption_id": {
+          "type": "string"
+        },
+        "exposure_verified": {
+          "type": "boolean"
+        },
+        "horizon": {
+          "enum": [
+            "unknown",
+            "within_five_sessions",
+            "longer_term"
+          ]
+        },
+        "basis": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "claim_value": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$"
+        },
+        "claim_unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8
+        },
+        "evidence_available_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "kind",
+        "issuer_cik",
+        "fact_id",
+        "source_id",
+        "route_id",
+        "effect",
+        "quote",
+        "assumption_id",
+        "exposure_verified",
+        "horizon",
+        "basis",
+        "scope",
+        "claim_value",
+        "claim_unit",
+        "evidence_ids",
+        "evidence_available_at"
+      ],
+      "additionalProperties": false
+    },
+    "raw": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "enum": [
+            "FACT_VERIFIED",
+            "CONDITIONAL",
+            "UNKNOWN",
+            "BAD_FACT_ID",
+            "BAD_SOURCE_TYPE",
+            "ISSUER_MISMATCH",
+            "TIME_VIOLATION",
+            "DIRECTION_CONTRADICTION",
+            "BASIS_OR_SCOPE_MISMATCH",
+            "MISSING_PROVENANCE",
+            "DUPLICATE_EVIDENCE",
+            "CONFLICTING_EVIDENCE",
+            "UNSUPPORTED_EXPOSURE",
+            "UNSUPPORTED_HORIZON",
+            "QUOTE_MISMATCH"
+          ]
+        }
+      },
+      "required": [
+        "decision"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "label": "ILLUSTRATIVE — NOT LIVE MARKET DATA",
+  "reports": 2,
+  "qoq": 5,
+  "ttm": 5,
+  "price_scenario": true,
+  "proxies": 2,
+  "news_highlights": 2,
+  "partial_price_scenario": false,
+  "released_score": null,
+  "network_requests": 0
+}

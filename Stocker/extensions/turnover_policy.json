@@ -1,0 +1,64 @@
+{
+  "id": "relative-notional-proxy-candidate-v1",
+  "registered_at": "2026-11-09T11:24:54.884970Z",
+  "monthly_cost_usd": 0,
+  "network_requests": 0,
+  "external_inference_calls": 0,
+  "model_training_enabled": false,
+  "released_scores_enabled": false,
+  "baseline_sessions": 20,
+  "persistence_sessions": [
+    3,
+    5
+  ],
+  "minimum_sessions": 25,
+  "excess_cap": "1",
+  "replacement_weight": "2",
+  "candidate_budget_unchanged": true,
+  "notional_measure": "split-adjusted close times split-adjusted reported shares; proxy not actual traded notional",
+  "benchmark": "original nine-factor signed sum; replace only its volume_confirmation term",
+  "candidates": [
+    "original_volume",
+    "relative_notional",
+    "persistent_notional"
+  ],
+  "candidate_formula": "B=sign(close-prev_close)*clip(close*volume/prior20median(close*volume)-1,0,1); C=(B+mean(last3 B)+mean(last5 B))/3",
+  "primary_outcome": "next_five_session_max_high_relative_to_reference_close_pct; opportunity not executable profit",
+  "secondary_outcome": "five_session_hold_net_return_pct_at_25bps_per_side",
+  "evaluation": {
+    "permitted_phases": [
+      "development",
+      "validation"
+    ],
+    "minimum_issuers_per_date": 60,
+    "minimum_reference_dates": 16,
+    "minimum_nonoverlapping_blocks": 8,
+    "primary_block_length": 4,
+    "sensitivity_block_lengths": [
+      2,
+      8
+    ],
+    "bootstrap_replications": 2000,
+    "seed": 39821,
+    "interval_scope": "exploratory pointwise; multiple candidates and endpoints; no automatic winner selection"
+  },
+  "runtime": {
+    "interval_minutes": 15,
+    "maximum_elapsed_days": 14,
+    "maximum_invocations": 1000,
+    "maximum_seconds_per_invocation": 600,
+    "maximum_issuers_per_invocation": 100
+  },
+  "rights": {
+    "local_research_only": true,
+    "current_vintage_not_certified_historical": true,
+    "final_holdout_unlocked": false,
+    "fit_or_select_coefficients": false,
+    "infer_institution_or_insider_activity": false,
+    "numeric_news_impact_enabled": false
+  },
+  "sources": [
+    "https://massive.com/knowledge-base/article/why-does-volume-return-as-a-decimal-value-from-the-aggregates-endpoint",
+    "https://massive.com/docs/rest/stocks/aggregates/custom-bars"
+  ]
+}

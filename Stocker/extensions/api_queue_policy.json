@@ -1,0 +1,17 @@
+{
+  "id": "shared-stock-request-queue-v1",
+  "monthly_data_budget_usd": 0,
+  "maximum_local_wait_seconds": 45,
+  "shared_lock_poll_seconds": 0.005,
+  "queue_poll_seconds": 0.05,
+  "lease_seconds": 180,
+  "minimum_seconds_after_completion": 15,
+  "maximum_company_http_requests": 3,
+  "priorities": {"current_price": 10, "news": 20, "bulk": 30},
+  "aging_seconds": 20,
+  "observer_priority": "yield before queueing, while waiting, after acquiring, and before HTTP when the pinned observer holds its actual OS lock",
+  "source_http_retries": 0,
+  "shared_state": "existing historical_panel_api/request.lock and budget.json",
+  "legacy_workers": "unchanged; priority/FIFO applies only to cooperating queued clients; legacy workers share the same byte lock and cooldown",
+  "default_lane": "news"
+}

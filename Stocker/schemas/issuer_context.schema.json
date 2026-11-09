@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "registry": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "is_illustrative", "reviewed_at", "review_due_at", "reviewer_kind", "profiles"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "is_illustrative": {"type": "boolean"},
+        "reviewed_at": {"type": "string", "format": "date-time"}, "review_due_at": {"type": "string", "format": "date-time"}, "reviewer_kind": {"type": "string", "minLength": 1},
+        "profiles": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false,
+          "required": ["symbol", "cik", "instrument_type", "issuer_name", "company_query", "sector_query", "market_proxy", "sector_proxy", "price_adapter_status", "news_adapter_status"],
+          "properties": {
+            "symbol": {"type": "string", "pattern": "^[A-Z][A-Z0-9.-]{0,14}$"}, "cik": {"type": "string", "pattern": "^[0-9]{10}$"}, "instrument_type": {"const": "equity"},
+            "issuer_name": {"type": "string", "minLength": 1}, "company_query": {"type": "string", "minLength": 1, "maxLength": 512}, "sector_query": {"type": "string", "minLength": 1, "maxLength": 512},
+            "market_proxy": {"$ref": "#/$defs/proxy"}, "sector_proxy": {"$ref": "#/$defs/proxy"},
+            "price_adapter_status": {"enum": ["legacy_be_only", "not_implemented"]}, "news_adapter_status": {"const": "issuer_scoped_metadata_and_explicit_reviews"}
+          }}}
+      }
+    },
+    "proxy": {"type": "object", "additionalProperties": false, "required": ["symbol", "source_url", "limitation_ko"], "properties": {"symbol": {"type": "string"}, "source_url": {"type": "string", "format": "uri"}, "limitation_ko": {"type": "string", "minLength": 1}}},
+    "review": {"type": "object", "additionalProperties": false, "required": ["version", "cik", "symbol", "is_illustrative", "profile_binding", "reviewer_kind", "manifest"], "properties": {"version": {"const": "1.0.0"}, "cik": {"type": "string", "pattern": "^[0-9]{10}$"}, "symbol": {"type": "string"}, "is_illustrative": {"type": "boolean"}, "profile_binding": {"type": "object"}, "reviewer_kind": {"enum": [null, "human", "assistant_original_source_review"]}, "manifest": {"type": "object"}}},
+    "report": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "report_id", "as_of", "generated_at", "is_illustrative", "label", "base_report", "profile", "news", "coverage", "source_catalog", "one_line_ko", "limitations", "released_price_plan", "released_score", "released_expected_target_sessions", "full_recommendation_ready", "provenance"],
+      "properties": {
+        "schema_version": {"const": "issuer-expanded-research-v1"}, "report_id": {"type": "string", "pattern": "^[a-f0-9]{32}$"},
+        "as_of": {"type": "string", "format": "date-time"}, "generated_at": {"type": "string", "format": "date-time"}, "is_illustrative": {"type": "boolean"}, "label": {"type": "string"},
+        "base_report": {"type": "object"}, "profile": {"type": ["object", "null"]}, "news": {"type": "object"}, "coverage": {"type": "object"}, "source_catalog": {"type": "array"}, "one_line_ko": {"type": "string"}, "limitations": {"type": "array"},
+        "released_price_plan": {"type": "null"}, "released_score": {"type": "null"}, "released_expected_target_sessions": {"type": "null"}, "full_recommendation_ready": {"const": false}, "provenance": {"type": "object"}
+      }
+    }
+  }
+}

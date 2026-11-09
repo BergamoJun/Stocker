@@ -1,0 +1,20 @@
+{
+  "id": "split-analysis-input-output-v1",
+  "reviewed_at": "2026-11-09T06:20:00Z",
+  "review_due_at": "2026-12-09T00:00:00Z",
+  "monthly_data_budget_usd": 0,
+  "external_model_calls_enabled": false,
+  "model_training_enabled": false,
+  "released_scores_enabled": false,
+  "ai_input_scopes": ["reviewed_SEC_numeric_facts_only", "approved_official_authored_narrative", "public_issuer_identity", "self_authored_coverage_status"],
+  "local_only_scopes": ["stock_and_ETF_prices", "price_derived_metrics", "vendor_news_metadata", "unapproved_filing_or_publisher_prose"],
+  "sec_numeric_facts_review": {
+    "basis": "Narrow technical assessment: factual numbers, periods and own metric identifiers are distinct from copyrightable expression; SEC source access rules and provenance remain applicable. No issuer narrative, original review prose, table images or vendor prices are included.",
+    "evidence_urls": ["https://www.copyright.gov/help/faq/faq-protect.html", "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"],
+    "inference_input_eligible": true,
+    "training_enabled": false
+  },
+  "future_component_readers": {"market_v1": "extensions.market_inputs", "financial_v1": "extensions.financial_fill"},
+  "output_scope": "grounded_facts_interpretations_risks_counterarguments_only; never numeric price plans or attractiveness scores",
+  "availability": "common cutoff; source and review availability strictly before the cutoff second"
+}

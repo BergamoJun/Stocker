@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "hashes": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+    "packet": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "cik", "symbol", "is_illustrative", "packet_id", "sequence", "content_sha256", "available_at", "method_hashes", "roles"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "cik": {"type": "string", "pattern": "^[0-9]{10}$"}, "symbol": {"type": "string"},
+        "is_illustrative": {"type": "boolean"}, "packet_id": {"type": "string", "pattern": "^[0-9]{8}-[a-f0-9]{24}$"},
+        "sequence": {"type": "integer", "minimum": 1}, "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "available_at": {"type": "string", "format": "date-time"}, "method_hashes": {"$ref": "#/$defs/hashes"},
+        "roles": {"type": "object", "required": ["stock", "market", "sector"], "additionalProperties": {"type": "object"}}
+      }
+    },
+    "report": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "report_id", "status", "label", "as_of", "generated_at", "is_illustrative", "identity", "financial", "market", "news", "input_binding", "coverage", "source_catalog", "one_line_ko", "limitations", "released_price_plan", "released_score", "released_expected_target_sessions", "validation_id", "full_recommendation_ready", "original_forecasts_modified", "provenance"],
+      "properties": {
+        "schema_version": {"const": "integrated-research-report-v1"}, "report_id": {"type": "string", "pattern": "^[a-f0-9]{32}$"},
+        "status": {"const": "research_only_unvalidated"}, "label": {"type": "string"}, "as_of": {"type": "string", "format": "date-time"},
+        "generated_at": {"type": "string", "format": "date-time"}, "is_illustrative": {"type": "boolean"},
+        "identity": {"type": "object", "additionalProperties": false, "required": ["cik", "symbol", "name"], "properties": {"cik": {"type": "string", "pattern": "^[0-9]{10}$"}, "symbol": {"type": ["string", "null"]}, "name": {"type": ["string", "null"]}}},
+        "financial": {"type": "object"}, "market": {"type": "object"}, "news": {"type": "object"}, "input_binding": {"type": ["object", "null"]},
+        "coverage": {"type": "object"}, "source_catalog": {"type": "array", "items": {"type": "object"}},
+        "one_line_ko": {"type": "string", "minLength": 1}, "limitations": {"type": "array", "items": {"type": "string"}},
+        "released_price_plan": {"type": "null"}, "released_score": {"type": "null"}, "released_expected_target_sessions": {"type": "null"},
+        "validation_id": {"type": "null"}, "full_recommendation_ready": {"const": false}, "original_forecasts_modified": {"const": false},
+        "provenance": {
+          "type": "object", "additionalProperties": false,
+          "required": ["method_hashes", "input_root", "news_root", "archive_root", "network_requests", "external_llm_calls", "llm_tokens", "model_training_performed", "public_release"],
+          "properties": {"method_hashes": {"$ref": "#/$defs/hashes"}, "input_root": {"type": "string"}, "news_root": {"type": "string"}, "archive_root": {"type": "string"}, "network_requests": {"const": 0}, "external_llm_calls": {"const": 0}, "llm_tokens": {"const": 0}, "model_training_performed": {"const": false}, "public_release": {"const": false}}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "label":"ILLUSTRATIVE - NOT LIVE MARKET DATA",
+  "scenario":"25 sessions: first 20 close=100 volume=1, last five close=101..105 volume=2, high=close+1 low=close-1 open=close",
+  "expected":{"status":"available","relative_notional":"2.1","persistence_3":"1","persistence_5":"1","close_location":"0","return_5_pct":"5.00","extension_atr":"2.125"},
+  "signals":{"relative_notional":"1","persistent_notional":"1"},
+  "original_volume_rational":{"numerator":"2","denominator":"3"},
+  "flags":["RELATIVE_ACTIVITY_EXPANDED","PRICE_EXTENSION_NOT_PROOF_OF_PRICING_IN"],
+  "forbidden_claims":{"institutional_activity_verified":false,"released_score":null,"news_alignment":{"status":"withheld","reason":"NO_VERIFIED_EVENT_TIMESTAMP"}}
+}

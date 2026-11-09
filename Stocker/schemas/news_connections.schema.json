@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "gates": {
+      "type": "object", "required": ["released_score", "experimental_news_score", "model_training_performed", "network_requests", "external_llm_calls"],
+      "properties": {"released_score": {"type": "null"}, "experimental_news_score": {"type": "null"}, "model_training_performed": {"const": false}, "network_requests": {"const": 0}, "external_llm_calls": {"const": 0}}
+    },
+    "receipt": {
+      "type": "object",
+      "required": ["version", "policy_id", "symbol", "is_illustrative", "data_label", "available_at", "store_order", "receipt_id", "receipt_sha256", "news_context_sha256", "news_packet", "manifest", "bindings", "source_context_sha256", "source_review_sha256", "archive_capture_sha256", "legacy_sha256", "connection_policy_sha256", "original_text_assertions_independently_verified"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "policy_id": {"const": "article-version-review-forecast-links-v1"}, "symbol": {"const": "BE"},
+        "is_illustrative": {"type": "boolean"}, "available_at": {"type": "string", "format": "date-time"}, "store_order": {"type": "integer", "minimum": 1},
+        "receipt_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "receipt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "manifest": {"type": "object"}, "bindings": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "object", "required": ["article_key", "content_sha256", "incarnation_id", "incarnation_available_at", "url"]}},
+        "original_text_assertions_independently_verified": {"const": false}
+      },
+      "allOf": [{"$ref": "#/$defs/gates"}, {"if": {"properties": {"is_illustrative": {"const": true}}}, "then": {"properties": {"data_label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"}}}, "else": {"properties": {"data_label": {"type": "null"}}}}]
+    },
+    "snapshot": {
+      "type": "object",
+      "required": ["version", "status", "policy_id", "symbol", "as_of", "generated_at", "is_illustrative", "data_label", "articles", "events", "highlights", "article_status_counts", "coverage", "coverage_current_at_cutoff", "review_reuse_scope", "calibrated_probability", "publisher_body_fetched", "original_forecast_modified", "limitations"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "policy_id": {"const": "article-version-review-forecast-links-v1"}, "symbol": {"const": "BE"},
+        "status": {"enum": ["news_connections_snapshot", "frozen_forecast_news_availability_audit"]},
+        "as_of": {"type": "string", "format": "date-time"}, "generated_at": {"type": "string", "format": "date-time"},
+        "is_illustrative": {"type": "boolean"}, "calibrated_probability": {"type": "null"}, "publisher_body_fetched": {"const": false}, "original_forecast_modified": {"const": false},
+        "review_reuse_scope": {"const": "explanation_only_no_automatic_legacy_score_rebinding"},
+        "articles": {"type": "array", "items": {"type": "object", "required": ["article_key", "content_sha256", "metadata", "status", "highlight"], "properties": {
+          "status": {"enum": ["archive_unavailable_at_cutoff", "conflicting_reviews", "review_linked", "irrelevant_reviewed", "review_needs_update", "awaiting_review"]}, "highlight": {"type": "boolean"}
+        }, "allOf": [{"if": {"properties": {"status": {"enum": ["archive_unavailable_at_cutoff", "conflicting_reviews", "irrelevant_reviewed", "review_needs_update", "awaiting_review"]}}}, "then": {"properties": {"highlight": {"const": false}}}}]}},
+        "events": {"type": "array", "items": {"type": "object", "required": ["event_id", "status", "highlight", "opinions", "released_score", "experimental_news_score"], "properties": {
+          "status": {"enum": ["conflicting_reviews", "review_linked", "irrelevant_reviewed", "review_needs_update"]},
+          "highlight": {"type": "boolean"}, "released_score": {"type": "null"}, "experimental_news_score": {"type": "null"}
+        }, "allOf": [{"if": {"properties": {"status": {"enum": ["conflicting_reviews", "irrelevant_reviewed", "review_needs_update"]}}}, "then": {"properties": {"highlight": {"const": false}}}}]}}
+      },
+      "allOf": [
+        {"$ref": "#/$defs/gates"},
+        {"if": {"properties": {"is_illustrative": {"const": true}}}, "then": {"properties": {"data_label": {"const": "ILLUSTRATIVE — NOT LIVE MARKET DATA"}}}, "else": {"properties": {"data_label": {"type": "null"}}}},
+        {"if": {"properties": {"status": {"const": "frozen_forecast_news_availability_audit"}}}, "then": {"required": ["forecast", "association_role", "news_used_in_original_price_decision", "original_action_changed"], "properties": {"news_used_in_original_price_decision": {"const": false}, "original_action_changed": {"const": false}}}}
+      ]
+    }
+  }
+}

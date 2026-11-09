@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "binding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["cik", "accession", "form", "report_date", "filed_date", "accepted_at", "primary_document", "source_id", "source_url", "raw_sha256", "amendments", "incarnation_id", "incarnation_available_at"],
+      "properties": {
+        "cik": {"type": "string", "pattern": "^[0-9]{10}$"}, "accession": {"type": "string", "pattern": "^[0-9]{10}-[0-9]{2}-[0-9]{6}$"},
+        "form": {"enum": ["10-K", "10-Q", "10-K/A", "10-Q/A"]}, "report_date": {"type": ["string", "null"], "format": "date"},
+        "filed_date": {"type": "string", "format": "date"}, "accepted_at": {"type": ["string", "null"], "format": "date-time"},
+        "primary_document": {"type": "string"}, "source_id": {"type": "string"}, "source_url": {"type": "string", "pattern": "^https://www\\.sec\\.gov/Archives/edgar/data/"},
+        "raw_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "amendments": {"type": "array"},
+        "incarnation_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "incarnation_available_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["metric", "decision", "fact_id", "scope", "row_label", "definition", "rationale", "rejected_fact_ids"],
+      "properties": {
+        "metric": {"enum": ["revenue", "operating_income", "net_income", "cash", "assets", "liabilities", "operating_cash_flow", "capital_expenditure", "diluted_eps"]},
+        "decision": {"enum": ["verified", "unresolved"]}, "fact_id": {"type": ["string", "null"]}, "scope": {"type": ["string", "null"]},
+        "row_label": {"type": "string", "maxLength": 500}, "definition": {"type": "string", "maxLength": 2000},
+        "rationale": {"type": "string", "minLength": 10, "maxLength": 4000}, "rejected_fact_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "manifest": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "template_only", "is_illustrative", "reviewer_id", "reviewer_kind", "reviewed_at", "binding", "method_hashes", "findings"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "template_only": {"type": "boolean"}, "is_illustrative": {"type": "boolean"},
+        "reviewer_id": {"type": "string", "maxLength": 150}, "reviewer_kind": {"enum": ["human_original_filing_review", "assistant_original_filing_review"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}, "binding": {"$ref": "#/$defs/binding"},
+        "method_hashes": {"type": "object", "minProperties": 7, "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+        "findings": {"type": "array", "minItems": 1, "maxItems": 9, "items": {"$ref": "#/$defs/finding"}}
+      }
+    },
+    "receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "receipt_id", "manifest", "selected_evidence", "available_at", "store_order", "is_illustrative", "source_store", "semantic_validation", "receipt_sha256"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "receipt_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "manifest": {"$ref": "#/$defs/manifest"},
+        "selected_evidence": {"type": "object"}, "available_at": {"type": "string", "format": "date-time"}, "store_order": {"type": "integer", "minimum": 1},
+        "is_illustrative": {"type": "boolean"}, "source_store": {"type": "string"}, "semantic_validation": {"const": "recorded_reviewer_assertion_not_machine_proof"},
+        "receipt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

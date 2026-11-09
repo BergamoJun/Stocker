@@ -1,0 +1,86 @@
+{
+  "id": "official-authored-narrative-text-v1",
+  "version": "1.0.0",
+  "reviewed_at": "2026-11-09T01:08:00Z",
+  "review_due_at": "2026-12-09T00:00:00Z",
+  "reviewer_kind": "assistant_official_public_domain_policy_review",
+  "monthly_data_budget_usd": 0,
+  "external_model_calls_enabled": false,
+  "model_training_enabled": false,
+  "maximum_http_requests": 12,
+  "maximum_documents_per_feed": 2,
+  "lookback_days": 45,
+  "cache_seconds": 900,
+  "minimum_request_interval_seconds": 2,
+  "maximum_response_bytes": 2000000,
+  "maximum_text_characters": 60000,
+  "maximum_paragraphs": 300,
+  "full_equal_second_exclusion": true,
+  "sources": {
+    "federal_reserve_board": {
+      "host": "www.federalreserve.gov",
+      "feed_url": "https://www.federalreserve.gov/feeds/press_monetary.xml",
+      "policy_url": "https://www.federalreserve.gov/disclaimer.htm",
+      "attribution": "Source: Board of Governors of the Federal Reserve System. Preserve publication date and original URL.",
+      "basis": "Public-domain status of Board-authored information unless otherwise indicated; excludes non-Board material, seals, logos, images and linked pages.",
+      "inference_permission_basis": "technical inference from public-domain status, not an explicit AI-specific grant",
+      "uses": {
+        "collect_authored_text": true,
+        "store_authored_text": true,
+        "inference_input_eligible": true,
+        "model_training": false,
+        "third_party_material": false,
+        "images_tables_charts": false
+      },
+      "policy_page_sha256": "4b45766b80c501cc707fb75095b7b232159499fc387379476794956e0171b671",
+      "policy_page_observed_at": "2026-11-09T01:21:34.030492Z",
+      "policy_text_sha256": "9ac2d2516ac3ee56c46919ca9fd8b80068209b6d575ea0c66dd76e9e9cd27f3f",
+      "policy_hash_scope": "normalized visible paragraph text; scripts and HTML decoration excluded"
+    },
+    "us_eia": {
+      "host": "www.eia.gov",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "policy_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "attribution": "Source: U.S. Energy Information Administration. Preserve publication date and original URL; identify Stocker as responsible for any later translation.",
+      "basis": "Public-domain EIA-authored narrative only; private contributed/licensed material, images, charts, tables and third-party data products excluded.",
+      "inference_permission_basis": "technical inference from public-domain status, not an explicit AI-specific grant",
+      "uses": {
+        "collect_authored_text": true,
+        "store_authored_text": true,
+        "inference_input_eligible": true,
+        "model_training": false,
+        "third_party_material": false,
+        "images_tables_charts": false
+      },
+      "policy_page_sha256": "c5f94e9019f9ef3ca177dbd2610ce4d853d526a793d7b703fde3c49d34912008",
+      "policy_page_observed_at": "2026-11-09T01:21:34.036401Z",
+      "policy_text_sha256": "f09b5a1e9aaa77098070d2ccc9991c752c2e18a9b8660d4c837bcdb871557018",
+      "policy_hash_scope": "normalized visible paragraph text; scripts and HTML decoration excluded"
+    }
+  },
+  "excluded_sources": [
+    "general publisher bodies discovered by GDELT or Massive",
+    "FRED",
+    "issuer filing narratives without separate source review",
+    "market prices"
+  ],
+  "document_rights_flags": [
+    "copyright",
+    "all rights reserved",
+    "used with permission",
+    "reproduced with permission",
+    "third-party copyrighted",
+    "third party copyrighted",
+    "lseg",
+    "refinitiv",
+    "s&p global",
+    "bloomberg",
+    "associated press",
+    "reuters"
+  ],
+  "limitations": [
+    "Limited official macro/energy source coverage, not company-specific or global news completion",
+    "Inference eligibility does not mean model execution or verified business impact",
+    "Publication dates may lack exact time; never convert a date-only release into a verified instant"
+  ]
+}

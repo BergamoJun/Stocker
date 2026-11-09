@@ -1,0 +1,11 @@
+# 공통 분석 입출력 v1
+
+`analysis_contract` builds one immutable point-in-time bundle per issuer. `AI_INPUT.json` contains public identity, reviewed SEC factual numeric values and their source/fact locators, plus approved official narrative paragraphs. No original filing prose, vendor news titles, stock/ETF prices or price-derived metrics enter that file. The narrow SEC fact eligibility assessment cites the Copyright Office facts/expression distinction and SEC API documentation; it is not permission for all filing text or market-vendor data.
+
+`LOCAL_INPUT.json` holds private market inputs and vendor article metadata. `OUTPUT.template.json` starts at `not_run` with no findings or model. It is not an automated analysis result. The output contract binds the exact AI input hash, issuer packet and cutoff, requires model/prompt metadata for an executed result, and validates referenced facts, contiguous paragraph quotes and numeric support. Price targets, attractiveness scores, human-verification labels and unsupported fields are prohibited. Reference checks do not certify every free-text claim as true; later engine quality evaluation remains necessary.
+
+Current CLI: `python -m extensions.analysis_contract --baseline <baseline.json> --ciks 1664703 789019 2115436`. Validation takes the output folder with `--validate`. Files and the local Korean rendering are hash-bound and source-replayed. `export_ai` returns only the validated model-safe portion and rechecks current source-policy eligibility. It makes no model calls.
+
+Optional `--market` and `--financial` components use only the fixed versioned producer readers `extensions.market_inputs.view` and `extensions.financial_fill.view`. They must check their own issuer, cutoff, first availability, source rights and source replay before returning canonical fields. Their absence does not cause imports or fabricated inputs. Older bundles without those components remain reproducible when new adapters are added. Conflicting overlay facts cannot replace existing reviewed values.
+
+All real output stays under reports/private. Price rendering is local only. Source text remains untrusted evidence; date-only publication precision and same-second exclusion are preserved. No external model, training, new forecasts or released scores are activated.

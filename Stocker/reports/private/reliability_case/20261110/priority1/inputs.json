@@ -1,0 +1,3742 @@
+[
+  {
+    "id": "blind_02",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_2",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices decreased in the latest reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6b9aae0111ab6314ffc8a2a39ebb23bebf97858e94ddc4d4353bc70d85895c7d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "decrease",
+        "quote": "Energy prices decreased in the latest reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "97",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "97",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "97",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "97",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "authored_holdout_2",
+      "route_id": "energy_input_cost",
+      "effect": "favourable",
+      "quote": "Energy prices decreased in the latest reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "97",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_2",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_22",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_22",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "357",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "357",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "357",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "357",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "missing_source",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "357",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_22",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_07",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_6",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Interest rates increased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "2eae60c4932e022b1aa6a93c30ca56b7dfe5b809b59d4e294326b39cfe581a58",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "Interest rates increased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "illustrative_6",
+      "route_id": "financing_cost",
+      "effect": "favourable",
+      "quote": "Interest rates increased during the previous reporting period.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_6",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_20",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_20",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "331",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "331",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "331",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "331",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_20",
+      "route_id": "financing_cost",
+      "effect": "favourable",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "331",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_20",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_01",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_0",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Interest rates increased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "2eae60c4932e022b1aa6a93c30ca56b7dfe5b809b59d4e294326b39cfe581a58",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "Interest rates increased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "illustrative_0",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "Interest rates increased during the previous reporting period.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_0",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_24",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_24",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "383",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "383",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "383",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "383",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": null,
+      "source_id": "authored_holdout_24",
+      "route_id": "none",
+      "effect": "unknown",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "unknown",
+      "scope": "unknown",
+      "claim_value": null,
+      "claim_unit": null,
+      "evidence_ids": [
+        "authored_holdout_24"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_02",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_1",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Interest rates decreased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6c5b2ec1450351e7d19b034644d380aa4217728223d1d2ccf6939dd47e62e08f",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "decrease",
+        "quote": "Interest rates decreased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "illustrative_1",
+      "route_id": "financing_cost",
+      "effect": "favourable",
+      "quote": "Interest rates decreased during the previous reporting period.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_1",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_05",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_5",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "136",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "136",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "136",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "136",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "nonexistent_fact",
+      "source_id": "authored_holdout_5",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "136",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_5",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_10",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_10",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "201",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "201",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "201",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "201",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_10",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "201",
+      "claim_unit": "USD/shares",
+      "evidence_ids": [
+        "authored_holdout_10",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_04",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_3",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices decreased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "5cac5816bfa6bad3dde490058ca3db26591781aabe7fd62fa46ac113bef5d006",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "decrease",
+        "quote": "Energy prices decreased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_3",
+      "route_id": "energy_input_cost",
+      "effect": "favourable",
+      "quote": "Energy prices decreased during the previous reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_3",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_09",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_8",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices increased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "acc67f0bf740563134d14ca79ad070bc43aa315edf97af78a321c3b0157b19b2",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "increase",
+        "quote": "Energy prices increased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_8",
+      "route_id": "energy_input_cost",
+      "effect": "adverse",
+      "quote": "Energy prices increased during the previous reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "within_five_sessions",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_8",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_04",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_4",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "123",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "123",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "123",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "123",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": null,
+      "source_id": "authored_holdout_4",
+      "route_id": "none",
+      "effect": "unknown",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "unknown",
+      "scope": "unknown",
+      "claim_value": null,
+      "claim_unit": null,
+      "evidence_ids": [
+        "authored_holdout_4"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_15",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_15",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "266",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "266",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "266",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "266",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_15",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "266",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_15",
+        "illustrative_liabilities",
+        "unrelated_fact_reference"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_10",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_9",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices decreased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "5cac5816bfa6bad3dde490058ca3db26591781aabe7fd62fa46ac113bef5d006",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "decrease",
+        "quote": "Energy prices decreased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_9",
+      "route_id": "energy_input_cost",
+      "effect": "favourable",
+      "quote": "Energy prices decreased during the previous reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": true,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_9",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_03",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_2",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices increased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "acc67f0bf740563134d14ca79ad070bc43aa315edf97af78a321c3b0157b19b2",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "increase",
+        "quote": "Energy prices increased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_2",
+      "route_id": "energy_input_cost",
+      "effect": "adverse",
+      "quote": "Energy prices increased during the previous reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_2",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_16",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_16",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "279",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "279",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "279",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "279",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "numeric_fact",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "illustrative_liabilities",
+      "route_id": "none",
+      "effect": "unknown",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "999999",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_11",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_11",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "214",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "214",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "214",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "214",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_11",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "annual",
+      "scope": "consolidated",
+      "claim_value": "214",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_11",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_03",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_3",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "110",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "110",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "110",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "110",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "numeric_fact",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "illustrative_liabilities",
+      "route_id": "none",
+      "effect": "unknown",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "110",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_07",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_7",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "162",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "162",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "162",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "162",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000002",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_7",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "162",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_7",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_23",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_23",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "370",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "370",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "370",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "370",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_capital_expenditure",
+      "source_id": "authored_holdout_23",
+      "route_id": "investment_budget",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "incremental_financing_link_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "cumulative_ytd",
+      "scope": "consolidated",
+      "claim_value": "370",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_23",
+        "illustrative_capital_expenditure"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_05",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_4",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy supply increased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6d2d3e0e45f5462b215387322bb5ecde7e2ccdcccf0330245221bc4745311dd9",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "energy_supply",
+        "variable_direction": "increase",
+        "quote": "Energy supply increased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_4",
+      "route_id": "supply_availability",
+      "effect": "favourable",
+      "quote": "Energy supply increased during the previous reporting period.",
+      "assumption_id": "energy_procurement_link_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_4",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_21",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_21",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices decreased in the latest reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6b9aae0111ab6314ffc8a2a39ebb23bebf97858e94ddc4d4353bc70d85895c7d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "decrease",
+        "quote": "Energy prices decreased in the latest reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "344",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "344",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "344",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "344",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "authored_holdout_21",
+      "route_id": "energy_input_cost",
+      "effect": "adverse",
+      "quote": "Energy prices decreased in the latest reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "344",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_21",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_01",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_1",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "84",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "84",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "84",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "84",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_cash",
+      "source_id": "authored_holdout_1",
+      "route_id": "cash_yield",
+      "effect": "favourable",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "cash_interest_sensitivity_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "84",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_1",
+        "illustrative_cash"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_13",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_13",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "240",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "240",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "240",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "240",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_13",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "240",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_13",
+        "illustrative_liabilities",
+        "authored_holdout_13",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_18",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_18",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "305",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "305",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "305",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "305",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_18",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": true,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "305",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_18",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_17",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_17",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "292",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "292",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "292",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "292",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_17",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "A different claim without the cited source support.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "292",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_17",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_14",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_14",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "253",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "253",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "253",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "253",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_14",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "253",
+      "claim_unit": "USD",
+      "evidence_ids": [],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_08",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_7",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Interest rates decreased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6c5b2ec1450351e7d19b034644d380aa4217728223d1d2ccf6939dd47e62e08f",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "decrease",
+        "quote": "Interest rates decreased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "not_in_input",
+      "source_id": "illustrative_7",
+      "route_id": "financing_cost",
+      "effect": "favourable",
+      "quote": "Interest rates decreased during the previous reporting period.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "unknown",
+      "scope": "unknown",
+      "claim_value": null,
+      "claim_unit": null,
+      "evidence_ids": [
+        "illustrative_7",
+        "not_in_input"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_11",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_10",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy supply increased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6d2d3e0e45f5462b215387322bb5ecde7e2ccdcccf0330245221bc4745311dd9",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "energy_supply",
+        "variable_direction": "increase",
+        "quote": "Energy supply increased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_10",
+      "route_id": "financing_cost",
+      "effect": "favourable",
+      "quote": "Energy supply increased during the previous reporting period.",
+      "assumption_id": "energy_procurement_link_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_10",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_06",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_6",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy prices decreased in the latest reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "6b9aae0111ab6314ffc8a2a39ebb23bebf97858e94ddc4d4353bc70d85895c7d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "commodity_price",
+        "variable_direction": "decrease",
+        "quote": "Energy prices decreased in the latest reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "149",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "149",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "149",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "149",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "authored_holdout_6",
+      "route_id": "financing_cost",
+      "effect": "favourable",
+      "quote": "Energy prices decreased in the latest reporting period.",
+      "assumption_id": "energy_purchase_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "149",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_6",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_06",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_5",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy demand decreased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "094d85614ce5c4f991c85cfd3f130fc05cda3e118e430b16609e6fd562808341",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "energy_demand",
+        "variable_direction": "decrease",
+        "quote": "Energy demand decreased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_5",
+      "route_id": "energy_sales_demand",
+      "effect": "adverse",
+      "quote": "Energy demand decreased during the previous reporting period.",
+      "assumption_id": "energy_sales_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_5",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_09",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_9",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "188",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "188",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "188",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "188",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_9",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "188",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_9",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-01T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_12",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_12",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "227",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "227",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "227",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "227",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_12",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated_sales_excluding_equity_affiliate_and_other_income",
+      "claim_value": "227",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_12",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_19",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_19",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "318",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "318",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "318",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "318",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_19",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "within_five_sessions",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "318",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_19",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "reg_dual_12",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "illustrative_11",
+        "paragraph_id": "p0001",
+        "source": "us_eia",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "Energy demand decreased during the previous reporting period.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "094d85614ce5c4f991c85cfd3f130fc05cda3e118e430b16609e6fd562808341",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "energy_demand",
+        "variable_direction": "decrease",
+        "quote": "Energy demand decreased during the previous reporting period.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "100",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "100",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "100",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_revenue",
+      "source_id": "illustrative_11",
+      "route_id": "energy_sales_demand",
+      "effect": "adverse",
+      "quote": "Energy demand decreased during the previous reporting period.",
+      "assumption_id": "exposure_confirmed",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "quarter",
+      "scope": "consolidated",
+      "claim_value": "100",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "illustrative_11",
+        "illustrative_revenue"
+      ],
+      "evidence_available_at": "2026-11-07T00:00:00Z"
+    }
+  },
+  {
+    "id": "blind_08",
+    "context": {
+      "contract": "conditional-issuer-input-v1",
+      "identity": {
+        "cik": "0000000001",
+        "symbol": "TEST",
+        "name": "ILLUSTRATIVE - NOT LIVE MARKET DATA"
+      },
+      "as_of": "2026-11-09T14:00:00Z",
+      "is_illustrative": true,
+      "source": {
+        "source_id": "authored_holdout_8",
+        "paragraph_id": "p0001",
+        "source": "federal_reserve_board",
+        "published_at": null,
+        "time_precision": "date",
+        "text": "The policy interest rate increased in the latest decision.",
+        "source_record_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "paragraph_sha256": "4818328581a1544d1011c2ee4a9a83fd931f6096178a51917e4207a40cc8e84d",
+        "published_date": "2026-11-06",
+        "available_at": "2026-11-07T00:00:00Z"
+      },
+      "classification": {
+        "event_type": "financing_policy",
+        "variable_direction": "increase",
+        "quote": "The policy interest rate increased in the latest decision.",
+        "claim_kind": "historical_observation",
+        "horizon": "unknown",
+        "limitation": "possible_prior_pricing"
+      },
+      "facts": [
+        {
+          "fact_id": "illustrative_cash",
+          "cik": "0000000001",
+          "metric": "cash",
+          "value": "175",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_liabilities",
+          "cik": "0000000001",
+          "metric": "liabilities",
+          "value": "175",
+          "unit": "USD",
+          "basis": "instant",
+          "start": null,
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_capital_expenditure",
+          "cik": "0000000001",
+          "metric": "capital_expenditure",
+          "value": "175",
+          "unit": "USD",
+          "basis": "cumulative_ytd",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        },
+        {
+          "fact_id": "illustrative_revenue",
+          "cik": "0000000001",
+          "metric": "revenue",
+          "value": "175",
+          "unit": "USD",
+          "basis": "quarter",
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "scope": "consolidated",
+          "available_at": "2026-11-01T00:00:00Z"
+        }
+      ]
+    },
+    "claim": {
+      "kind": "conditional_route",
+      "issuer_cik": "0000000001",
+      "fact_id": "illustrative_liabilities",
+      "source_id": "authored_holdout_8",
+      "route_id": "financing_cost",
+      "effect": "adverse",
+      "quote": "The policy interest rate increased in the latest decision.",
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified",
+      "exposure_verified": false,
+      "horizon": "unknown",
+      "basis": "instant",
+      "scope": "consolidated",
+      "claim_value": "175",
+      "claim_unit": "USD",
+      "evidence_ids": [
+        "authored_holdout_8",
+        "illustrative_liabilities"
+      ],
+      "evidence_available_at": "2026-11-10T00:00:00Z"
+    }
+  }
+]

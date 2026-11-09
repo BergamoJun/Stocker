@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "contract",
+    "identity",
+    "items",
+    "hypotheses",
+    "verified_business_exposures",
+    "business_exposure_complete",
+    "released_score",
+    "released_price_plan"
+  ],
+  "properties": {
+    "contract": {
+      "const": "issuer-exposure-v1"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "source_refs",
+          "effective_period",
+          "scope",
+          "assumptions"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "VERIFIED",
+              "INFERRED",
+              "HYPOTHETICAL",
+              "UNKNOWN"
+            ]
+          }
+        }
+      }
+    },
+    "business_exposure_complete": {
+      "const": false
+    },
+    "released_score": {
+      "type": "null"
+    },
+    "released_price_plan": {
+      "type": "null"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["contract", "record_id", "cik", "capture_cutoff", "available_at", "is_illustrative", "payload", "method_hashes", "baseline_path", "baseline_sha256", "record_sha256"],
+  "properties": {
+    "contract": {"const": "issuer-financial-gap-source-v1"},
+    "record_id": {"type": "string", "pattern": "^financial_[a-f0-9]{32}$"},
+    "cik": {"type": "string", "pattern": "^[0-9]{10}$"},
+    "capture_cutoff": {"type": "string", "format": "date-time"},
+    "available_at": {"type": "string", "format": "date-time"},
+    "is_illustrative": {"type": "boolean"},
+    "payload": {"type": "object", "required": ["facts", "gaps", "findings", "coverage", "binding_sha256", "source_files"]},
+    "method_hashes": {"type": "object"},
+    "record_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

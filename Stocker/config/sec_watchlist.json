@@ -1,0 +1,5 @@
+{
+  "version": "1.0.0",
+  "purpose": "Initial multi-company integration cohort; not investment recommendations",
+  "entities": [{"symbol": "BE"}, {"symbol": "MSFT"}, {"symbol": "XOM"}]
+}

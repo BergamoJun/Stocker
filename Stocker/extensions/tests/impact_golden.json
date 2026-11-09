@@ -1,0 +1,11 @@
+{
+  "label": "ILLUSTRATIVE - NOT LIVE MARKET DATA",
+  "invariants": [
+    "released_score_null",
+    "price_plan_null",
+    "unknown_exposure",
+    "same_model_critic",
+    "metadata_outside_prompt",
+    "no_five_session_inference"
+  ]
+}

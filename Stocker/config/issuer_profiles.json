@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "is_illustrative": false,
+  "reviewed_at": "2026-11-08T18:44:15Z",
+  "review_due_at": "2026-12-08T00:00:00Z",
+  "reviewer_kind": "assistant_official_identity_and_fund_document_review",
+  "profiles": [
+    {
+      "symbol": "BE", "cik": "0001664703", "instrument_type": "equity", "issuer_name": "Bloom Energy",
+      "company_query": "\"Bloom Energy\"", "sector_query": "(\"fuel cell\" OR \"data center power\" OR \"distributed generation\")",
+      "market_proxy": {"symbol": "SPY", "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy", "limitation_ko": "미국 대형주 참고 지표이며 개별 기업의 미래 수익과 다릅니다."},
+      "sector_proxy": {"symbol": "PBW", "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-wilderhill-clean-energy-etf.html", "limitation_ko": "폭넓은 청정에너지 참고 지표이며 연료전지 전용 지표나 현재 BE 보유비중을 뜻하지 않습니다."},
+      "price_adapter_status": "legacy_be_only", "news_adapter_status": "issuer_scoped_metadata_and_explicit_reviews"
+    },
+    {
+      "symbol": "MSFT", "cik": "0000789019", "instrument_type": "equity", "issuer_name": "Microsoft",
+      "company_query": "\"Microsoft\"", "sector_query": "(\"cloud computing\" OR \"enterprise software\" OR \"AI data center\")",
+      "market_proxy": {"symbol": "SPY", "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy", "limitation_ko": "미국 대형주 참고 지표이며 개별 기업의 미래 수익과 다릅니다."},
+      "sector_proxy": {"symbol": "XLK", "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-technology-select-sector-spdr-etf-xlk", "limitation_ko": "S&P 500 정보기술 업종 참고 지표입니다. Microsoft의 모든 사업·위험을 대변하지 않으며 이번 단계에서 새 ETF 가격을 수집하지 않습니다."},
+      "price_adapter_status": "not_implemented", "news_adapter_status": "issuer_scoped_metadata_and_explicit_reviews"
+    },
+    {
+      "symbol": "XOM", "cik": "0002115436", "instrument_type": "equity", "issuer_name": "ExxonMobil",
+      "company_query": "(\"Exxon Mobil\" OR \"ExxonMobil\")", "sector_query": "(\"oil and gas\" OR \"oil major\" OR \"refining margin\")",
+      "market_proxy": {"symbol": "SPY", "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy", "limitation_ko": "미국 대형주 참고 지표이며 개별 기업의 미래 수익과 다릅니다."},
+      "sector_proxy": {"symbol": "XLE", "source_url": "https://www.ssga.com/us/en/institutional/etfs/state-street-energy-select-sector-spdr-etf-xle", "limitation_ko": "석유·가스·에너지 장비/서비스 주식의 업종 참고 지표이며 원유 가격 자체가 아닙니다. 전신 법인의 과거 재무를 자동 연결하지 않습니다."},
+      "price_adapter_status": "not_implemented", "news_adapter_status": "issuer_scoped_metadata_and_explicit_reviews"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["contract", "source_id", "source", "url", "retrieved_at", "available_at", "published_date", "published_at", "time_precision", "response_sha256", "text_sha256", "paragraphs", "policy_sha256", "method_hashes", "is_illustrative", "impact_reviewed", "inference_input_eligible", "untrusted_source_text"],
+  "properties": {
+    "contract": {"const": "official-source-text-v1"},
+    "source_id": {"type": "string", "pattern": "^text_[a-f0-9]{32}$"},
+    "source": {"enum": ["federal_reserve_board", "us_eia"]},
+    "url": {"type": "string", "format": "uri"},
+    "retrieved_at": {"type": "string", "format": "date-time"},
+    "available_at": {"type": "string", "format": "date-time"},
+    "published_date": {"type": "string", "format": "date"},
+    "published_at": {"type": ["string", "null"], "format": "date-time"},
+    "time_precision": {"enum": ["date", "minute"]},
+    "response_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "text_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "paragraphs": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "start", "end", "sha256", "selector"], "properties": {"id": {"type": "string"}, "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1}, "sha256": {"type": "string"}, "selector": {"type": "string"}}, "additionalProperties": false}},
+    "policy_sha256": {"type": "string"},
+    "method_hashes": {"type": "object"},
+    "is_illustrative": {"type": "boolean"},
+    "impact_reviewed": {"const": false},
+    "inference_input_eligible": {"const": true},
+    "untrusted_source_text": {"const": true}
+  }
+}

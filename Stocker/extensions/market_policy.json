@@ -1,0 +1,26 @@
+{
+  "id": "multi-issuer-eod-market-input-v1",
+  "monthly_data_budget_usd": 0,
+  "external_model_input_allowed": false,
+  "model_training_enabled": false,
+  "maximum_requests": 16,
+  "cache_seconds": 900,
+  "lookback_days": 700,
+  "return_sessions": [1, 5, 20],
+  "issuers": {
+    "0001664703": {"symbol": "BE", "market": "SPY", "sector": "PBW"},
+    "0000789019": {"symbol": "MSFT", "market": "SPY", "sector": "XLK"},
+    "0002115436": {"symbol": "XOM", "market": "SPY", "sector": "XLE"}
+  },
+  "funds": {
+    "SPY": {"type": "ETF", "listing_exchange": "ARCX", "leveraged_or_inverse": false},
+    "PBW": {"type": "ETF", "listing_exchange": "ARCX", "leveraged_or_inverse": false},
+    "XLK": {"type": "ETF", "listing_exchange": "ARCX", "leveraged_or_inverse": false},
+    "XLE": {"type": "ETF", "listing_exchange": "ARCX", "leveraged_or_inverse": false}
+  },
+  "profile_basis": "exact existing SEC-backed issuer profiles and reviewed fund documents; never infer a missing issuer mapping",
+  "availability": "actual download and first snapshot commit, never historical price publication",
+  "source_url": "https://massive.com/docs/rest/stocks/aggregates/custom-bars",
+  "price_plan": null,
+  "released_score": null
+}

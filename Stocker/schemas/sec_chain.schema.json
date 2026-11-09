@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "binding": {"type": "object", "additionalProperties": false, "required": ["cik", "packet_id", "packet_sha256", "sequence", "current_accession", "anchor_bundle_sha256"], "properties": {
+      "cik": {"type": "string", "pattern": "^[0-9]{10}$"}, "packet_id": {"type": "string", "pattern": "^[0-9]{8}-[a-f0-9]{24}$"},
+      "packet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "sequence": {"type": "integer", "minimum": 1}, "current_accession": {"type": "string"}, "anchor_bundle_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+    }},
+    "finding": {"type": "object", "additionalProperties": false, "required": ["metric", "decision", "current_signature", "scope", "roles", "row_labels", "rejected_fact_ids", "compatibility_rationale"], "properties": {
+      "metric": {"enum": ["revenue", "operating_income", "net_income", "operating_cash_flow", "capital_expenditure"]}, "decision": {"enum": ["verified", "unresolved"]}, "current_signature": {"type": ["string", "null"]}, "scope": {"type": ["string", "null"]},
+      "roles": {"type": "object", "maxProperties": 7, "additionalProperties": {"type": "string"}}, "row_labels": {"type": "object", "additionalProperties": {"type": "string", "maxLength": 500}},
+      "rejected_fact_ids": {"type": "object", "additionalProperties": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}}, "compatibility_rationale": {"type": "string", "minLength": 20, "maxLength": 5000}
+    }},
+    "manifest": {"type": "object", "additionalProperties": false, "required": ["version", "template_only", "is_illustrative", "reviewer_id", "reviewer_kind", "reviewed_at", "binding", "method_hashes", "findings", "amendment_assessments"], "properties": {
+      "version": {"const": "1.0.0"}, "template_only": {"type": "boolean"}, "is_illustrative": {"type": "boolean"}, "reviewer_id": {"type": "string", "maxLength": 150}, "reviewer_kind": {"enum": ["human_original_filing_review", "assistant_original_filing_review"]}, "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+      "binding": {"$ref": "#/$defs/binding"}, "method_hashes": {"type": "object", "minProperties": 18, "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "findings": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"$ref": "#/$defs/finding"}},
+      "amendment_assessments": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["accession", "decision", "rationale"], "properties": {"accession": {"type": "string"}, "decision": {"enum": ["unresolved", "selected_components_unchanged"]}, "rationale": {"type": "string", "minLength": 20, "maxLength": 4000}}}}
+    }},
+    "receipt": {"type": "object", "additionalProperties": false, "required": ["version", "receipt_id", "manifest", "selected_components", "available_at", "store_order", "is_illustrative", "receipt_sha256"], "properties": {
+      "version": {"const": "1.0.0"}, "receipt_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "manifest": {"$ref": "#/$defs/manifest"}, "selected_components": {"type": "object"}, "available_at": {"type": "string", "format": "date-time"}, "store_order": {"type": "integer", "minimum": 1}, "is_illustrative": {"type": "boolean"}, "receipt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+    }},
+    "report": {"type": "object", "additionalProperties": false, "required": ["schema_version", "report_id", "label", "is_illustrative", "as_of", "generated_at", "base_report", "chain", "price_plan", "attractiveness", "limitations", "provenance"], "properties": {
+      "schema_version": {"const": "sec-reviewed-qoq-ttm-v1"}, "report_id": {"type": "string"}, "label": {"type": "string"}, "is_illustrative": {"type": "boolean"}, "as_of": {"type": "string", "format": "date-time"}, "generated_at": {"type": "string", "format": "date-time"}, "base_report": {"type": "object"}, "chain": {"type": "object"}, "price_plan": {"type": "null"}, "attractiveness": {"type": "null"}, "limitations": {"type": "array", "minItems": 1},
+      "provenance": {"type": "object", "required": ["method_hashes", "chain_root", "packet_root", "review_root", "period_root", "source_store", "network_requests", "external_llm_calls", "public_release"], "properties": {"network_requests": {"const": 0}, "external_llm_calls": {"const": 0}, "public_release": {"const": false}}}
+    }}
+  }
+}

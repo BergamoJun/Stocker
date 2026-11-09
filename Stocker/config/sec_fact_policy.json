@@ -1,0 +1,23 @@
+{
+  "id": "sec-standard-facts-v1",
+  "version": "1.0.0",
+  "taxonomy": "us-gaap",
+  "currency": "USD",
+  "automatic_semantic_review": false,
+  "metrics": {
+    "revenue": {"tags": ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "SalesRevenueNet"], "unit": "USD", "basis": "income"},
+    "operating_income": {"tags": ["OperatingIncomeLoss"], "unit": "USD", "basis": "income"},
+    "net_income": {"tags": ["NetIncomeLoss"], "unit": "USD", "basis": "income"},
+    "cash": {"tags": ["CashAndCashEquivalentsAtCarryingValue"], "unit": "USD", "basis": "instant"},
+    "assets": {"tags": ["Assets"], "unit": "USD", "basis": "instant"},
+    "liabilities": {"tags": ["Liabilities"], "unit": "USD", "basis": "instant"},
+    "operating_cash_flow": {"tags": ["NetCashProvidedByUsedInOperatingActivities"], "unit": "USD", "basis": "cashflow"},
+    "capital_expenditure": {"tags": ["PaymentsToAcquirePropertyPlantAndEquipment"], "unit": "USD", "basis": "cashflow"},
+    "diluted_eps": {"tags": ["EarningsPerShareDiluted"], "unit": "USD/shares", "basis": "income"}
+  },
+  "quarter_duration_days": [60, 120],
+  "annual_duration_days": [330, 400],
+  "quarterly_cashflow_ytd_days": [60, 330],
+  "cross_filing_quarter_subtraction": false,
+  "amendment_merge": false
+}

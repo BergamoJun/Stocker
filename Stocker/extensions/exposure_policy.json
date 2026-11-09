@@ -1,0 +1,350 @@
+{
+  "id": "issuer-exposure-evidence-v1",
+  "registered_at": "2026-11-09T16:56:50.962977Z",
+  "external_calls": 0,
+  "training": false,
+  "score_release": false,
+  "network_requests": 0,
+  "properties": {
+    "cash_balance": {
+      "label_ko": "현금 잔액",
+      "metrics": [
+        "cash"
+      ],
+      "kind": "numeric_context",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "liabilities_context": {
+      "label_ko": "총부채: 차입금과 구분",
+      "metrics": [
+        "liabilities"
+      ],
+      "kind": "numeric_context",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "capital_expenditure_context": {
+      "label_ko": "유형자산 투자 지출",
+      "metrics": [
+        "capital_expenditure"
+      ],
+      "kind": "numeric_context",
+      "bases": [
+        "cumulative_ytd",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "sales_context": {
+      "label_ko": "매출: 원래 귀속 범위 유지",
+      "metrics": [
+        "revenue"
+      ],
+      "kind": "numeric_context",
+      "bases": [
+        "quarter",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated",
+        "consolidated_sales_excluding_equity_affiliate_and_other_income"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "total_borrowings": {
+      "label_ko": "총차입금",
+      "metrics": [
+        "total_borrowings"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "fixed_rate_borrowings": {
+      "label_ko": "고정금리 차입금",
+      "metrics": [
+        "fixed_rate_borrowings"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "floating_rate_borrowings": {
+      "label_ko": "변동금리 차입금",
+      "metrics": [
+        "floating_rate_borrowings"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "short_term_borrowings": {
+      "label_ko": "단기 차입금",
+      "metrics": [
+        "short_term_borrowings"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "long_term_borrowings": {
+      "label_ko": "장기 차입금",
+      "metrics": [
+        "long_term_borrowings"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "debt_due_within_one_year": {
+      "label_ko": "1년 내 만기 차입금",
+      "metrics": [
+        "debt_due_within_one_year"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "interest_rate_hedge_notional": {
+      "label_ko": "금리 헤지 명목금액: 효과와 구분",
+      "metrics": [
+        "interest_rate_hedge_notional"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "interest_income": {
+      "label_ko": "이자 수익",
+      "metrics": [
+        "interest_income"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "quarter",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "interest_expense_sensitivity": {
+      "label_ko": "100bp 금리 변화에 대한 이자비용 민감도",
+      "metrics": [
+        "interest_expense_sensitivity_100bp"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "sensitivity_100bp"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "energy_producer_role": {
+      "label_ko": "에너지 생산 활동의 제한적 추론",
+      "metrics": [
+        "energy_production_revenue"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "quarter",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated",
+        "segment"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": true
+    },
+    "energy_seller_role": {
+      "label_ko": "에너지 판매 활동의 제한적 추론",
+      "metrics": [
+        "energy_sales_revenue"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "quarter",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated",
+        "segment"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": true
+    },
+    "energy_buyer_role": {
+      "label_ko": "에너지 구매 활동의 제한적 추론",
+      "metrics": [
+        "energy_purchase_expense"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "quarter",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated",
+        "segment"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": true
+    },
+    "energy_consumer_role": {
+      "label_ko": "에너지 사용 활동의 제한적 추론",
+      "metrics": [
+        "energy_consumption_expense"
+      ],
+      "kind": "economic_exposure",
+      "bases": [
+        "quarter",
+        "annual"
+      ],
+      "scopes": [
+        "consolidated",
+        "segment"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": true
+    },
+    "long_term_energy_price_protection": {
+      "label_ko": "장기 계약의 가격 변동 보호 효과",
+      "metrics": [],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    },
+    "energy_price_demand_risk": {
+      "label_ko": "에너지 가격에 따른 수요 민감도",
+      "metrics": [],
+      "kind": "economic_exposure",
+      "bases": [
+        "instant"
+      ],
+      "scopes": [
+        "consolidated"
+      ],
+      "units": [
+        "USD"
+      ],
+      "role_inference": false
+    }
+  },
+  "status_meanings": {
+    "VERIFIED": "exact reviewed numeric proposition only",
+    "INFERRED": "limited role inference from a specific positive activity metric",
+    "HYPOTHETICAL": "explicit unresolved transmission assumptions",
+    "UNKNOWN": "insufficient eligible evidence"
+  },
+  "inferred_is_verified": false,
+  "liabilities_is_borrowings": false,
+  "xom_operating_sales_is_total_revenue": false
+}

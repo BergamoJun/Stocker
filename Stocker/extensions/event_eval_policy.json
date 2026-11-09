@@ -1,0 +1,18 @@
+{
+  "id": "independent-event-evaluation-v1",
+  "registered_at": "2026-11-09T17:13:51.674183Z",
+  "training": false,
+  "score_release": false,
+  "network_requests": 0,
+  "external_calls": 0,
+  "horizon_sessions": 5,
+  "price_scope": "local_research_only",
+  "calendar_id": "XNYS",
+  "selection": "first complete regular session starting strictly after verified first publication",
+  "first_public_requires_verified_second": true,
+  "independent_gold_required": true,
+  "minimum_independent_event_groups_for_future_validation": 30,
+  "minimum_groups_is_power_proof": false,
+  "locked_final_access": false,
+  "multiple_comparison_status": "no model or coefficient selection enabled"
+}

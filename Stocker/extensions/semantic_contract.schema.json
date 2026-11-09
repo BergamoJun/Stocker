@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "classification": {"type":"object", "required":["event_type","variable_direction","claim_kind","horizon","quote","limitation"],
+      "properties": {
+        "event_type":{"enum":["financing_policy","energy_supply","energy_demand","commodity_price","subsidy_tariff","company_financial","none","unknown"]},
+        "variable_direction":{"enum":["increase","decrease","unchanged","mixed","unknown"]},
+        "claim_kind":{"enum":["current_action","historical_observation","forward_outlook","instruction_or_unrelated","unknown"]},
+        "horizon":{"enum":["within_five_sessions","longer_term","unknown"]},
+        "quote":{"type":"string","minLength":8,"maxLength":600},
+        "limitation":{"enum":["insufficient_context","possible_prior_pricing","long_term_not_short_term","ambiguous_or_conflicting","no_supported_event","untrusted_instruction"]}
+      },"additionalProperties":false}
+  }
+}

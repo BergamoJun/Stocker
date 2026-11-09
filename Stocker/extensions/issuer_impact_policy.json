@@ -1,0 +1,65 @@
+{
+  "id": "conditional-issuer-impact-v1",
+  "frozen_at": "2026-11-09T13:19:42.939535Z",
+  "review_due_at": "2026-12-09T00:00:00Z",
+  "monthly_cost_usd": 0,
+  "external_inference_enabled": false,
+  "model_training_enabled": false,
+  "released_scores_enabled": false,
+  "input_scope": "reviewed SEC numeric facts, public SEC identity and approved Board/EIA narrative only; no vendor prices, derived data or news metadata",
+  "maximum_cards_per_issuer": 2,
+  "model_sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
+  "quality": {
+    "minimum_research_accuracy": "0.85",
+    "minimum_raw_critic_accuracy": "0.85",
+    "minimum_contract_acceptance": "0.90",
+    "maximum_false_approvals": 0,
+    "maximum_safety_errors": 0
+  },
+  "channels": {
+    "financing_cost": {
+      "event_type": "financing_policy",
+      "metric": "liabilities",
+      "increase_favourable": false,
+      "assumption_id": "interest_bearing_rate_sensitive_exposure_unverified"
+    },
+    "cash_yield": {
+      "event_type": "financing_policy",
+      "metric": "cash",
+      "increase_favourable": true,
+      "assumption_id": "cash_interest_sensitivity_unverified"
+    },
+    "investment_budget": {
+      "event_type": "financing_policy",
+      "metric": "capital_expenditure",
+      "increase_favourable": false,
+      "assumption_id": "incremental_financing_link_unverified"
+    },
+    "energy_input_cost": {
+      "event_type": "commodity_price",
+      "metric": "revenue",
+      "increase_favourable": false,
+      "assumption_id": "energy_purchase_exposure_unverified"
+    },
+    "energy_sales_price": {
+      "event_type": "commodity_price",
+      "metric": "revenue",
+      "increase_favourable": true,
+      "assumption_id": "energy_sales_exposure_unverified"
+    },
+    "supply_availability": {
+      "event_type": "energy_supply",
+      "metric": "revenue",
+      "increase_favourable": true,
+      "assumption_id": "energy_procurement_link_unverified"
+    },
+    "energy_sales_demand": {
+      "event_type": "energy_demand",
+      "metric": "revenue",
+      "increase_favourable": true,
+      "assumption_id": "energy_sales_exposure_unverified"
+    }
+  },
+  "exposure_status": "all conditional, unverified; numeric context never verifies a business exposure",
+  "critic_independence": "separate context, same model weights; not statistically independent"
+}

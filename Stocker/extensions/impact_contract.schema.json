@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "proposal": {
+      "type": "object",
+      "properties": {
+        "route_id": {
+          "enum": [
+            "none",
+            "financing_cost",
+            "cash_yield",
+            "investment_budget",
+            "energy_input_cost",
+            "energy_sales_price",
+            "supply_availability",
+            "energy_sales_demand"
+          ]
+        },
+        "fact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "effect_if_assumption_holds": {
+          "enum": [
+            "favourable",
+            "adverse",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "assumption_id": {
+          "type": "string"
+        },
+        "exposure_verified": {
+          "type": "boolean"
+        },
+        "claimed_horizon": {
+          "enum": [
+            "unknown",
+            "within_five_sessions",
+            "longer_term"
+          ]
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 600
+        }
+      },
+      "required": [
+        "route_id",
+        "fact_id",
+        "effect_if_assumption_holds",
+        "assumption_id",
+        "exposure_verified",
+        "claimed_horizon",
+        "quote"
+      ],
+      "additionalProperties": false
+    },
+    "critic": {
+      "type": "object",
+      "properties": {
+        "verdict": {
+          "enum": [
+            "conditional_only",
+            "unsupported",
+            "contradicted",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "exposure_unverified",
+            "source_or_fact_error",
+            "unsupported_horizon",
+            "no_supported_route"
+          ]
+        }
+      },
+      "required": [
+        "verdict",
+        "reason"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "description": "Report-level bindings are replayed by impact_report.validate; no price output is defined."
+}

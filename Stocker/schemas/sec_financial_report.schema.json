@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "report_id", "is_illustrative", "label", "as_of", "generated_at", "context", "swing", "observations", "counterpoints", "monitoring", "limitations", "provenance"],
+  "properties": {
+    "schema_version": {"const": "sec-financial-research-v1"}, "report_id": {"type": "string"}, "is_illustrative": {"type": "boolean"}, "label": {"type": "string"},
+    "as_of": {"type": "string", "format": "date-time"}, "generated_at": {"type": "string", "format": "date-time"},
+    "context": {"type": "object", "required": ["cik", "as_of", "is_illustrative", "status", "sections", "review_coverage", "score", "price_forecast"], "properties": {"score": {"type": "null"}, "price_forecast": {"type": "null"}}},
+    "swing": {"type": "object", "additionalProperties": false, "required": ["horizon", "status", "price_plan", "attractiveness", "reason"], "properties": {"horizon": {"const": "five_exchange_sessions"}, "status": {"const": "withheld"}, "price_plan": {"type": "null"}, "attractiveness": {"type": "null"}, "reason": {"const": "financial_evidence_does_not_validate_price_forecasts_or_scores"}}},
+    "observations": {"type": "array", "items": {"type": "object", "required": ["text", "accession", "metric", "source_ids", "review_receipt_ids"]}},
+    "counterpoints": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "monitoring": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "provenance": {"type": "object", "required": ["method_hashes", "review_root", "source_store", "external_llm_calls", "network_requests", "public_release"], "properties": {"external_llm_calls": {"const": 0}, "network_requests": {"const": 0}, "public_release": {"const": false}}}
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["metric", "decision", "current_signature", "current_fact_id", "prior_fact_id", "scope", "row_label", "comparability_rationale", "rejected_fact_ids"],
+      "properties": {
+        "metric": {"enum": ["revenue", "operating_income", "net_income", "cash", "assets", "liabilities", "operating_cash_flow", "capital_expenditure", "diluted_eps"]},
+        "decision": {"enum": ["verified", "unresolved"]}, "current_signature": {"type": ["string", "null"]},
+        "current_fact_id": {"type": ["string", "null"]}, "prior_fact_id": {"type": ["string", "null"]}, "scope": {"type": ["string", "null"]},
+        "row_label": {"type": "string", "maxLength": 500}, "comparability_rationale": {"type": "string", "minLength": 15, "maxLength": 4000},
+        "rejected_fact_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "manifest": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "template_only", "is_illustrative", "reviewer_id", "reviewer_kind", "reviewed_at", "relation", "binding", "method_hashes", "findings"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "template_only": {"type": "boolean"}, "is_illustrative": {"type": "boolean"},
+        "reviewer_id": {"type": "string", "maxLength": 150}, "reviewer_kind": {"enum": ["human_original_filing_review", "assistant_original_filing_review"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}, "relation": {"const": "year_over_year"},
+        "binding": {"type": "object", "required": ["cik", "accession", "form", "source_id", "source_url", "raw_sha256", "incarnation_id", "incarnation_available_at"]},
+        "method_hashes": {"type": "object", "minProperties": 12, "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+        "findings": {"type": "array", "minItems": 1, "maxItems": 9, "items": {"$ref": "#/$defs/finding"}}
+      }
+    },
+    "receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "receipt_id", "manifest", "selected_pairs", "is_illustrative", "available_at", "store_order", "receipt_sha256"],
+      "properties": {
+        "version": {"const": "1.0.0"}, "receipt_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "manifest": {"$ref": "#/$defs/manifest"},
+        "selected_pairs": {"type": "object"}, "is_illustrative": {"type": "boolean"}, "available_at": {"type": "string", "format": "date-time"},
+        "store_order": {"type": "integer", "minimum": 1}, "receipt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "report": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "report_id", "label", "is_illustrative", "as_of", "generated_at", "base_report", "growth", "limitations", "provenance"],
+      "properties": {
+        "schema_version": {"const": "sec-reviewed-yoy-report-v1"}, "report_id": {"type": "string"}, "label": {"type": "string"}, "is_illustrative": {"type": "boolean"},
+        "as_of": {"type": "string", "format": "date-time"}, "generated_at": {"type": "string", "format": "date-time"}, "base_report": {"type": "object"},
+        "growth": {"type": "object", "required": ["sections", "coverage", "qoq", "ttm", "score", "historical_original_vintage_verified"], "properties": {"score": {"type": "null"}, "historical_original_vintage_verified": {"const": false}, "qoq": {"const": "withheld_prior_quarter_reviews_not_collected"}, "ttm": {"const": "withheld_full_comparable_period_chain_not_collected"}}},
+        "limitations": {"type": "array", "minItems": 1}, "provenance": {"type": "object", "required": ["method_hashes", "source_store", "review_root", "period_root", "network_requests", "external_llm_calls", "public_release"], "properties": {"network_requests": {"const": 0}, "external_llm_calls": {"const": 0}, "public_release": {"const": false}}}
+      }
+    }
+  }
+}

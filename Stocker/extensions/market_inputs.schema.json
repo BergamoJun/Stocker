@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["contract", "record_id", "available_at", "is_illustrative", "instruments", "entitlement", "method_hashes", "files", "record_sha256"],
+  "properties": {
+    "contract": {"const": "multi-issuer-eod-source-v1"},
+    "record_id": {"type": "string", "pattern": "^market_[a-f0-9]{32}$"},
+    "available_at": {"type": "string", "format": "date-time"},
+    "is_illustrative": {"type": "boolean"},
+    "instruments": {"type": "object", "additionalProperties": {"type": "object", "required": ["symbol", "status"], "properties": {"symbol": {"type": "string"}, "status": {"enum": ["captured", "withheld"]}}}},
+    "entitlement": {"type": "object"}, "method_hashes": {"type": "object"}, "files": {"type": "object"}, "record_sha256": {"type": "string"}
+  }
+}

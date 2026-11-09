@@ -1,0 +1,515 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "identity": {
+      "type": "object",
+      "required": [
+        "cik",
+        "symbol",
+        "name"
+      ],
+      "properties": {
+        "cik": {
+          "type": "string",
+          "pattern": "^[0-9]{10}$"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ai_input": {
+      "type": "object",
+      "required": [
+        "contract",
+        "packet_id",
+        "as_of",
+        "identity",
+        "is_illustrative",
+        "financial_facts",
+        "official_documents",
+        "coverage",
+        "instructions"
+      ],
+      "properties": {
+        "contract": {
+          "const": "ai-analysis-input-v1"
+        },
+        "packet_id": {
+          "type": "string"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "identity": {
+          "$ref": "#/$defs/identity"
+        },
+        "is_illustrative": {
+          "type": "boolean"
+        },
+        "financial_facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "fact_id",
+              "cik",
+              "metric",
+              "value",
+              "unit",
+              "basis",
+              "start",
+              "end",
+              "scope",
+              "available_at",
+              "source_refs",
+              "validation_kind"
+            ],
+            "properties": {
+              "fact_id": {
+                "type": "string"
+              },
+              "cik": {
+                "type": "string"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string",
+                "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+              },
+              "unit": {
+                "enum": [
+                  "USD",
+                  "USD/shares",
+                  "percent"
+                ]
+              },
+              "basis": {
+                "type": "string"
+              },
+              "start": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "end": {
+                "type": "string",
+                "format": "date"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "available_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "source_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "source_id",
+                    "url",
+                    "raw_sha256",
+                    "locator"
+                  ],
+                  "properties": {
+                    "source_id": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "raw_sha256": {
+                      "type": "string"
+                    },
+                    "locator": {
+                      "type": "object",
+                      "required": [
+                        "fact_id",
+                        "dom_id",
+                        "tag",
+                        "context_ref",
+                        "row_number",
+                        "source_sha256"
+                      ],
+                      "properties": {
+                        "fact_id": {
+                          "type": "string"
+                        },
+                        "tag": {
+                          "type": "string"
+                        },
+                        "context_ref": {
+                          "type": "string"
+                        },
+                        "source_sha256": {
+                          "type": "string"
+                        },
+                        "dom_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "row_number": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "validation_kind": {
+                "enum": [
+                  "recorded_source_review",
+                  "deterministic_source_match"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "official_documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/official_document"
+          }
+        },
+        "coverage": {
+          "type": "object"
+        },
+        "instructions": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "model_output": {
+      "type": "object",
+      "required": [
+        "contract",
+        "packet_id",
+        "input_sha256",
+        "as_of",
+        "status",
+        "model",
+        "findings",
+        "limitations",
+        "human_reviewed"
+      ],
+      "properties": {
+        "contract": {
+          "const": "ai-analysis-output-v1"
+        },
+        "packet_id": {
+          "type": "string"
+        },
+        "input_sha256": {
+          "type": "string"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "enum": [
+            "not_run",
+            "partial",
+            "complete"
+          ]
+        },
+        "model": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "provider",
+            "model_id",
+            "prompt_version",
+            "run_id"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "minLength": 1
+            },
+            "model_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "prompt_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "run_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "statement",
+              "direction",
+              "horizon",
+              "evidence_quality",
+              "evidence",
+              "numeric_support"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "fact",
+                  "interpretation",
+                  "risk",
+                  "counterargument"
+                ]
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "direction": {
+                "enum": [
+                  "positive",
+                  "negative",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              "horizon": {
+                "enum": [
+                  "within_five_sessions",
+                  "longer_term",
+                  "unknown"
+                ]
+              },
+              "evidence_quality": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "evidence": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "source_id",
+                    "paragraph_id",
+                    "quote"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "financial_fact",
+                        "official_paragraph"
+                      ]
+                    },
+                    "source_id": {
+                      "type": "string"
+                    },
+                    "paragraph_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "quote": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "maxLength": 1000
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "numeric_support": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "fact_id",
+                    "value",
+                    "unit"
+                  ],
+                  "properties": {
+                    "fact_id": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "human_reviewed": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "official_document": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "source",
+        "url",
+        "title",
+        "published_date",
+        "time_precision",
+        "available_at",
+        "record_sha256",
+        "text_sha256",
+        "attribution",
+        "published_at",
+        "age_days",
+        "within_seven_calendar_days",
+        "untrusted_source_text",
+        "impact_reviewed",
+        "paragraphs"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "federal_reserve_board",
+            "us_eia"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        },
+        "published_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "time_precision": {
+          "type": "string"
+        },
+        "available_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "record_sha256": {
+          "type": "string"
+        },
+        "text_sha256": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "age_days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "within_seven_calendar_days": {
+          "type": "boolean"
+        },
+        "untrusted_source_text": {
+          "const": true
+        },
+        "impact_reviewed": {
+          "const": false
+        },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "start",
+              "end",
+              "sha256",
+              "selector",
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "sha256": {
+                "type": "string"
+              },
+              "selector": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

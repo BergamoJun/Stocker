@@ -1,0 +1,8 @@
+# Hash-pinned extension methods must retain their exact bytes across checkouts.
+Stocker/extensions/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+Stocker/context_adapters/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+
+# Explicitly reviewed synthetic fixtures; operational private data stays ignored.
+Stocker/reports/private/reliability_case/20261110/priority1/inputs.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+Stocker/reports/private/reliability_case/20261110/priority1/answers.private.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+Stocker/reports/private/reliability_case/20261110/priority1/PREREGISTRATION.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
