@@ -1,0 +1,129 @@
+{
+  "version": "research-engine-v3-candidate-2",
+  "registered_at": "2026-11-10T08:59:15.662149Z",
+  "monthly_cost_usd": 0,
+  "external_inference": false,
+  "training": false,
+  "score_release": false,
+  "price_input": false,
+  "maximum_paragraphs": 8,
+  "maximum_sentences_per_paragraph": 8,
+  "maximum_cards": 8,
+  "quality": {
+    "maximum_raw_false_approvals": 0,
+    "minimum_raw_critic_accuracy": "0.85",
+    "minimum_contract_acceptance": "0.90",
+    "minimum_semantic_accuracy": "0.85",
+    "maximum_unnecessary_abstention": "0.25"
+  },
+  "experiments": {
+    "A": {
+      "temperature": 0.7,
+      "task": "separated_roles"
+    },
+    "B": {
+      "temperature": 0.1,
+      "task": "low_temperature"
+    },
+    "C": {
+      "temperature": 0.7,
+      "task": "semantic_only_no_numeric_audit"
+    },
+    "D": {
+      "temperature": 0.1,
+      "task": "bounded_semantic_steps"
+    },
+    "E": {
+      "temperature": 0.1,
+      "task": "explicit_abstention"
+    }
+  },
+  "routes": {
+    "financing_cost": {
+      "event_type": "financing_policy",
+      "requirements": [
+        "interest_bearing_debt",
+        "floating_rate_exposure",
+        "refinancing_schedule"
+      ],
+      "increase_favourable": false
+    },
+    "cash_yield": {
+      "event_type": "financing_policy",
+      "requirements": [
+        "interest_earning_cash",
+        "repricing_terms"
+      ],
+      "increase_favourable": true
+    },
+    "energy_input_cost": {
+      "event_type": "commodity_price",
+      "requirements": [
+        "energy_procurement_exposure",
+        "purchase_price_sensitivity",
+        "relevant_purchase_contract_terms"
+      ],
+      "increase_favourable": false
+    },
+    "energy_sales_price": {
+      "event_type": "commodity_price",
+      "requirements": [
+        "energy_sales_exposure",
+        "sale_price_sensitivity",
+        "relevant_sale_contract_terms"
+      ],
+      "increase_favourable": true
+    },
+    "energy_sales_demand": {
+      "event_type": "energy_demand",
+      "requirements": [
+        "actual_energy_sales_activity",
+        "demand_linkage"
+      ],
+      "increase_favourable": true
+    },
+    "supply_availability": {
+      "event_type": "energy_supply",
+      "requirements": [
+        "energy_procurement_exposure",
+        "supply_linkage"
+      ],
+      "increase_favourable": true
+    }
+  },
+  "legacy_property_links": {
+    "interest_bearing_debt": [
+      "total_borrowings"
+    ],
+    "floating_rate_exposure": [
+      "floating_rate_borrowings"
+    ],
+    "refinancing_schedule": [
+      "debt_due_within_one_year"
+    ],
+    "interest_earning_cash": [
+      "interest_income"
+    ],
+    "energy_procurement_exposure": [
+      "energy_buyer_role",
+      "energy_consumer_role"
+    ],
+    "energy_sales_exposure": [
+      "energy_seller_role"
+    ],
+    "actual_energy_sales_activity": [
+      "energy_seller_role"
+    ]
+  },
+  "unresolved_predicates": [
+    "repricing_terms",
+    "purchase_price_sensitivity",
+    "relevant_purchase_contract_terms",
+    "sale_price_sensitivity",
+    "relevant_sale_contract_terms",
+    "demand_linkage",
+    "supply_linkage"
+  ],
+  "qualification": "Exact positive floating debt and debt due within one year support a conditional financing channel, not net unhedged sensitivity or stock timing. Energy role inference cannot verify contractual price linkage.",
+  "supersedes": "research-engine-v3-candidate-1; first registration/trials/reports and safety audit preserved"
+}

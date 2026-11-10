@@ -1,0 +1,11 @@
+# Separate local CUDA experiment
+
+The CPU runtime and its 4,000,000,000-byte host-RAM gate remain unchanged. This version moves the same pinned Qwen3-4B GGUF layers and default inference cache to CUDA, using official llama.cpp b12110 CUDA 12.4 libraries under local_data/local_inference_gpu. No driver/system installation, paid service, external inference, new data rights, fitting, price input, schedule or released score is enabled.
+
+GPU preflight checks host RAM >=2,000,000,000 bytes and dedicated free VRAM >=5,000,000,000 bytes separately. It never adds the two memory pools. These are new engineering admission limits for an explicit GPU path, not a relaxed CPU gate or quality threshold. Host RAM remains necessary. Resource receipts record host working set, free host memory, device usage and actual runtime offload logs. Device memory samples include other processes; they are not claimed as exclusive per-model VRAM.
+
+The GPU launcher uses trace verbosity 4 to retain layer/KV allocation proof, offline mode and `--cache-ram 0`. The latter disables the default host-side prompt cache (up to 8192 MiB in this runtime), while CUDA retains the active KV cache. This bounds host pressure across repeated requests. Startup requires both all reported layers and a positive CUDA KV buffer in the log. CPU-mapped embeddings, runtime buffers and loading pages still use host memory; VRAM does not replace arbitrary RAM work.
+
+Startup requires a matching GPU UUID, verified runtime/model bytes, authenticated loopback, the existing shared inference lock and a log proving that every reported model layer was offloaded. No silent CPU fallback is accepted. Only this process is terminated at exit; its temporary authentication file is removed even after failure. The environment excludes provider/API secrets. Existing request/schema/call limits and cleanup code are reused.
+
+GPU results are a distinct hardware/backend experiment with their own registration and receipts. Original v3 and critic inputs, gold, prompts, thresholds, models and CPU failures/NOT_RUN records are preserved. GPU arithmetic can differ from CPU even at the same seed. Actual execution does not establish semantic accuracy or market performance. The same model in researcher and critic roles remains non-independent, and all scores/targets/plans remain withheld.

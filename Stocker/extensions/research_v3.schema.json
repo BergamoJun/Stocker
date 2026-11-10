@@ -1,0 +1,1268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "semantic_raw": {
+      "type": "object",
+      "properties": {
+        "propositions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "economic_subject": {
+                "enum": [
+                  "interest_rates",
+                  "energy_prices",
+                  "energy_supply",
+                  "energy_demand",
+                  "economic_growth",
+                  "company_revenue",
+                  "equity_prices",
+                  "unknown",
+                  "prices"
+                ]
+              },
+              "economic_variable": {
+                "enum": [
+                  "interest_rate",
+                  "energy_price",
+                  "production_volume",
+                  "consumption_volume",
+                  "economic_growth",
+                  "revenue",
+                  "stock_price",
+                  "unknown",
+                  "price"
+                ]
+              },
+              "event_type": {
+                "enum": [
+                  "financing_policy",
+                  "commodity_price",
+                  "energy_supply",
+                  "energy_demand",
+                  "economic_growth",
+                  "company_financial",
+                  "equity_price",
+                  "unknown",
+                  "price_change"
+                ]
+              },
+              "variable_direction": {
+                "enum": [
+                  "increase",
+                  "decrease",
+                  "unchanged",
+                  "non_increase",
+                  "non_decrease",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              "statement_type": {
+                "enum": [
+                  "current_action",
+                  "historical_observation",
+                  "forward_outlook",
+                  "unknown"
+                ]
+              },
+              "negation": {
+                "enum": [
+                  "none",
+                  "negated",
+                  "double_negation",
+                  "ambiguous"
+                ]
+              },
+              "modality": {
+                "enum": [
+                  "actual",
+                  "expected",
+                  "possible",
+                  "unknown"
+                ]
+              },
+              "conditionality": {
+                "enum": [
+                  "unconditional",
+                  "conditional",
+                  "unknown"
+                ]
+              },
+              "condition_quote": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 600
+              },
+              "temporal_reference": {
+                "enum": [
+                  "present",
+                  "past",
+                  "future",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              "horizon": {
+                "enum": [
+                  "within_five_sessions",
+                  "longer_term",
+                  "unknown"
+                ]
+              },
+              "temporal_expression": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "exact_quote",
+              "economic_subject",
+              "economic_variable",
+              "event_type",
+              "variable_direction",
+              "statement_type",
+              "negation",
+              "modality",
+              "conditionality",
+              "condition_quote",
+              "temporal_reference",
+              "horizon",
+              "temporal_expression"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 8,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "propositions"
+      ],
+      "additionalProperties": false
+    },
+    "proposition": {
+      "type": "object",
+      "properties": {
+        "exact_quote": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "economic_subject": {
+          "enum": [
+            "interest_rates",
+            "energy_prices",
+            "energy_supply",
+            "energy_demand",
+            "economic_growth",
+            "company_revenue",
+            "equity_prices",
+            "unknown",
+            "prices"
+          ]
+        },
+        "economic_variable": {
+          "enum": [
+            "interest_rate",
+            "energy_price",
+            "production_volume",
+            "consumption_volume",
+            "economic_growth",
+            "revenue",
+            "stock_price",
+            "unknown",
+            "price"
+          ]
+        },
+        "event_type": {
+          "enum": [
+            "financing_policy",
+            "commodity_price",
+            "energy_supply",
+            "energy_demand",
+            "economic_growth",
+            "company_financial",
+            "equity_price",
+            "unknown",
+            "price_change"
+          ]
+        },
+        "variable_direction": {
+          "enum": [
+            "increase",
+            "decrease",
+            "unchanged",
+            "non_increase",
+            "non_decrease",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "statement_type": {
+          "enum": [
+            "current_action",
+            "historical_observation",
+            "forward_outlook",
+            "unknown"
+          ]
+        },
+        "negation": {
+          "enum": [
+            "none",
+            "negated",
+            "double_negation",
+            "ambiguous"
+          ]
+        },
+        "modality": {
+          "enum": [
+            "actual",
+            "expected",
+            "possible",
+            "unknown"
+          ]
+        },
+        "conditionality": {
+          "enum": [
+            "unconditional",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "condition_quote": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 600
+        },
+        "temporal_reference": {
+          "enum": [
+            "present",
+            "past",
+            "future",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "horizon": {
+          "enum": [
+            "within_five_sessions",
+            "longer_term",
+            "unknown"
+          ]
+        },
+        "proposition_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "paragraph_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "span_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "span_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sentence_quote": {
+          "type": "string",
+          "maxLength": 5000
+        },
+        "context_subject": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 600
+        },
+        "condition_verification": {
+          "enum": [
+            "NOT_ESTABLISHED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_status": {
+          "enum": [
+            "SEMANTICALLY_SUPPORTED",
+            "AMBIGUOUS",
+            "CONTRADICTED",
+            "UNSUPPORTED"
+          ]
+        },
+        "ambiguity_reason": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "temporal_expression": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 100
+        },
+        "source_published_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      },
+      "required": [
+        "exact_quote",
+        "economic_subject",
+        "economic_variable",
+        "event_type",
+        "variable_direction",
+        "statement_type",
+        "negation",
+        "modality",
+        "conditionality",
+        "condition_quote",
+        "temporal_reference",
+        "horizon",
+        "proposition_id",
+        "source_id",
+        "paragraph_id",
+        "span_start",
+        "span_end",
+        "sentence_quote",
+        "context_subject",
+        "condition_verification",
+        "evidence_status",
+        "ambiguity_reason",
+        "temporal_expression",
+        "source_published_date"
+      ],
+      "additionalProperties": false
+    },
+    "researcher_raw": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "enum": [
+            "PROPOSE",
+            "ABSTAIN",
+            "UNKNOWN"
+          ]
+        },
+        "selected_route_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "maxItems": 7,
+          "uniqueItems": true
+        },
+        "unresolved_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "decision",
+        "selected_route_ids",
+        "unresolved_conditions"
+      ],
+      "additionalProperties": false
+    },
+    "critic_raw": {
+      "type": "object",
+      "properties": {
+        "verdict": {
+          "enum": [
+            "SUPPORTED_CONDITIONAL",
+            "UNSUPPORTED",
+            "CONTRADICTED",
+            "AMBIGUOUS",
+            "INSUFFICIENT_EVIDENCE"
+          ]
+        },
+        "counter_evidence_status": {
+          "enum": [
+            "FOUND",
+            "NOT_FOUND_OR_UNAVAILABLE"
+          ]
+        },
+        "counter_evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "proposition_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "source_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "paragraph_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              }
+            },
+            "required": [
+              "proposition_id",
+              "source_id",
+              "paragraph_id",
+              "exact_quote"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 8,
+          "uniqueItems": true
+        },
+        "cautions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "exposure_missing",
+              "contract_or_hedge_unknown",
+              "competing_mechanisms",
+              "expectations_unmeasured",
+              "stock_horizon_unverified",
+              "semantic_ambiguity"
+            ]
+          },
+          "maxItems": 6,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "verdict",
+        "counter_evidence_status",
+        "counter_evidence",
+        "cautions"
+      ],
+      "additionalProperties": false
+    },
+    "report": {
+      "type": "object",
+      "properties": {
+        "contract": {
+          "const": "issuer-research-report-v3"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{32}$"
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string",
+              "pattern": "^[0-9]{10}$"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cik",
+            "symbol",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "is_illustrative": {
+          "type": "boolean"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidence_as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mode": {
+          "enum": [
+            "v3_shadow",
+            "v3_candidate"
+          ]
+        },
+        "configuration": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        },
+        "method_hashes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "origin": {
+          "type": "object",
+          "properties": {
+            "input_folder": {
+              "type": "string"
+            },
+            "input_sha256": {
+              "type": "string"
+            },
+            "baseline_path": {
+              "type": "string"
+            },
+            "baseline_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "input_folder",
+            "input_sha256",
+            "baseline_path",
+            "baseline_sha256"
+          ],
+          "additionalProperties": false
+        },
+        "legacy_component": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "analysis": {
+          "type": "object",
+          "properties": {
+            "contract": {
+              "const": "research-engine-v3"
+            },
+            "configuration": {
+              "enum": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E"
+              ]
+            },
+            "exposure": {
+              "type": "object"
+            },
+            "semantic_rows": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "propositions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/proposition"
+              }
+            },
+            "duplicate_events": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "cards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "proposition_id": {
+                    "type": "string"
+                  },
+                  "routes": {
+                    "type": "object",
+                    "properties": {
+                      "applicable_routes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "issuer_id": {
+                              "type": "string"
+                            },
+                            "event_id": {
+                              "type": "string"
+                            },
+                            "route_id": {
+                              "enum": [
+                                "financing_cost",
+                                "cash_yield",
+                                "energy_input_cost",
+                                "energy_sales_price",
+                                "energy_sales_demand",
+                                "supply_availability"
+                              ]
+                            },
+                            "mechanism": {
+                              "type": "string"
+                            },
+                            "economic_variable": {
+                              "type": "string"
+                            },
+                            "exposure_status": {
+                              "enum": [
+                                "VERIFIED",
+                                "INFERRED",
+                                "HYPOTHETICAL",
+                                "UNKNOWN",
+                                "CONFLICTED"
+                              ]
+                            },
+                            "supporting_fact_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "supporting_source_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "requirements": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            },
+                            "assumptions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "competing_mechanisms": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "economic_effect_direction": {
+                              "enum": [
+                                "favourable",
+                                "adverse",
+                                "unknown"
+                              ]
+                            },
+                            "net_effect_status": {
+                              "const": "UNKNOWN"
+                            },
+                            "horizon": {
+                              "const": "unknown"
+                            },
+                            "stock_effect": {
+                              "type": "null"
+                            },
+                            "effect_magnitude": {
+                              "type": "null"
+                            },
+                            "probability": {
+                              "type": "null"
+                            },
+                            "limitations": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "invalidation_conditions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "applicable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "issuer_id",
+                            "event_id",
+                            "route_id",
+                            "mechanism",
+                            "economic_variable",
+                            "exposure_status",
+                            "supporting_fact_ids",
+                            "supporting_source_ids",
+                            "requirements",
+                            "assumptions",
+                            "competing_mechanisms",
+                            "economic_effect_direction",
+                            "net_effect_status",
+                            "horizon",
+                            "stock_effect",
+                            "effect_magnitude",
+                            "probability",
+                            "limitations",
+                            "invalidation_conditions",
+                            "applicable"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "hypothetical_routes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "issuer_id": {
+                              "type": "string"
+                            },
+                            "event_id": {
+                              "type": "string"
+                            },
+                            "route_id": {
+                              "enum": [
+                                "financing_cost",
+                                "cash_yield",
+                                "energy_input_cost",
+                                "energy_sales_price",
+                                "energy_sales_demand",
+                                "supply_availability"
+                              ]
+                            },
+                            "mechanism": {
+                              "type": "string"
+                            },
+                            "economic_variable": {
+                              "type": "string"
+                            },
+                            "exposure_status": {
+                              "enum": [
+                                "VERIFIED",
+                                "INFERRED",
+                                "HYPOTHETICAL",
+                                "UNKNOWN",
+                                "CONFLICTED"
+                              ]
+                            },
+                            "supporting_fact_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "supporting_source_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "requirements": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            },
+                            "assumptions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "competing_mechanisms": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "economic_effect_direction": {
+                              "enum": [
+                                "favourable",
+                                "adverse",
+                                "unknown"
+                              ]
+                            },
+                            "net_effect_status": {
+                              "const": "UNKNOWN"
+                            },
+                            "horizon": {
+                              "const": "unknown"
+                            },
+                            "stock_effect": {
+                              "type": "null"
+                            },
+                            "effect_magnitude": {
+                              "type": "null"
+                            },
+                            "probability": {
+                              "type": "null"
+                            },
+                            "limitations": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "invalidation_conditions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "applicable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "issuer_id",
+                            "event_id",
+                            "route_id",
+                            "mechanism",
+                            "economic_variable",
+                            "exposure_status",
+                            "supporting_fact_ids",
+                            "supporting_source_ids",
+                            "requirements",
+                            "assumptions",
+                            "competing_mechanisms",
+                            "economic_effect_direction",
+                            "net_effect_status",
+                            "horizon",
+                            "stock_effect",
+                            "effect_magnitude",
+                            "probability",
+                            "limitations",
+                            "invalidation_conditions",
+                            "applicable"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "net_effect": {
+                        "const": "UNKNOWN"
+                      }
+                    },
+                    "required": [
+                      "applicable_routes",
+                      "hypothetical_routes",
+                      "net_effect"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "researcher_raw_output": {
+                    "type": "object",
+                    "properties": {
+                      "raw_output": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "usage": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "status": {
+                        "enum": [
+                          "COMPLETED",
+                          "NOT_RUN",
+                          "INFERENCE_FAILED"
+                        ]
+                      },
+                      "reason": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "elapsed_seconds": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "raw_output",
+                      "usage",
+                      "status",
+                      "reason",
+                      "elapsed_seconds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "critic_raw_output": {
+                    "type": "object",
+                    "properties": {
+                      "raw_output": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "usage": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "status": {
+                        "enum": [
+                          "COMPLETED",
+                          "NOT_RUN",
+                          "INFERENCE_FAILED"
+                        ]
+                      },
+                      "reason": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "elapsed_seconds": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "raw_output",
+                      "usage",
+                      "status",
+                      "reason",
+                      "elapsed_seconds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "deterministic_validation": {
+                    "type": "object"
+                  },
+                  "actual_counter_evidence": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/critic_raw/properties/counter_evidence/items"
+                    }
+                  },
+                  "counter_evidence_status": {
+                    "enum": [
+                      "FOUND",
+                      "NOT_FOUND_OR_UNAVAILABLE"
+                    ]
+                  },
+                  "general_cautions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "final_status": {
+                    "enum": [
+                      "SUPPORTED_CONDITIONAL",
+                      "UNSUPPORTED",
+                      "CONTRADICTED",
+                      "AMBIGUOUS",
+                      "INSUFFICIENT_EVIDENCE",
+                      "INFERENCE_FAILED"
+                    ]
+                  },
+                  "withholding_reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "net_effect": {
+                    "const": "UNKNOWN"
+                  },
+                  "stock_effect": {
+                    "type": "null"
+                  },
+                  "same_model_weights": {
+                    "const": true
+                  },
+                  "critic_statistically_independent": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "proposition_id",
+                  "routes",
+                  "researcher_raw_output",
+                  "critic_raw_output",
+                  "deterministic_validation",
+                  "actual_counter_evidence",
+                  "counter_evidence_status",
+                  "general_cautions",
+                  "final_status",
+                  "withholding_reasons",
+                  "net_effect",
+                  "stock_effect",
+                  "same_model_weights",
+                  "critic_statistically_independent"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "coverage": {
+              "type": "object",
+              "properties": {
+                "expected_paragraphs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "attempted_paragraphs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "unprocessed_paragraphs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "completed_paragraphs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "atomic_propositions": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "event_groups": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "omitted_cards": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "expected_paragraphs",
+                "attempted_paragraphs",
+                "unprocessed_paragraphs",
+                "completed_paragraphs",
+                "atomic_propositions",
+                "event_groups",
+                "omitted_cards"
+              ],
+              "additionalProperties": false
+            },
+            "released_score": {
+              "type": "null"
+            },
+            "released_target": {
+              "type": "null"
+            },
+            "released_price_plan": {
+              "type": "null"
+            },
+            "external_inference_calls": {
+              "const": 0
+            },
+            "training": {
+              "const": false
+            },
+            "price_effect_validated": {
+              "const": false
+            }
+          },
+          "required": [
+            "contract",
+            "configuration",
+            "exposure",
+            "semantic_rows",
+            "propositions",
+            "duplicate_events",
+            "cards",
+            "coverage",
+            "released_score",
+            "released_target",
+            "released_price_plan",
+            "external_inference_calls",
+            "training",
+            "price_effect_validated"
+          ],
+          "additionalProperties": false
+        },
+        "model_execution": {
+          "enum": [
+            "NOT_RUN",
+            "ATTEMPTED"
+          ]
+        },
+        "inference_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model_calls": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "inference_kind": {
+          "enum": [
+            "NOT_RUN",
+            "local_qwen_cpu",
+            "MOCK_NOT_ACTUAL_MODEL"
+          ]
+        },
+        "model": {
+          "type": "object",
+          "properties": {
+            "model_id": {
+              "type": "string"
+            },
+            "model_revision": {
+              "type": "string"
+            },
+            "model_sha256": {
+              "type": "string"
+            },
+            "seed": {
+              "type": "integer"
+            },
+            "temperature": {
+              "type": "number"
+            },
+            "thinking_enabled": {
+              "const": false
+            }
+          },
+          "required": [
+            "model_id",
+            "model_revision",
+            "model_sha256",
+            "seed",
+            "temperature",
+            "thinking_enabled"
+          ],
+          "additionalProperties": false
+        },
+        "quality_status": {
+          "const": "NOT_EVALUATED_FOR_ADOPTION"
+        },
+        "candidate_registration": {
+          "type": "object",
+          "properties": {
+            "requested": {
+              "type": "boolean"
+            },
+            "eligible": {
+              "const": false
+            },
+            "reason": {
+              "const": "separate_actual_quality_receipt_and_approval_required"
+            }
+          },
+          "required": [
+            "requested",
+            "eligible",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "official_ai_adopted": {
+          "const": false
+        },
+        "critic_statistically_independent": {
+          "const": false
+        },
+        "released_score": {
+          "type": "null"
+        },
+        "released_target": {
+          "type": "null"
+        },
+        "released_price_plan": {
+          "type": "null"
+        },
+        "external_inference_calls": {
+          "const": 0
+        },
+        "training": {
+          "const": false
+        },
+        "record_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract",
+        "run_id",
+        "identity",
+        "is_illustrative",
+        "generated_at",
+        "started_at",
+        "evidence_as_of",
+        "mode",
+        "configuration",
+        "method_hashes",
+        "origin",
+        "legacy_component",
+        "analysis",
+        "model_execution",
+        "inference_reason",
+        "model_calls",
+        "inference_kind",
+        "model",
+        "quality_status",
+        "candidate_registration",
+        "official_ai_adopted",
+        "critic_statistically_independent",
+        "released_score",
+        "released_target",
+        "released_price_plan",
+        "external_inference_calls",
+        "training",
+        "record_sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

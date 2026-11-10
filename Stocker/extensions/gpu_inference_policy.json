@@ -1,0 +1,18 @@
+{
+  "id": "local-cuda-offload-v1",
+  "registered_at": "2026-11-10T15:07:01.101722Z",
+  "monthly_cost_usd": 0,
+  "external_inference": false,
+  "training": false,
+  "score_release": false,
+  "cpu_fallback": false,
+  "gpu_index": 0,
+  "gpu_uuid": "GPU-9a774281-3805-b7f8-9eb9-043e347e0e1d",
+  "gpu_layers": 99,
+  "minimum_system_ram_bytes": 2000000000,
+  "minimum_free_vram_bytes": 5000000000,
+  "provision_manifest": "reports/private/gpu_case/20261111/PROVISIONED.json",
+  "provision_sha256": "97e70fa30c610f21c769adfe2b3b7a974960d6d87b1541d3bc904503c03ad9c9",
+  "model_identity": "unchanged pinned Qwen3-4B; GPU is a separately registered backend, no automatic adoption",
+  "host_prompt_cache_mib": 0
+}
