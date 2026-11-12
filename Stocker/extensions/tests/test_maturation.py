@@ -190,4 +190,4 @@ def test_upstream_inventory_preserves_unknown_and_exact_scope():
     inv = v.pipeline_inventory(ai)
     assert not any(r['currently_populated'] for r in inv['requirements'])
     assert not inv['adapter_feeds_frozen_ledger']
-
+    
