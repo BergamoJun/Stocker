@@ -1,0 +1,2 @@
+# Optional P6 integration, never imported by the legacy CUDA provider.
+openai==3.52.0

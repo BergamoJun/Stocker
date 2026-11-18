@@ -1,0 +1,222 @@
+{
+  "contract": "sec-current-legacy-boundary-policy-v1",
+  "frozen_files": {
+    "extensions/sec_evidence_v1/acquisition.py": "9c2dbbb569234238abc1e2485cb91c371bfa2d84debba3e686cf375a3c585943",
+    "extensions/sec_evidence_v1/bridge.py": "e5f243a13f883590b244ecf9be76ce1806749b93881eeb2c52296029ea7fbab6",
+    "extensions/sec_evidence_v1/catalog.py": "4107ba11014bddc6fdacfba1bb600a0be4f6d98ed6442afb2d8a47e25eb20ea7",
+    "extensions/sec_evidence_v1/contract.py": "7574cd4786d2c6937ac5ed502c2d7a5295e47d1aad2db2b5d6d55c4a129d4a67",
+    "extensions/sec_evidence_v1/discovery.py": "05934e5566148a5e3fffc85bafafe48696feceadcc9cbf47621ea66f2a70dd2e",
+    "extensions/sec_evidence_v1/models.py": "25c062e3f79638da0b552e18e4cbd07ffe58a4c69adea3e5bb7d8986ce96049d",
+    "extensions/sec_evidence_v1/parsing.py": "9a3e618c3e6f545a64fb4fdc32d801b696756fe31c5a799c7ec09b4d38f21d9f",
+    "extensions/sec_evidence_v1/README.md": "4c3db13cd3a07a36f8a2e1236861ffb11ceb5e08adbab1123b613f2a8f77269a",
+    "extensions/sec_evidence_v1/report.py": "b953e603335af1280de72a9d24d61a365e9b25eb8e42f19d3e7a695d79f756e6",
+    "extensions/sec_evidence_v1/reviews.py": "591d0395cbf23f4c7045f57b2ecdd2b2214009de4ddbc8c65f816f93edbe8fd4",
+    "extensions/sec_evidence_v1/__init__.py": "728c4e8a0b1be85a2126811390bbc15fbc87b08f003396e5ca6bfa2916f2201a",
+    "extensions/sec_evidence_v1/__main__.py": "97d988721589add973da1813bcd9199105366c9758955ef63153099bddf6b608",
+    "extensions/sec_evidence_v1/tests/test_adapter.py": "1115d4d5a4df7f82b5b71eb75b3b9d2b918c8a130951b9e0773e376d3eb12991",
+    "extensions/sec_evidence_v1_1/bridge.py": "e05e863964b93cde403add97b4a27d1b9436a894042be81731c16500beb5466b",
+    "extensions/sec_evidence_v1_1/contract.py": "a82d80a259dab1b0c4a1f41011bc8528d847cbc74dee743b7dba88d8b4828b04",
+    "extensions/sec_evidence_v1_1/discovery.py": "20348243bca86001c0a213d1fd579ef1fffcbd31e8c4df8b6edb939599c72311",
+    "extensions/sec_evidence_v1_1/eligibility.py": "5e302286ef6b553d6327a2e1a848795f1353ca82092310e31fa2a8346dad0df3",
+    "extensions/sec_evidence_v1_1/README.md": "a4fa013dde67780d1574da38664c8f763f28bdbb41be67b7916d8dc81163de57",
+    "extensions/sec_evidence_v1_1/report.py": "d9584746df4eceb2289c119fb07d9074e4f4c174e14e59db026a098527c77d96",
+    "extensions/sec_evidence_v1_1/reviews.py": "9c6fcf21b737f2aab1328b77989eaaa96802c193e5caf718c127b697bea7628b",
+    "extensions/sec_evidence_v1_1/semantic_validation.py": "1843c46fd50f0c1a383e4f674af2e4a3a46747f826300979cd489ade2b06ea7e",
+    "extensions/sec_evidence_v1_1/__init__.py": "a74d9131167b348859562bba51f41dc949e86abdf111cd77ce359fa048afcb76",
+    "extensions/sec_evidence_v1_1/__main__.py": "58239f8fdca3e8ab3f6890e375bb47bc28f99de4aae07f5a16ac3008a55a0d90",
+    "extensions/sec_evidence_v1_1/tests/test_semantics.py": "69d3dc72ec39ebed452b58aa24c923dc70ae2e71c5c451a89d562422a292204a",
+    "extensions/financial_impact_v1/adapters.py": "76d0dcb9cc500402034da6a5320cfeeee0766a76b067e9b6820a6543442529f6",
+    "extensions/financial_impact_v1/calculations.py": "e4ff8c775139ecd489aaf9cb700fa29a15e9d502b93be1517f4bcbbc742f7b0b",
+    "extensions/financial_impact_v1/contract.py": "2cfcf48458fa235d60bafe638004d8ba11e07bc855fb0b9f3c77938b933ab946",
+    "extensions/financial_impact_v1/energy.py": "62016dd2720e6991112aeb790cceda934ae50ffb5ec979b8f203405c4e546b9a",
+    "extensions/financial_impact_v1/evidence.py": "65560b327b6fcf2558943e04a00c0164d09aa7a14d3bbfa914597080e25a8b09",
+    "extensions/financial_impact_v1/examples.py": "eb9912026a22c65b15f56b2c1397bd6e6de9f373cd43709d066975d69c28016b",
+    "extensions/financial_impact_v1/models.py": "bf6a7c0b81239bcf20a7cd84b56a4c821f81211804ee6bae21d2613c70386e4c",
+    "extensions/financial_impact_v1/README.md": "31bad42087bd2a21428efedaeb74f5a83fb6dde4ca2467c2a5a82f8881d529b5",
+    "extensions/financial_impact_v1/report.py": "07c6852c1696ec60a7ea06c096b2c57f1dfe50890ca4fa1faec764ea04ebf68e",
+    "extensions/financial_impact_v1/scenarios.py": "6608f9536bbe50d4ec7041056493a97d5309e343e5d0e945579176ddb4346fb6",
+    "extensions/financial_impact_v1/validator.py": "d3fccd64a971bf2ca6ea5589dd073d88a7493fb175c50a487dc89ba0aeaeacee",
+    "extensions/financial_impact_v1/__init__.py": "547257951bacc2922acadbc489d004782a1d7d02ac2b2990cc6bb6e5623c4a24",
+    "extensions/financial_impact_v1/__main__.py": "17425f0410417d4f2c729bf783e6e843b7e05ab5d1d5908cf4e706589152e786",
+    "extensions/financial_impact_v1/tests/test_impact.py": "edd4b985bb3e7bb8b54d50347cf97f382555099260ae7218657a362bd9026d32"
+  },
+  "official_edges": {
+    "extensions/sec_evidence_current/__init__.py": {
+      "import": [
+        "extensions.sec_evidence_v1_1.methods"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1_1.methods"
+      ]
+    },
+    "extensions/sec_evidence_current/contract.py": {
+      "import": [
+        "extensions.financial_impact_v1.contract"
+      ],
+      "call": [
+        "extensions.financial_impact_v1.contract.obj",
+        "extensions.financial_impact_v1.contract.nullable",
+        "extensions.financial_impact_v1.contract.array"
+      ]
+    },
+    "extensions/sec_evidence_current/owner.py": {
+      "import": [
+        "extensions.sec_evidence_v1_1.reviews",
+        "extensions.sec_evidence_v1_1.contract.original"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1_1.reviews.load_trust",
+        "extensions.sec_evidence_v1_1.reviews.empty_trust",
+        "extensions.sec_evidence_v1_1.contract.original.validate"
+      ]
+    },
+    "extensions/sec_evidence_current/facade.py": {
+      "import": [
+        "extensions.sec_evidence_v1_1.discovery",
+        "extensions.sec_evidence_v1_1.reviews"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1_1.discovery.build",
+        "extensions.sec_evidence_v1_1.reviews.store"
+      ]
+    },
+    "extensions/sec_evidence_current/bridge.py": {
+      "import": [
+        "extensions.sec_evidence_v1_1.bridge"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1_1.bridge.calculate"
+      ]
+    },
+    "extensions/sec_evidence_current/report.py": {
+      "import": [
+        "extensions.sec_evidence_v1_1.report.queue"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1_1.report.queue"
+      ]
+    },
+    "extensions/sec_evidence_current/replay.py": {
+      "import": [
+        "extensions.sec_evidence_v1.report.validate",
+        "extensions.sec_evidence_v1_1.report.validate",
+        "extensions.financial_impact_v1.report.validate"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1.report.validate",
+        "extensions.sec_evidence_v1_1.report.validate",
+        "extensions.financial_impact_v1.report.validate"
+      ]
+    },
+    "extensions/sec_evidence_current/__main__.py": {
+      "import": [
+        "extensions.sec_evidence_v1.catalog.resolve"
+      ],
+      "call": [
+        "extensions.sec_evidence_v1.catalog.resolve"
+      ]
+    }
+  },
+  "entrypoints": {
+    "extensions.sec_evidence_v1.reviews.check_terms": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.sec_evidence_v1.reviews.promote": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.sec_evidence_v1.reviews.store": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.sec_evidence_v1.bridge.calculate": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.sec_evidence_v1.report.run": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.sec_evidence_v1.__main__.main": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.financial_impact_v1.report.analyze": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.financial_impact_v1.__main__.main": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Frozen direct entrypoint remains accessible; not an official new approval"
+    },
+    "extensions.sec_evidence_v1.report.validate": {
+      "classification": "LEGACY_REPLAY_ONLY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1_1.report.validate": {
+      "classification": "LEGACY_REPLAY_ONLY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1.catalog.resolve": {
+      "classification": "READ_ONLY_DISCOVERY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1.catalog.load": {
+      "classification": "READ_ONLY_DISCOVERY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1_1.discovery.build": {
+      "classification": "READ_ONLY_DISCOVERY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1_1.discovery.revalidate": {
+      "classification": "READ_ONLY_DISCOVERY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1_1.bridge.calculate": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Protected raw v1.1 Python call is semantic-hardened but can omit the official request/certificate/external-owner-context boundary."
+    },
+    "extensions.sec_evidence_v1_1.reviews.store": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.facade.authorize": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.facade.process": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.facade.accept_review": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.bridge.calculate": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.report.run": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.report.validate": {
+      "classification": "NEW_PRODUCTION_INPUT",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_current.replay.validate_legacy": {
+      "classification": "LEGACY_REPLAY_ONLY",
+      "scope": "Official facade or explicitly audited internal/read-only path"
+    },
+    "extensions.sec_evidence_v1_1.report.run": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Protected raw v1.1 entrypoint bypasses the new official certificate boundary; semantic rules remain active. Retained, not globally disabled."
+    },
+    "extensions.sec_evidence_v1_1.__main__.main": {
+      "classification": "UNSAFE_BYPASS",
+      "scope": "Protected raw v1.1 entrypoint bypasses the new official certificate boundary; semantic rules remain active. Retained, not globally disabled."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+name: SEC official entrypoint boundary
+on:
+  push:
+    paths:
+      - 'Stocker/**/*.py'
+      - 'Stocker/extensions/sec_evidence_current/**'
+      - '.github/workflows/sec-evidence-current.yml'
+  pull_request:
+jobs:
+  prohibit-new-direct-engine-consumers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python Stocker/extensions/sec_evidence_current/boundary.py --root Stocker
